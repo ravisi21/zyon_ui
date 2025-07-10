@@ -11,7 +11,6 @@ import {
   Legend
 } from 'recharts';
 import { getIsMobile } from '../../store/uiStore';
-import "../../App.css";
 
 const CustomTooltip = ({ active, payload, label }) => {
   if (active && payload && payload.length) {

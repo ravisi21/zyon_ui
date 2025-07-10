@@ -6,7 +6,6 @@ import eventBus, { EVENT_TYPES } from '../../utils/eventBus';
 import { getScript } from '../../store/scriptsStore';
 import { getQuote } from '../../store/quotesStore';
 import { formatPrice } from '../../utils/formatter';
-import "../../App.css";
 
 const BasketOrderItemWidget = ({ order, isEditMode, onChange, onDelete }) => {
   const [script, setScript] = useState(getScript(order.scriptId));

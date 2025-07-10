@@ -1,7 +1,6 @@
 import React from 'react';
 import { Card } from 'antd';
 import { formatPrice } from '../../utils/formatter';
-import "../../App.css";
 
 const OptionsAnalyticsStatsWidget = ({ analyticsData, selectedPrice }) => {
   if (!analyticsData) {

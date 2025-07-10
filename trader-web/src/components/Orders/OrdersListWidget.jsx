@@ -2,7 +2,6 @@ import React from 'react';
 import OrderItemWidget from './OrderItemWidget';
 import * as ordersStore from '../../store/ordersStore';
 import eventBus, { EVENT_TYPES } from '../../utils/eventBus';
-import "../../App.css";
 
 const OrdersListWidget = ({ statuses }) => {
   const [orders, setOrders] = React.useState(() => ordersStore.getOrders());

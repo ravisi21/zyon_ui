@@ -6,7 +6,6 @@ import { getSelectedScriptId, getPosition, clear as clearMobileData } from '../.
 import { createEditOrder } from '../../utils/utils';
 import OrderFormWidget from '../Orders/OrderFormWidget';
 import QuoteSummaryWidget from '../Common/QuoteSummaryWidget';
-import "../../App.css";
 
 const MobileBottomDrawerWidget = () => {
   const [showDrawer, setShowDrawer] = useState(false);

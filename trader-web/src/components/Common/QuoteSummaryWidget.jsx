@@ -2,7 +2,6 @@ import React from 'react';
 import { formatPrice } from '../../utils/formatter';
 import * as quotesStore from '../../store/quotesStore';
 import eventBus, { EVENT_TYPES } from '../../utils/eventBus';
-import "../../App.css";
 
 const labelClass = "text-neutral-500 text-xs";
 const valueClass = "text-neutral-400 text-sm";

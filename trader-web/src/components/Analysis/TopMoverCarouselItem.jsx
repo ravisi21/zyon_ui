@@ -1,7 +1,6 @@
 import React from 'react';
 import { Card } from 'antd';
 import { formatPrice } from '../../utils/formatter';
-import "../../App.css";
 
 const TopMoverCarouselItem = ({ scriptId, price, change, changePct, volume }) => {
   const isPositive = change > 0;

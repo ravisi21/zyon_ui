@@ -3,7 +3,6 @@ import OptionChainAnalysisWidget from './OptionChainAnalysisWidget';
 import OptionChainDisplayWidget from './OptionChainDisplayWidget';
 import OptionStrategyBuilderWidget from '../StrategyBuilder/OptionStrategyBuilderWidget';
 import { setStrategyTabActive } from '../../store/uiStore';
-import "../../App.css";
 
 const tabDefs = [
   { key: 'chain', label: 'Option Chain' },
@@ -24,11 +23,11 @@ const OptionsWidget = () => {
   return (
     <div className="w-full font-family-roboto overflow-y-auto flex-1 flex flex-col">
       {/* Custom Tab Bar */}
-      <div className="flex border-b border-neutral-700 mb-2 flex">
+      <div className="flex border-b border-neutral-700 mb-2">
         {tabDefs.map(tab => (
           <button
             key={tab.key}
-            className={`flex-1 text-center py-2 text-base font-medium transition-colors duration-150 ${activeTab === tab.key ? 'text-blue-400 border-b-2 border-blue-400' : 'text-neutral-400'}`}
+            className={`flex-1 text-center py-2 text-base font-medium transition-colors duration-150 cursor-pointer ${activeTab === tab.key ? '!text-blue-400 border-b-2 !border-blue-400' : '!text-neutral-400'}`}
             onClick={() => handleTabChange(tab.key)}
           >
             {tab.label}
@@ -36,7 +35,7 @@ const OptionsWidget = () => {
         ))}
       </div>
       {/* Tab Content */}
-      <div className='overflow-y-auto flex-1 flex'>
+      <div className='flex !overflow-y-auto flex-1 '>
         {activeTab === 'chain' && (
           <OptionChainDisplayWidget />
         )}

@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
 import styles from './CustomStepper.module.css';
-import "../../App.css";
 
 const getNearestMultiple = (value, multiple, min) => {
   console.log('getNearestMultiple', value, multiple, min);

@@ -5,7 +5,6 @@ import { useState, useEffect, useRef } from 'react';
 import { Select } from 'antd';
 import { optionChainAnalysis } from '../../api/apis';
 import OptionsAnalyticsWidget from '../OptionsAnalytics/OptionsAnalyticsWidget';
-import "../../App.css";
 
 const { Option } = Select;
 

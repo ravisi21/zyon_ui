@@ -3,7 +3,6 @@ import { Spin } from 'antd';
 import * as ordersStore from '../../store/ordersStore';
 import eventBus, { EVENT_TYPES } from '../../utils/eventBus';
 import { isNil } from '../../utils/utils';
-import "../../App.css";
 
 /**
  * Displays the status of a list of orders being placed.

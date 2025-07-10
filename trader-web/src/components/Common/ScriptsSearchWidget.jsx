@@ -1,36 +1,46 @@
-import React, { useState, useRef, useEffect } from 'react';
-import { SearchOutlined } from '@ant-design/icons';
-import { createEditOrder } from '../../utils/utils';
-import { addToTempWatchlist, searchScripts } from '../../api/apis';
-import * as editOrderStore from '../../store/editOrderStore';
-
-
+import React, { useState, useRef, useEffect } from "react";
+import { SearchOutlined } from "@ant-design/icons";
+import { createEditOrder } from "../../utils/utils";
+import { addToTempWatchlist, searchScripts } from "../../api/apis";
+import * as editOrderStore from "../../store/editOrderStore";
 
 const Spinner = () => (
   <svg className="animate-spin h-5 w-5 text-blue-400" viewBox="0 0 24 24">
-    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
-    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z" />
+    <circle
+      className="opacity-25"
+      cx="12"
+      cy="12"
+      r="10"
+      stroke="currentColor"
+      strokeWidth="4"
+      fill="none"
+    />
+    <path
+      className="opacity-75"
+      fill="currentColor"
+      d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"
+    />
   </svg>
 );
 
 // Buy Icon
-const BuyIcon = () => (
-  <span className="font-bold text-base">B</span>
-);
+const BuyIcon = () => <span className="font-bold text-base">B</span>;
 // Sell Icon
-const SellIcon = () => (
-  <span className="font-bold text-base">S</span>
-);
+const SellIcon = () => <span className="font-bold text-base">S</span>;
 
-const ScriptsSearchWidget = ({ onScriptSelected, showBuySell = true, processingScriptIds }) => {
-  const [query, setQuery] = useState('');
+const ScriptsSearchWidget = ({
+  onScriptSelected,
+  showBuySell = true,
+  processingScriptIds,
+}) => {
+  const [query, setQuery] = useState("");
   const [open, setOpen] = useState(false);
   const [searchResults, setSearchResults] = useState([]);
   const [searchResultsLoading, setSearchResultsLoading] = useState(false);
   const containerRef = useRef(null);
 
   function reset() {
-    setQuery('');
+    setQuery("");
     setSearchResults([]);
     setSearchResultsLoading(false);
     setOpen(false);
@@ -51,8 +61,8 @@ const ScriptsSearchWidget = ({ onScriptSelected, showBuySell = true, processingS
         reset();
       }
     }
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
   const handleSelect = async (scriptId) => {
@@ -61,7 +71,7 @@ const ScriptsSearchWidget = ({ onScriptSelected, showBuySell = true, processingS
       const shouldClose = await onScriptSelected(scriptId);
       if (shouldClose) {
         setOpen(false);
-        setQuery('');
+        setQuery("");
         setSearchResults([]);
         setSearchResultsLoading(false);
       }
@@ -69,7 +79,7 @@ const ScriptsSearchWidget = ({ onScriptSelected, showBuySell = true, processingS
   };
 
   const handleInputChange = async (e) => {
-    const value = e.target.value || '';
+    const value = e.target.value || "";
     setQuery(value);
     // Clear results if query is too short
     if (value.length >= 3) {
@@ -86,7 +96,8 @@ const ScriptsSearchWidget = ({ onScriptSelected, showBuySell = true, processingS
   // Helper to check if a script is processing
   const isProcessing = (id) => {
     if (!processingScriptIds) return false;
-    if (Array.isArray(processingScriptIds)) return processingScriptIds.includes(id);
+    if (Array.isArray(processingScriptIds))
+      return processingScriptIds.includes(id);
     if (processingScriptIds instanceof Set) return processingScriptIds.has(id);
     return false;
   };
@@ -95,13 +106,13 @@ const ScriptsSearchWidget = ({ onScriptSelected, showBuySell = true, processingS
   const handleBuy = async (script, e) => {
     e.stopPropagation();
     addToTempWatchlist(script.id);
-    editOrderStore.setEditOrder(createEditOrder(script.id, 'BUY', 'OPEN', 0));
+    editOrderStore.setEditOrder(createEditOrder(script.id, "BUY", "OPEN", 0));
     reset();
   };
   const handleSell = async (script, e) => {
     e.stopPropagation();
     addToTempWatchlist(script.id);
-    editOrderStore.setEditOrder(createEditOrder(script.id, 'SELL', 'OPEN', 0));
+    editOrderStore.setEditOrder(createEditOrder(script.id, "SELL", "OPEN", 0));
     reset();
   };
 
@@ -151,14 +162,14 @@ const ScriptsSearchWidget = ({ onScriptSelected, showBuySell = true, processingS
                     )}
                     <div className="hidden md:flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
                       <button
-                        className="w-8 h-8 flex items-center justify-center rounded bg-button-blue active:bg-blue-300 text-white shadow"
+                        className="w-8 h-8 flex items-center justify-center rounded bg-blue-700 active:bg-blue-300 !text-white shadow cursor-pointer"
                         title="Buy"
                         onClick={(e) => handleBuy(script, e)}
                       >
                         <BuyIcon />
                       </button>
                       <button
-                        className="w-8 h-8 flex items-center justify-center rounded bg-red-600 text-white active:bg-red-500 shadow"
+                        className="w-8 h-8 flex items-center justify-center rounded bg-red-600 !text-white active:bg-red-500 shadow cursor-pointer"
                         title="Sell"
                         onClick={(e) => handleSell(script, e)}
                       >
@@ -176,4 +187,4 @@ const ScriptsSearchWidget = ({ onScriptSelected, showBuySell = true, processingS
   );
 };
 
-export default ScriptsSearchWidget; 
+export default ScriptsSearchWidget;

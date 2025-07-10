@@ -3,7 +3,6 @@ import { Modal, Spin } from 'antd';
 import { ExclamationCircleOutlined } from '@ant-design/icons';
 import { optionAnalysis } from '../../api/apis';
 import OptionsAnalyticsWidget from './OptionsAnalyticsWidget';
-import "../../App.css";
 
 const OptionsAnalyticsPopup = ({
   visible,

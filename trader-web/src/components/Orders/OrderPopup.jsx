@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import * as editOrderStore from '../../store/editOrderStore';
 import OrderFormWidget from './OrderFormWidget';
 import eventBus, { EVENT_TYPES } from '../../utils/eventBus';
-import "../../App.css";
 
 const OrderPopup = () => {
   const [editOrder, setEditOrder] = useState(() => editOrderStore.getEditOrder());

@@ -5,7 +5,6 @@ import { submitOrders } from '../../api/apis';
 import * as editOrderStore from '../../store/editOrderStore';
 import * as quotesStore from '../../store/quotesStore';
 import eventBus, { EVENT_TYPES } from '../../utils/eventBus';
-import "../../App.css";
 
 const OrderFormWidget = ({ onCancel, onSuccess }) => {
   const [submitting, setSubmitting] = useState(false);

@@ -8,7 +8,6 @@ import OrderPopup from '../Orders/OrderPopup';
 import eventBus, { EVENT_TYPES } from '../../utils/eventBus';
 import * as userStore from '../../store/userStore';
 import { getIsMobile } from '../../store/uiStore';
-import "../../App.css";
 
 const PopupComponent = ({ loading }) => {
     const [accountId, setAccountId] = useState(userStore.userStore.accountId);

@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import PositionsWidget from '../Positions/PositionsWidget';
 import OrdersTabsWidget from '../Orders/OrdersTabsWidget';
 import WatchlistsWidget from '../Watchlists/WatchlistsWidget';
-import "../../App.css";
 
 const MobileHomeWidget = () => {
   const [activeTab, setActiveTab] = useState('Positions');
@@ -28,7 +27,7 @@ const MobileHomeWidget = () => {
         {tabs.map(tab => (
           <button
             key={tab}
-            className={`pb-2 px-2 text-base font-medium ${activeTab === tab ? 'border-b-2 border-blue-500 text-blue-400' : 'text-gray-400'}`}
+            className={`pb-2 px-2 text-base font-medium cursor-pointer ${activeTab === tab ? 'border-b-2 border-blue-500 !text-blue-400' : '!text-gray-400'}`}
             onClick={() => setActiveTab(tab)}
           >
             {tab}
