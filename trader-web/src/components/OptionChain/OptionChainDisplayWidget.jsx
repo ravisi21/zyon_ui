@@ -134,7 +134,7 @@ const OptionChainDisplayWidget = () => {
         <button
           onClick={handleRefresh}
           type="primary"
-          className="w-7 h-7 flex rounded bg-blue-500 active:bg-blue-300 cursor-pointer !text-white shadow items-center justify-center"
+          className="w-7 h-7 flex rounded bg-button-blue active:bg-blue-300 cursor-pointer !text-white shadow items-center justify-center"
           disabled={loading}
         >
           <ReloadOutlined style={{ fontSize: 18, fontWeight: 700 }} />
@@ -155,33 +155,33 @@ const OptionChainDisplayWidget = () => {
         ) : (
           <table className="w-full text-xs font-family-roboto">
             <thead className="sticky top-0 z-30">
-              <tr className="bg-zinc-800 text-neutral-300 text-center">
+              <tr className="bg-dark-bg-2 text-neutral-300 text-center">
                 <th
                   colSpan={3}
-                  className="border-r border-neutral-700 text-red-500 font-semibold text-base py-2 bg-zinc-800"
+                  className="border-r border-neutral-700 text-red-300 font-semibold text-base py-2 bg-dark-bg-2"
                 >
                   CALLS
                 </th>
                 <th
                   colSpan={2}
-                  className="bg-zinc-800 text-neutral-400 font-semibold text-sm py-2"
+                  className="bg-dark-bg-2 text-neutral-400 font-semibold text-sm py-2"
                 ></th>
                 <th
                   colSpan={3}
-                  className="border-l border-neutral-700 text-green-500 font-semibold text-base py-2 bg-zinc-800"
+                  className="border-l border-neutral-700 text-green-300 font-semibold text-base py-2 bg-dark-bg-2"
                 >
                   PUTS
                 </th>
               </tr>
-              <tr className="bg-zinc-800 text-neutral-400 text-center text-sm">
-                {!isMobile && <th className=" bg-zinc-800">OI Chg%</th>}
-                <th className=" bg-zinc-800">OI</th>
-                <th className=" bg-zinc-800">LTP</th>
-                <th className=" bg-zinc-800">Strike</th>
-                <th className=" bg-zinc-800">IV</th>
-                <th className=" bg-zinc-800">LTP</th>
-                <th className=" bg-zinc-800">OI</th>
-                {!isMobile && <th className=" bg-zinc-800">OI Chg%</th>}
+              <tr className="bg-dark-bg-2 text-neutral-400 text-center text-sm">
+                {!isMobile && <th className=" bg-dark-bg-2">OI Chg%</th>}
+                <th className="bg-dark-bg-2">OI</th>
+                <th className="bg-dark-bg-2">LTP</th>
+                <th className="bg-dark-bg-2">Strike</th>
+                <th className="bg-dark-bg-2">IV</th>
+                <th className="bg-dark-bg-2">LTP</th>
+                <th className="bg-dark-bg-2">OI</th>
+                {!isMobile && <th className="bg-dark-bg-2">OI Chg%</th>}
               </tr>
             </thead>
             <tbody>
@@ -206,7 +206,7 @@ const OptionChainDisplayWidget = () => {
                     key={row.strike}
                     ref={isATM ? atmRowRef : null}
                     className={`text-center text-sm ${
-                      isATM ? "bg-blue-950/40" : idx % 2 ? "bg-zinc-800" : ""
+                      isATM ? "bg-blue-950/40" : idx % 2 ? "bg-dark-bg-2" : ""
                     }`}
                   >
                     {/* CALLS */}
@@ -236,7 +236,7 @@ const OptionChainDisplayWidget = () => {
                       {formatPrice(callLTP)}
                     </td>
                     {/* STRIKE */}
-                    <td className="p-1 bg-zinc-800 font-semibold text-blue-200 border-x border-neutral-700">
+                    <td className="p-1 bg-dark-bg-2 font-semibold text-blue-200 border-x border-neutral-700">
                       {row.strike}
                     </td>
                     {/* PUTS */}
@@ -282,4 +282,4 @@ const OptionChainDisplayWidget = () => {
   );
 };
 
-export default OptionChainDisplayWidget; 
+export default OptionChainDisplayWidget;

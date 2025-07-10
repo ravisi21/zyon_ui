@@ -108,7 +108,7 @@ const WatchlistItemWidget = ({ scriptId, onDelete }) => {
                 <div className="hidden md:block relative w-[2px] self-stretch">
                     <div className="right-0 top-0 bottom-0 absolute hover-actions watchlist-item-actions items-center gap-2 mx-4 hidden group-hover:flex">
                         <button
-                            className="w-6 h-6 flex items-center justify-center rounded bg-blue-600 active:bg-blue-300 cursor-pointer !text-white shadow"
+                            className="w-6 h-6 flex items-center justify-center rounded bg-button-blue active:bg-blue-300 cursor-pointer !text-white shadow"
                             onClick={handleBuy}
                             title="Buy">
                             <BuyIcon />
@@ -128,8 +128,8 @@ const WatchlistItemWidget = ({ scriptId, onDelete }) => {
                     </div>
                 </div>
                 <div className="watchlist-item-price flex flex-col items-end">
-                    <div className={`watchlist-item-price-main text-sm md:text-base ${priceColor === 'green' ? 'text-green-500' : 'text-red-500'}`}>{formatPrice(price)}</div>
-                    <div className="watchlist-item-price-change !text-neutral-400 text-right text-xs">
+                    <div className={`watchlist-item-price-main text-sm md:text-base ${priceColor === 'green' ? 'text-price-green' : 'text-price-red'}`}>{formatPrice(price)}</div>
+                    <div className="watchlist-item-price-change !text-price-neutral text-right text-xs">
                         {formatPrice(change)} ({formatPrice(changePct)}%)
                     </div>
                 </div>
@@ -153,4 +153,4 @@ const WatchlistItemWidget = ({ scriptId, onDelete }) => {
     );
 };
 
-export default WatchlistItemWidget; 
+export default WatchlistItemWidget;

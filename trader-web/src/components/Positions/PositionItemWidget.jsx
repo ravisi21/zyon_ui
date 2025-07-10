@@ -52,12 +52,12 @@ const PositionItemWidget = ({ position }) => {
 
   // Net quantity color
   let qtyColor = 'text-blue-400';
-  if (position.netQuantity < 0) qtyColor = 'text-red-500';
+  if (position.netQuantity < 0) qtyColor = 'text-price-red';
   if (position.netQuantity === 0) qtyColor = 'text-gray-400';
 
   // PnL and color
   const pnl = calculatePositionPnL(position, quote);
-  const pnlColor = pnl >= 0 ? 'text-green-500' : 'text-red-500';
+  const pnlColor = pnl >= 0 ? 'text-price-green' : 'text-price-red';
 
   // Buy/Sell handlers
   const handleBuy = (e) => {
@@ -101,7 +101,7 @@ const PositionItemWidget = ({ position }) => {
         <div className="hidden md:block relative w-[2px] self-stretch">
           <div className="absolute right-2 items-center bottom-0 top-0 flex flex-row gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
             <button
-              className="w-8 h-8 flex items-center justify-center rounded bg-sky-600 active:bg-blue-300 !text-white shadow cursor-pointer"
+              className="w-8 h-8 flex items-center justify-center rounded bg-button-blue active:bg-blue-300 !text-white shadow cursor-pointer"
               onClick={handleBuy}
               title="Buy">
               <BuyIcon />
@@ -132,4 +132,4 @@ const PositionItemWidget = ({ position }) => {
   );
 };
 
-export default PositionItemWidget; 
+export default PositionItemWidget;

@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 const UserOnboardingPopup = ({ isOpen }) => {
   if (!isOpen) return null;
 
@@ -32,4 +31,4 @@ const UserOnboardingPopup = ({ isOpen }) => {
   );
 };
 
-export default UserOnboardingPopup; 
+export default UserOnboardingPopup;

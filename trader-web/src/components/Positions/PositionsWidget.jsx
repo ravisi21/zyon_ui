@@ -72,14 +72,14 @@ const PositionsWidget = () => {
     }, 0);
   }, [positions, quotes]);
 
-  const totalPnLColor = totalPnL >= 0 ? 'text-green-500' : 'text-red-500';
+  const totalPnLColor = totalPnL >= 0 ? 'text-price-green' : 'text-price-red';
 
   const handleAnalyzeClick = () => {
     setShowAnalyticsPopup(true);
   };
 
   return (
-    <div className="bg-zinc-800/60 rounded-lg p-3 flex-1 font-family-roboto relative overflow-hidden">
+    <div className="bg-dark-bg-2 rounded-lg p-3 flex-1 font-family-roboto relative overflow-hidden">
       {/* Overlay Loader */}
       {loadingExitAll && (
         <div className="absolute inset-0 z-40 flex flex-col items-center justify-center bg-black/50" style={{backdropFilter: 'blur(2px)'}}>
@@ -137,4 +137,4 @@ const PositionsWidget = () => {
   );
 };
 
-export default PositionsWidget; 
+export default PositionsWidget;

@@ -24,4 +24,4 @@ const TopMoverCarouselItem = ({ scriptId, price, change, changePct, volume }) =>
   );
 };
 
-export default TopMoverCarouselItem; 
+export default TopMoverCarouselItem;

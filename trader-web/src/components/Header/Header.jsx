@@ -133,7 +133,7 @@ const Header = () => {
               setDrawerOpen(false);
               userStore.setShowAccountSelectionPopup(true);
             }}>
-            <span className="flex items-center text-green-500">
+            <span className="flex items-center text-price-green">
               <span>{accountSelected}</span>
               <span><svg width="16" height="16" fill="none" viewBox="0 0 24 24" className="ml-1"><path d="M7 10l5 5 5-5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg></span>
             </span>
@@ -145,7 +145,7 @@ const Header = () => {
           <div className='border-b border-neutral-400 my-2'></div>
           <div>
             <div
-              className="pb-2 font-semibold text-base text-red-500 cursor-pointer"
+              className="pb-2 font-semibold text-base text-price-red cursor-pointer"
               onClick={() => {
                 console.log('Sign Out clicked');
                 setDrawerOpen(false);
@@ -183,7 +183,7 @@ const Header = () => {
           </div>
         </div>
       </Drawer>
-      <div className="flex items-center justify-between !bg-black/40 px-2 py-0 pt-2 md:py-2 shadow-md shadow-neutral-800 font-family-roboto">
+      <div className="flex items-center justify-between !bg-dark-bg px-2 py-0 pt-2 md:py-2 shadow-md shadow-neutral-800 font-family-roboto">
         {/* Left: Logo and account selector */}
         <div className="flex items-center">
           {/* Menu icon for mobile */}
@@ -202,9 +202,9 @@ const Header = () => {
 
           <img src={`/logo_icon.svg`} alt="Logo" className="w-12 h-12 md:h-16 md:w-16" />
           <button
-            className="hidden md:block items-center text-logo-green font-bold py-1 rounded focus:outline-none"
+            className="hidden md:block items-center !text-logo-green font-bold py-1 rounded focus:outline-none"
             onClick={() => userStore.setShowAccountSelectionPopup(true)} >
-            <span className="flex items-center text-green-500">
+            <span className="flex items-center">
               <span >{accountSelected}</span>
               <span><svg width="16" height="16" fill="none" viewBox="0 0 24 24" className="ml-1"><path d="M7 10l5 5 5-5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg></span>
             </span>
