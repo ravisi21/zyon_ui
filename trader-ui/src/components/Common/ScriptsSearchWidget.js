@@ -121,7 +121,7 @@ const ScriptsSearchWidget = ({ onScriptSelected, showBuySell = true, processingS
         <div className="absolute z-10 left-0 right-0 bg-neutral-800 border border-neutral-600 rounded shadow mt-1 max-h-64 overflow-y-auto">
           {searchResultsLoading ? (
             <div className="p-3 text-neutral-400">Loading...</div>
-          ) : searchResults.length === 0 ? (
+          ) : !searchResults || searchResults.length === 0 ? (
             <div className="p-3 text-neutral-400">No results found</div>
           ) : (
             searchResults.map(script => (
