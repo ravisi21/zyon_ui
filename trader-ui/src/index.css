@@ -111,3 +111,31 @@ code {
   animation-fill-mode: forwards;
   animation-iteration-count: 1;
 }
+html, body, #root {
+  height: 100%;
+}
+.backface-hidden {
+  backface-visibility: hidden;
+}
+.custom-swiper-pagination .swiper-pagination-bullet {
+  background: rgba(0, 0, 0, 0.4);
+  opacity: 1;
+  width: 10px;
+  height: 10px;
+  margin: 0 6px;
+  transition: all 0.3s ease;
+}
+
+.custom-swiper-pagination .swiper-pagination-bullet-active {
+  background: #000;
+  width: 12px;
+  height: 12px;
+}
+/* index.css */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

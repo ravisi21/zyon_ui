@@ -1,33 +1,34 @@
+// File: Home.js
+
+import React from "react";
 import Header from "./Header";
 import TopContent from "./TopContent";
 import ZyonChallenge from "./ZyonChallenge";
 import ZyonAnalytics from "./ZyonAnalytics";
 import ZyonVirtualTrading from "./ZyonVirtualTrading";
 import ZyonAlgoHub from "./ZyonAlgoHub";
+import FeatureSection from "./FeatureSection";
+import featureSectionData from "./featureSectionData";
 
 function Home() {
   return (
-    <div className="bg-gray-50 w-full overflow-hidden">
+    <div className="w-full overflow-x-hidden">
       <Header />
+
+      {/* Hero Section */}
       <div className="flex flex-col items-center justify-center">
         <TopContent />
       </div>
 
-      <div id="zyon-challenge">
-        <ZyonChallenge />
-      </div>
-      
-      <div id="zyon-pro-analytics">
-        <ZyonAnalytics />
-      </div>
-      
-      <div id="zyon-virtual-trading">
-        <ZyonVirtualTrading />
-      </div>
-      
-      <div id="zyon-algo-hub">
-        <ZyonAlgoHub />
-      </div>
+      {/* Feature Sections */}
+      {featureSectionData.map((section, index) => (
+        <div key={section.id} id={section.id}>
+          <FeatureSection {...section} index={index} />
+        </div>
+      ))}
+
+
+
     </div>
   );
 }
