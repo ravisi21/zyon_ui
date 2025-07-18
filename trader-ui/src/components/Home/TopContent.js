@@ -15,7 +15,7 @@ const TopContent = () => {
     return (
         <div className="bg-gray-900 w-[90%]">
             <div className="relative flex-col w-full bg-gradient-to-br from-gray-900 via-gray-900 to-green-900/40 pb-[200px] overflow-hidden rounded-b-3xl">
-                <div className="absolute top-0 bottom-0 left-0 right-0 inset-0 bg-cover bg-center bg-no-repeat opacity-15" style={{ backgroundImage: 'url(/trader2/market.png)' }}></div>
+                <div className="absolute top-0 bottom-0 left-0 right-0 inset-0 bg-cover bg-center bg-no-repeat opacity-15" style={{ backgroundImage: 'url(/trader/market.png)' }}></div>
                 <div className="text-white pt-10 pl-10 flex">
                     <div className="flex-0 text-right">
                         <div className="text-4xl font-bold pb-6 animate-slideInFromLeft" style={{ animationDelay: '0.2s' }}>TRADE THE MARKETS,</div>

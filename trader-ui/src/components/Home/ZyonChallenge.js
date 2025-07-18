@@ -77,7 +77,7 @@ const ZyonChallenge = () => {
       <div className="flex gap-4 w-full">
         <div className="w-[30%] relative overflow-hidden rounded-xl">
           <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent z-10"></div>
-          <img src="/trader2/challenge.png" alt="challenge" className="shadow-xl rounded-xl w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+          <img src="/trader/challenge.png" alt="challenge" className="shadow-xl rounded-xl w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
         </div>
         <div className="flex-1">
           <div className="text-gray-300 text-lg space-y-6">

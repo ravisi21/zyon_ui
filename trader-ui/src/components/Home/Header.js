@@ -35,7 +35,7 @@ function Header() {
         },
         { label: "About Us", id: "about-us", icon: <FaInfoCircle className="mr-2 text-green-500 text-xl" /> },
         { label: "Contact Us", id: "contact-us", icon: <FaEnvelope className="mr-2 text-green-500 text-xl" /> },
-        { label: "Trader Portal", url: "/trader2", icon: <FaSignInAlt className="mr-2 text-green-500 text-xl" /> },
+        { label: "Trader Portal", url: "/trader", icon: <FaSignInAlt className="mr-2 text-green-500 text-xl" /> },
     ];
 
     return (

@@ -25,7 +25,7 @@ const ZyonAlgoHub = () => {
         </div>
         <div className="w-[30%] relative overflow-hidden rounded-xl">
           <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent z-10"></div>
-          <img src="/trader2/algos.png" alt="algo hub" className="shadow-xl rounded-xl w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+          <img src="/trader/algos.png" alt="algo hub" className="shadow-xl rounded-xl w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
         </div>
       </div>
     </SectionCard>
