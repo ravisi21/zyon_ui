@@ -30,16 +30,14 @@ const HeaderScriptComponent = ({ scriptId }) => {
   const color = isPositive ? 'text-price-green' : 'text-price-red';
 
   return (
-    <div className="text-center hidden [&:nth-child(1)]:block [&:nth-child(2)]:block md:block py-1 justify-center rounded items-center font-family-roboto">
-      <div className="text-sm md:text-base text-neutral-400 font-semibold mr-2">{scriptNames[scriptId] || scriptId}</div>
-      <div className={`text-sm md:text-base text-center flex items-center gap-1 justify-center ${color}`}>
-        <div>{formatPrice(price)}</div>
-        <div className="text-xs">
-          ({change > 0 ? '+' : ''}{formatPrice(change)})
-        </div>
+    <div className="flex flex-col items-center justify-center text-xs md:text-sm text-white px-2">
+      <div className="font-semibold text-neutral-400">{scriptNames[scriptId] || scriptId}</div>
+      <div className={`font-bold flex gap-1 items-center ${color}`}>
+        <span>{formatPrice(price)}</span>
+        <span className="text-xs">({change > 0 ? '+' : ''}{formatPrice(change)})</span>
       </div>
     </div>
   );
 };
 
-export default HeaderScriptComponent; 
+export default HeaderScriptComponent;

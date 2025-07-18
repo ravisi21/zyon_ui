@@ -1,4 +1,4 @@
-import { Swiper, SwiperSlide } from "swiper/react";
+import { Swiper, SwiperSlide } from "swiper/react/swiper-react";
 import { Autoplay } from "swiper/modules";
 import "swiper/css/bundle";
 import { useEffect, useState } from "react";
@@ -40,18 +40,25 @@ function Carousel() {
       bgColor: "bg-green-300",
     },
     {
-      title: "You Perform, We Partner - 80% profit split",
+      title: "Funded program You Perform, We Partner - 80% profit split",
       description:
         "Our model is built on trust and performance. When you prove consistency, we provide the capital — and you take home 80% of the profits.",
       color: "text-black",
       bgColor: "bg-green-300",
     },
     {
-      title: "Even A+ Setups Can Fail - But Capital Is Safe",
+      title: "Even A+ Setups Can Fail - But your Capital Is Safe",
       description:
         "In real trading, even perfect setups lose. But on our platform, you don’t lose your savings — only a small predefined risk.",
-      color: "text-white",
-      bgColor: "bg-black",
+      color: "text-black",
+      bgColor: "bg-green",
+    },
+     {
+      title: "Weekly Competition - Perform and get funded ",
+      description:
+        "In real trading, even perfect setups lose. But on our platform, you don’t lose your savings — only a small predefined risk.",
+      color: "text-black",
+      bgColor: "bg-green",
     },
   ];
 
