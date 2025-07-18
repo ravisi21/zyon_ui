@@ -111,19 +111,10 @@ code {
   animation-fill-mode: forwards;
   animation-iteration-count: 1;
 }
-html, body, #root {
-  height: 100%;
-}
-.backface-hidden {
-  backface-visibility: hidden;
-}
-.custom-swiper-pagination .swiper-pagination-bullet {
-  background: rgba(0, 0, 0, 0.4);
-  opacity: 1;
-  width: 10px;
-  height: 10px;
-  margin: 0 6px;
-  transition: all 0.3s ease;
+
+.recharts-responsive-container > div {
+  width: auto !important;
+  height: auto !important;
 }
 
 .custom-swiper-pagination .swiper-pagination-bullet-active {
@@ -139,3 +130,21 @@ html, body, #root {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
+html, body, #root {
+  height: 100%;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+.custom-swiper-pagination .swiper-pagination-bullet {
+  background: rgba(0, 0, 0, 0.4);
+  opacity: 1;
+  width: 10px;
+  height: 10px;
+  margin: 0 6px;
+  transition: all 0.3s ease;
+}
+

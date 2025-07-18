@@ -1,17 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { formatPrice } from '../../utils/formatter';
 import HeaderScriptComponent from './HeaderScriptComponent';
+import { Avatar, Dropdown, Button, Menu, Drawer } from 'antd';
+import { UserOutlined, LogoutOutlined, SettingOutlined, LoginOutlined } from '@ant-design/icons';
 import * as userStore from '../../store/userStore';
 import * as headerScriptsStore from '../../store/headerScriptsStore';
 import * as marginsStore from '../../store/marginsStore';
 import eventBus, { EVENT_TYPES } from '../../utils/eventBus';
-import { Avatar, Dropdown, Drawer, Button, Menu } from 'antd';
-import {
-  UserOutlined,
-  LogoutOutlined,
-  SettingOutlined,
-  LoginOutlined,
-} from '@ant-design/icons';
 import { logoutAccount } from '../../api/apis';
 import { showErrorToast } from '../../utils/utils';
 import { formatDateTimeDDMMYYHHmm } from '../../utils/formatter';
@@ -42,6 +37,12 @@ const Header = () => {
     const unsubscribeMargin = eventBus.on(EVENT_TYPES.MARGINS_UPDATE, handleMarginChange);
     const unsubscribeAllowAccountLogout = eventBus.on(EVENT_TYPES.ALLOW_ACCOUNT_LOGOUT_UPDATE, handleAllowAccountLogoutChange);
     const unsubscribeAccountLogoutTime = eventBus.on(EVENT_TYPES.USER_UPDATE, handleAccountLogoutTimeChange);
+    setUser(userStore.userStore.user);
+    setHeaderScripts(headerScriptsStore.getHeaderScripts());
+    setMargin(marginsStore.getMargins());
+    handleAccountsChange();
+    handleAllowAccountLogoutChange();
+    handleAccountLogoutTimeChange();
     return () => {
       if (typeof unsubscribeUser === 'function') unsubscribeUser();
       if (typeof unsubscribeAccounts === 'function') unsubscribeAccounts();
@@ -73,26 +74,34 @@ const Header = () => {
     }
   };
 
-  const menu = (
+  const menu = isSignedIn && (
     <Menu onClick={handleMenuClick}>
       <Menu.Item key="welcome" disabled style={{ cursor: 'default', fontWeight: 'bold', color: '#555', background: '#f6f6f6' }}>
-        Hi, {user?.name || user?.userName || 'User'}
+        Hi, {user.name || user.userName || 'User'}
       </Menu.Item>
       <Menu.Divider />
-      <Menu.Item key="profile" icon={<UserOutlined />}>Profile</Menu.Item>
-      <Menu.Item key="settings" icon={<SettingOutlined />}>Settings</Menu.Item>
+      <Menu.Item key="profile" icon={<UserOutlined />}>
+        Profile
+      </Menu.Item>
+      <Menu.Item key="settings" icon={<SettingOutlined />}>
+        Settings
+      </Menu.Item>
       <Menu.Divider />
       {allowAccountLogout && (
         <>
-          <Menu.Item key="logoutAccount" icon={<LogoutOutlined />} danger>Logout Account</Menu.Item>
+          <Menu.Item key="logoutAccount" icon={<LogoutOutlined />} danger>
+            Logout Account
+          </Menu.Item>
           {accountLogoutTime && (
-            <Menu.Item key="logoutAccountTime" disabled style={{ fontSize: 12, color: '#888' }}>
+            <Menu.Item key="logoutAccountTime" disabled style={{ fontSize: 12, color: '#888', background: 'inherit', cursor: 'default' }}>
               Valid till: {formatDateTimeDDMMYYHHmm(accountLogoutTime)}
             </Menu.Item>
           )}
         </>
       )}
-      <Menu.Item key="logout" icon={<LogoutOutlined />} danger>Sign Out</Menu.Item>
+      <Menu.Item key="logout" icon={<LogoutOutlined />} danger>
+        Sign Out
+      </Menu.Item>
     </Menu>
   );
 
@@ -103,109 +112,135 @@ const Header = () => {
         placement="left"
         onClose={() => setDrawerOpen(false)}
         open={drawerOpen}
-        width={260}
+        width={300}
+        closeIcon={false}
         className="md:hidden !bg-neutral-800 p-4 !text-neutral-200"
-        bodyStyle={{ padding: 0 }}
-      >
-        <div className="space-y-4">
-          <div className='flex items-center gap-2'>
-            <Avatar
-              size={40}
-              icon={<UserOutlined />}
-              src={user?.avatarBlobId ? `https://zyontrader.com/api/img/${user.avatarBlobId}` : undefined}
-              className="bg-price-green"
-            />
+        bodyStyle={{ padding: 0 }}>
+        <div>
+          <div className='flex items-center justify-start gap-2'>
+            <div>
+              <Avatar
+                size={40}
+                className='bg-price-green'
+                icon={<UserOutlined />}
+                src={user?.avatarBlobId ? `https://zyontrader.com/api/img/${user?.avatarBlobId}` : undefined}
+                shape="circle"
+              />
+            </div>
             <div className='text-lg font-bold'>Hi, {user?.name || user?.userName || 'User'}</div>
           </div>
-          <div
-            className="text-base font-semibold text-price-green"
+          <div className="font-semibold text-base mt-6"
             onClick={() => {
               setDrawerOpen(false);
               userStore.setShowAccountSelectionPopup(true);
             }}>
-            {accountSelected}
+            <span className="flex items-center text-price-green">
+              <span>{accountSelected}</span>
+              <span><svg width="16" height="16" fill="none" viewBox="0 0 24 24" className="ml-1"><path d="M7 10l5 5 5-5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg></span>
+            </span>
           </div>
-          <div className="text-sm">Margin: {formatPrice(margin?.marginAvailable)}</div>
-          <hr className="border-neutral-400" />
-          <div className="space-y-2">
-            <div onClick={() => console.log('Sign Out clicked')} className="cursor-pointer text-red-500 font-semibold">Sign Out</div>
+          <div className='flex items-center justify-start gap-2 text-base mt-1'>
+            <div className="font-medium text-sm">Margin: </div>
+            <div className="font-semibold">{formatPrice(margin?.marginAvailable)}</div>
+          </div>
+          <div className='border-b border-neutral-400 my-2'></div>
+          <div>
+            <div
+              className="pb-2 font-semibold text-base text-price-red cursor-pointer"
+              onClick={() => {
+                console.log('Sign Out clicked');
+                setDrawerOpen(false);
+              }}>
+              Sign Out
+            </div>
             {allowAccountLogout && (
               <>
                 <div
+                  className="pb-2 font-semibold text-base text-price-red cursor-pointer"
                   onClick={async () => {
                     try {
                       await logoutAccount();
                       setDrawerOpen(false);
-                    } catch {
+                    } catch (error) {
                       showErrorToast("Could not logout account");
                     }
-                  }}
-                  className="cursor-pointer text-red-500 font-semibold"
-                >
+                  }}>
                   Logout Account
                 </div>
                 {accountLogoutTime && (
-                  <div className="text-xs text-neutral-400">Valid till: {formatDateTimeDDMMYYHHmm(accountLogoutTime)}</div>
+                  <div className="text-xs text-neutral-400 mb-2 ml-1">
+                    Valid till: {formatDateTimeDDMMYYHHmm(accountLogoutTime)}
+                  </div>
                 )}
               </>
             )}
+
+            <div className="py-2 text-base border-t border-neutral-400 text-neutral-300">
+              <UserOutlined /> Profile
+            </div>
+            <div className="py-2 text-base border-t border-neutral-400 text-neutral-300">
+              <SettingOutlined /> Settings
+            </div>
           </div>
         </div>
       </Drawer>
-
-      <header className="w-full bg-dark-bg text-white px-2 py-2 shadow-md flex items-center justify-between font-family-roboto">
-        <div className="flex items-center gap-3">
+      <div className="sticky top-0 z-50 flex items-center justify-between bg-dark-bg px-2 py-0 pt-2 md:py-2 shadow-md shadow-neutral-800 font-family-roboto">
+        {/* Left: Logo and account selector */}
+        <div className="flex items-center">
+          {/* Menu icon for mobile */}
           {isSignedIn && (
-            <button onClick={() => setDrawerOpen(true)} className="md:hidden text-white">
-              <svg width="24" height="24" fill="none" viewBox="0 0 24 24">
+            <button
+              className="block md:hidden mr-1 p-1 focus:outline-none text-white"
+              aria-label="Open menu"
+              onClick={() => setDrawerOpen(true)}>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <rect y="4" width="24" height="2" rx="1" fill="currentColor" />
                 <rect y="11" width="24" height="2" rx="1" fill="currentColor" />
                 <rect y="18" width="24" height="2" rx="1" fill="currentColor" />
               </svg>
             </button>
           )}
-          <img src={`${process.env.PUBLIC_URL}/logo_icon.svg`} alt="Logo" className="w-10 h-10 md:w-14 md:h-14" />
+
+          <img src={`${process.env.PUBLIC_URL}/logo_icon.svg`} alt="Logo" className="w-12 h-12 md:h-16 md:w-16" />
           <button
-            onClick={() => userStore.setShowAccountSelectionPopup(true)}
-            className="hidden md:flex text-logo-green font-bold"
-          >
+            className="hidden md:block items-center text-logo-green font-bold py-1 rounded focus:outline-none"
+            onClick={() => userStore.setShowAccountSelectionPopup(true)} >
             <span className="flex items-center">
-              {accountSelected}
-              <svg width="16" height="16" fill="none" viewBox="0 0 24 24" className="ml-1">
-                <path d="M7 10l5 5 5-5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
+              <span>{accountSelected}</span>
+              <span><svg width="16" height="16" fill="none" viewBox="0 0 24 24" className="ml-1"><path d="M7 10l5 5 5-5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg></span>
             </span>
           </button>
         </div>
-
-        <div className="flex-1 flex justify-end md:justify-center items-center overflow-x-auto gap-4 px-2 md:px-8 hide-scrollbar">
-          {headerScripts?.map(scriptId => (
+        {/* Center: Market indices scrollable row */}
+        <div
+          className="header-scripts-container flex flex-1 gap-5 items-center justify-end md:justify-center">
+          {headerScripts && headerScripts.map(scriptId => (
             <HeaderScriptComponent key={scriptId} scriptId={scriptId} />
           ))}
         </div>
-
-        <div className="flex items-center gap-2">
+        {/* Right: Margin info and user widget */}
+        <div className="flex items-center gap-0 md:gap-2 text-right">
           {isSignedIn && (
-            <div className="hidden md:block text-right">
+            <div className='hidden md:block'>
               <div className="text-gray-400 text-xs">Margin</div>
               <div className="text-neutral-400 font-semibold text-md">{formatPrice(margin?.marginAvailable)}</div>
             </div>
           )}
+          {/* User sign in widget */}
           {isSignedIn ? (
-            <Dropdown overlay={menu} placement="bottomRight" className="hidden md:block">
+            <Dropdown overlay={menu} placement="bottomRight" trigger={["click"]} className='hidden mr-4 md:block'>
               <Avatar
                 style={{ backgroundColor: '#1890ff', cursor: 'pointer' }}
                 icon={<UserOutlined />}
                 src={user.avatarBlobId ? `https://zyontrader.com/api/img/${user.avatarBlobId}` : undefined}
+                shape="square"
               />
             </Dropdown>
           ) : (
-            <Button type="primary" icon={<LoginOutlined />} onClick={() => userStore.setShowUserLogin(true)}>
-              Sign In
-            </Button>
+            <Button type="primary" icon={<LoginOutlined />} onClick={() => userStore.setShowUserLogin(true)}>Sign In</Button>
           )}
         </div>
-      </header>
+      </div>
     </>
   );
 };
