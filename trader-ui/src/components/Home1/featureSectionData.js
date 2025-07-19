@@ -6,7 +6,7 @@ import { FaGraduationCap, FaMoneyBillWave } from "react-icons/fa";
 const featureSectionData = [
   {
     id: "feature-Trading-Competition",
-    title: "Trading Challenge",
+    title: "Trading Challenge-Zyon Aplha",
     subtitle: "Win Your Way To Funding",
     icon: <SlTrophy />,
     youtubeLink: "dQw4w9WgXcQ",
@@ -21,50 +21,312 @@ const featureSectionData = [
       "/trader/shots/analyse.png",
     ],
     sections: [
-      {
-        heading: "Weekly Trading Competition ",
-        paragraphs: [
-          "Every Monday to Friday, trade in a high-stakes virtual environment with ₹500 entry fee.",
-          "Trade index derivatives with real-time market data and leaderboard pressure.",
-        ],
-      },
-      {
-        heading: "Margin Calcualtion",
-        paragraphs: [
-          "Margins are calculated  like the same way in real time like actual margin requirement.",
-          "You will start with Rs 1000000 or 10 Lac as virtual capital (a.k.a) margin and it will go up or down as you make profit and loss.",
-        ],
-      },
-      {
-        heading: "Stocks, Options & Futures",
-        paragraphs: [
-          "Trade stocks, futures and indexoptions like NIFTY, BANKNIFTY, and SENSEX using real-time feeds.",
-          "Master how premiums move with volatility, time decay, and OI buildup.",
-        ],
-      },
-      {
-        heading: "Real-Time Leaderboard",
-        paragraphs: [
-          "Watch your rank move live based on P&L and risk control.",
-          "Learn to stick to plans and stay consistent under time pressure.",
-        ],
-      },
-      {
-        heading: "Win & Get Funded",
-        paragraphs: [
-          "Top performer wins ₹10,000 Zyon Coins, top 5 get premium access.",
-          "You may be shortlisted for Zyon's Funded Trading Desk.",
-        ],
-      },
-      {
-        heading: "Realtime Option trading -using virtual capital",
-        paragraphs: [
-          "Max 5 trades/day, overnight allowed, strict drawdown rules.",
-          "Build your reflex and confidence under stress.",
-        ],
-      },
-    ],
+    {
+  heading: "Weekly Trading Competition ₹199/Week",
+  paragraphs: [
+    "Compete every Monday to Friday in a high-stakes virtual trading environment with just a ₹199 entry fee.",
+    "Trade index derivatives using real-time market data under the pressure of a live leaderboard."
+  ],
+},
+{
+  heading: "Margin Calculation",
+  paragraphs: [
+    "Margins are calculated just like in real markets, reflecting actual margin requirements.",
+    "Start with ₹10,00,000 (10 Lac) in virtual capital. Your margin grows or shrinks with your trading performance."
+  ],
+},
+{
+  heading: "Win & Get Funded",
+  paragraphs: [
+    "Top 5 traders receive free entry to Funded Challange track ",
+    "Top 10 traders receive free entry to next week's competition.",
+    "Outstanding participants may be shortlisted for Direct Funding to trade with real capital.",
+  ],
+},
+{
+  heading: "Stocks, Options & Futures",
+  paragraphs: [
+    "Trade stocks, index options, and futures like NIFTY, BANKNIFTY, and SENSEX — all using real-time data feeds.",
+    "Master the impact of volatility, time decay, and open interest on premium movement."
+  ],
+},
+{
+  heading: "Real-Time Leaderboard",
+  paragraphs: [
+    "Track your live ranking based on profit & loss and risk discipline.",
+    "Learn to follow your trading plan and maintain consistency under time pressure."
+  ],
+},
+
+{
+  heading: "Real-Time Options Trading (Virtual Capital)",
+  paragraphs: [
+    "Make up to 5 trades per day. Overnight positions allowed. Strict drawdown rules apply.",
+    "Sharpen your reflexes and build confidence under real market stress—without real risk."
+  ],
+},
+{
+  heading: "Consistency Rules for Getting Funded",
+  paragraphs: [
+    "Zyon rewards consistent, disciplined traders — not one-time lucky winners. These rules simulate real-world professional trading standards and help you build a credible track record.",
+    "Follow these during the Weekly Trading Competition to qualify for the leaderboard and funding track."
+  ],
+  table: {
+    headers: ["Rule", "Value / Limit", "Why It Matters"],
+    rows: [
+      ["Minimum Trading Days", "3 out of 5 days/week", "Prevents winning based on a single lucky trade day"],
+      ["Max Profit in Single Day", "≤ 30% of total weekly profit", "Encourages steady returns instead of high-risk spikes"],
+      ["Max Daily Loss", "2% of virtual capital (₹20,000)", "Controls risk and builds capital preservation habits"],
+      ["Max Total Weekly Loss", "5% of virtual capital (₹50,000)", "Avoids large drawdowns and reckless revenge trading"],
+      ["Minimum Weekly Profit Target", "2% of capital (₹20,000)", "Sets realistic benchmarks to qualify for funding"],
+      ["Max Trades Per Day", "5 trades/day", "Reduces overtrading and forces quality decision-making"],
+      ["Max Position Size", "₹2,00,000 (20% of capital)", "Teaches position sizing and risk allocation"],
+      ["No Averaging Down", "Only scale in profitable direction", "Discourages gambling behavior and revenge trades"],
+      ["Overnight Positions", "Allowed", "Provides flexibility to simulate real strategies"],
+      ["Bonus Journaling", "Trade notes/screenshots encouraged", "Helps self-review and mimics pro trader habits"]
+    ]
+  }
+},
+{
+  heading: "Examples: Who Qualifies and Who Doesn't",
+  paragraphs: [
+    "Here are example profiles of traders and how their weekly performance aligns (or fails) with Zyon's consistency rules. This helps you understand what behaviors lead to funding eligibility — and what doesn’t.",
+    "Remember, it's not about how big your profit is, it's how consistently and professionally you trade."
+  ],
+  table: {
+    headers: ["Trader", "What They Did", "Fundable? Why?"],
+    rows: [
+      [
+        "Trader A",
+        "Traded 4 days, earned ₹6K, ₹7K, ₹4K, ₹5K. Max daily P&L = 35%. No rule violations.",
+        "✅ Yes – Consistent profits, met trading day and drawdown rules."
+      ],
+      [
+        "Trader B",
+        "Made ₹50K in one day, didn’t trade rest of week. Total P&L = ₹50K.",
+        "❌ No – Violates consistency rule: 1-day profit = 100% of week’s P&L."
+      ],
+      [
+        "Trader C",
+        "Traded all 5 days, risked ₹5L in one trade, hit ₹30K profit.",
+        "❌ No – Violates max position size and poor risk control."
+      ],
+      [
+        "Trader D",
+        "Loss of ₹22K on Day 1 (2.2%), continued with discipline, ended week at +₹28K.",
+        "✅ Yes – Minor drawdown, recovered with steady gains. Good behavior."
+      ],
+      [
+        "Trader E",
+        "Traded only Monday. Hit ₹25K profit in 1 trade. No activity after.",
+        "❌ No – Not enough trading days. One-off spike is not fundable."
+      ],
+      [
+        "Trader F",
+        "Traded 3 days, 5 trades/day. Used ₹1.5L per trade. Net profit ₹22K.",
+        "✅ Yes – Follows all rules: days, position size, profit target, behavior."
+      ]
+    ]
+  }
+},
+{
+  heading: "Example: Big Profit With Consistency",
+  paragraphs: [
+    "Making a big profit doesn’t disqualify you — as long as it is done with discipline, proper risk control, and without violating Zyon's consistency framework.",
+    "Here’s a sample performance that shows how a trader made a strong profit, yet stayed eligible for funding."
+  ],
+  table: {
+    headers: ["Day", "P&L", "Notes", "Rule Violated?"],
+    rows: [
+      ["Monday", "+₹8,000", "2 trades, risk per trade ₹3K", "✅ No"],
+      ["Tuesday", "+₹12,000", "Max position ₹1.8L, max daily profit <30%", "✅ No"],
+      ["Wednesday", "+₹30,000", "Strong trend catch, still <30% of total profit", "✅ No"],
+      ["Thursday", "₹0", "No trades taken — no setup", "✅ No"],
+      ["Friday", "+₹5,000", "Took 1 safe breakout trade", "✅ No"]
+    ]
+  }
+},
+{
+  heading: "Case Study: Hitting Profit Target in One Day",
+  paragraphs: [
+    "A trader made ₹20,000 (2% of ₹10L) in a single day, hitting the weekly profit target. However, this does NOT automatically make them eligible for funding.",
+    "Zyon's consistency rule requires traders to demonstrate performance over multiple trading days to avoid one-off lucky wins. Let's break it down below."
+  ],
+  table: {
+    headers: ["Day", "P&L", "Activity", "Rule Violated?"],
+    rows: [
+      ["Monday", "+₹20,000", "One large winning trade", "✅ No"],
+      ["Tuesday", "₹0", "No trades placed", "❌ Yes – Not active"],
+      ["Wednesday", "₹0", "No trades placed", "❌ Yes – Not active"],
+      ["Thursday", "₹0", "No trades placed", "❌ Yes – Not active"],
+      ["Friday", "₹0", "No trades placed", "❌ Yes – Not active"]
+    ]
+  }
+},
+{
+  heading: "Why Zyon Enforces These Rules",
+  paragraphs: [
+    "At Zyon, our mission is not just to run competitions — it's to help you become a consistent, disciplined, and professional trader.",
+    "The rules we enforce — like daily loss limits, minimum trading days, position sizing, and avoiding over-leveraging — are based on global best practices used by hedge funds and proprietary trading desks.",
+    "These are not limitations, they are a path to becoming reliable and fundable.",
+     "Consistent trading over multiple days builds the habits of patience, discipline, and system-following. This is what makes long-term traders successful.",
+    "We’ve seen that traders who win based on one or two high-risk trades usually blow up accounts when real money is involved. Zyon’s rules protect you from becoming that trader.",
+    "By sticking to the rules, you show that you are not just lucky — you are skilled, repeatable, and ready for capital allocation.",
+    "In the real world, capital is given to those who manage risk first, and profit second. That’s what Zyon prepares you for.",
+  ],
+  hidden: [
+    "Consistent trading over multiple days builds the habits of patience, discipline, and system-following. This is what makes long-term traders successful.",
+    "We’ve seen that traders who win based on one or two high-risk trades usually blow up accounts when real money is involved. Zyon’s rules protect you from becoming that trader.",
+    "By sticking to the rules, you show that you are not just lucky — you are skilled, repeatable, and ready for capital allocation.",
+    "In the real world, capital is given to those who manage risk first, and profit second. That’s what Zyon prepares you for.",
+  ]
+},
+{
+  heading: "Zyon Rules Are Built To Protect You",
+  paragraphs: [
+    "At Zyon, our rules aren't there to punish you or stop your progress. We’ve designed these structures because we truly want traders to succeed — not just for a week, but for a lifetime. Every rule is shaped by years of observing what works in real-world professional trading and what ruins careers."
+  ]
+},
+{
+  heading: "Trading Is a Business, Not a Gamble",
+  paragraphs: [
+    "We’ve seen it too often — a trader makes a huge gain, gets overconfident, and then loses it all in the next trade. That’s not trading. That’s gambling. Zyon’s consistency rules stop you from slipping into this hero-zero trap. They teach you to manage risk, think long-term, and build habits that mirror how actual hedge fund traders operate.",
+    "We're not here to promote competitions just to earn from entry fees. We're here to help you treat trading like a business — with structure, rules, and repeatable processes."
+  ]
+},
+{
+  heading: "We've Watched Talented Traders Burn Out",
+  paragraphs: [
+    "Many of the most passionate traders blow up not because they’re bad — but because no one showed them a better path. They take loans to trade, blow their savings, and are left emotionally wrecked. Zyon's rules are here to prevent that from happening to you.",
+    "By enforcing position sizing, risk limits, and trading frequency caps, we keep you away from burnout and force you to think like a pro — with a calm, calculated mindset."
+  ]
+},
+{
+  heading: "We Want You To Build a Career — Not Chase a Jackpot",
+  paragraphs: [
+    "Our mission is simple: help you get consistently funded, and build trading into a long-term career — not a short-term adrenaline rush. Zyon’s platform isn’t about quick wins or one lucky week. It’s about real growth, real performance, and real futures.",
+    "Follow the rules, build your consistency, and prove your system. We’ll be the first to give you funding — and more as you grow."
+  ]
+},
+{
+  heading: "What Happens If You Ignore These Rules?",
+  paragraphs: [
+    "Our rules may seem strict, but they exist to protect you from classic trading mistakes that can destroy your capital, mindset, and confidence. Here are real-world inspired examples of what goes wrong when traders break them:"
+  ],
+  table: {
+    headers: ["Scenario", "What Trader Did", "What Went Wrong"],
+    rows: [
+      [
+        "One-Day Jackpot",
+        "Trader hit ₹30K profit on Monday, stopped trading for rest of week",
+        "Showed no consistency, couldn’t handle different market conditions — not ready for funding"
+      ],
+      [
+        "Overconfidence Burnout",
+        "Trader risked ₹5L on one trade, made ₹20K in 5 minutes",
+        "Broke position size and risk limits — ended up blowing account next day due to overleverage"
+      ],
+      [
+        "Revenge Trading Spiral",
+        "Lost ₹18K in morning, took 3 more impulsive trades to recover",
+        "Crossed daily loss limit, showed lack of discipline — disqualified from leaderboard"
+      ],
+      [
+        "Averaging Down Disaster",
+        "Added more to a losing position hoping for reversal",
+        "Violated risk rules, hit drawdown, and triggered exit — a professional would’ve cut losses"
+      ],
+      [
+        "No Journal, No Growth",
+        "Didn’t log trades or review decisions, repeated same mistakes",
+        "Couldn’t improve or defend strategy in funding review — no long-term edge"
+      ]
+    ]
+  }
+}
+
+],
     faqs: [
+      {
+    "question": "Why does Zyon enforce consistency rules?",
+    "answer": "Because real traders succeed through discipline, not luck. We want to support traders who show steady habits — not one-off lucky wins."
+  },
+  {
+    "question": "What if I make a big profit on one day and stop trading?",
+    "answer": "That violates the 'Max Profit in Single Day' and 'Minimum Trading Days' rule. You need to show steady performance across multiple days to be fundable. One-day spikes aren’t sustainable in real trading careers."
+  },
+  {
+    "question": "Can I trade only 1 day if I meet the ₹20K profit target?",
+    "answer": "No. You must trade at least 3 out of 5 days. We want to see how you handle different market conditions and maintain emotional control."
+  },
+  {
+    "question": "Why is there a maximum daily loss cap?",
+    "answer": "To protect you from blowing up. Learning to manage risk and stay within limits is a trait of successful professional traders."
+  },
+  {
+    "question": "How does journaling help me become a better trader?",
+    "answer": "Journaling builds self-awareness. Reviewing your trades, your psychology, and your setups is what separates amateurs from professionals."
+  },
+  {
+    "question": "Why only 5 trades per day?",
+    "answer": "To prevent overtrading and help you focus on quality trades. Trading less, with more planning, usually leads to better results."
+  },
+  {
+    "question": "What if I break a rule but still make a lot of profit?",
+    "answer": "You’ll still be disqualified. Zyon rewards professionalism, not gambling. Our rules are designed to create real-world readiness."
+  },
+  {
+    "question": "Can I scale into a trade that’s going in my favor?",
+    "answer": "Yes — as long as you're scaling up in a profitable direction. Averaging down into losses is not allowed because it leads to blow-ups."
+  },
+  {
+    "question": "Are overnight positions allowed?",
+    "answer": "Yes, you can carry trades overnight. We allow real strategy development and don’t limit you to scalping."
+  },
+  {
+    "question": "How do I know if I’m eligible for funding?",
+    "answer": "If you follow all consistency rules, meet the profit target, and display steady risk control — you qualify for review by our funding desk."
+  },
+  {
+    "question": "Why is the max position size set to ₹2,00,000?",
+    "answer": "It teaches proper risk allocation. Professionals risk small parts of their capital per trade. This rule ensures you manage exposure."
+  },
+  {
+    "question": "I had one bad day. Can I still qualify?",
+    "answer": "Yes — as long as your loss is within the daily and weekly drawdown limits, and you bounce back with discipline and consistency."
+  },
+  {
+    "question": "How do Zyon Coins help me?",
+    "answer": "Zyon Coins can be redeemed for premium features or future competition entries. They also signal your growth as a serious trader."
+  },
+  {
+    "question": "Do I need to win to get funded?",
+    "answer": "Not necessarily. Even if you're not the top P&L, showing consistent, professional behavior can earn you a place in our Funded Track."
+  },
+  {
+    "question": "Why is my weekly profit target set at 2%?",
+    "answer": "Because that’s realistic and repeatable. Professional traders aim for steady gains, not jackpot trades."
+  },
+  {
+    "question": "Will Zyon guide me after funding?",
+    "answer": "Yes. We provide tools, analytics, and mentorship to help you trade professionally once you're funded."
+  },
+  {
+    "question": "What happens if I overtrade?",
+    "answer": "You violate the 5-trade limit and reduce your chances of funding. We want you to trade like a business — not compulsively."
+  },
+  {
+    "question": "Is there any mentorship or feedback provided?",
+    "answer": "Top performers often receive reviews and personal feedback. We believe in grooming talent, not just selecting winners."
+  },
+  {
+    "question": "How can I practice before joining the competition?",
+    "answer": "Use our Paper Trading module to simulate trades in real market conditions — perfect for testing your strategy risk-free."
+  },
+  {
+    "question": "What if I don’t get funded in the first attempt?",
+    "answer": "That’s okay! Zyon is designed for growth. Learn, re-enter, and keep building. We track your progress — persistence matters."
+  },
       {
         question: "What is the Weekly Trading Competition?",
         answer:
@@ -78,7 +340,7 @@ const featureSectionData = [
       {
         question: "What is the entry fee?",
         answer:
-          "You can join by paying ₹500 using UPI or card. This goes towards prize pools, infra costs, and evaluation.",
+          "You can join by paying ₹199 using UPI or card. This goes towards prize pools, infra costs, and evaluation.",
       },
       {
         question: "What are the rules of the competition?",
@@ -136,6 +398,8 @@ const featureSectionData = [
         answer:
           "Yes  but serious. You’ll face real-time market speed and structured limits. It’s a great way to test mindset and skills under pressure.",
       },
+      
+      
     ],
   },
   {
@@ -164,15 +428,71 @@ const featureSectionData = [
         ],
       },
       {
+  heading: "Built by Traders, for Traders",
+  paragraphs: [
+    "The tools inside Zyon's Market Dashboard aren’t randomly picked — they are battle-tested analytics used by serious traders worldwide. We focused only on the most practical, real-time indicators that actually help you plan, execute, and manage trades like a professional.",
+    "From Open Interest shifts to real-time Greeks, from PCR sentiment to live market depth — these aren’t gimmicks. These are the core building blocks of a consistent trading system that help you win competitions and grow into a funded trader."
+  ]
+},
+      {
         heading: "Advanced Option Analytics",
         paragraphs: [
           "Real-time Greeks, IV skew, and option flow analysis.",
           "Identify unusual options activity and institutional positioning.",
         ],
       },
+      {
+  heading: "Open Interest (OI) Tracking",
+  paragraphs: [
+    "Monitor live OI changes across strikes to identify where positions are building up.",
+    "Use OI spikes with price action to spot breakout zones or resistance/support levels forming."
+  ]
+},
+{
+  heading: "Put-Call Ratio (PCR)",
+  paragraphs: [
+    "Gauge overall market sentiment using index and stock-wise PCR values.",
+    "Extremely high PCR signals overbought conditions, while extremely low PCR suggests oversold – useful for contrarian trades."
+  ]
+},
+{
+  heading: "OI Change Analysis",
+  paragraphs: [
+    "Track real-time increase/decrease in OI at each strike along with price movement.",
+    "Rising price + rising OI = Long buildup. Falling price + rising OI = Short buildup. This helps traders plan directional bets."
+  ]
+},
+{
+  heading: "Heatmap Visualizer",
+  paragraphs: [
+    "Color-coded view of sector and stock performance across key timeframes.",
+    "Identify hot zones of momentum or weakness to ride short-term trends or plan reversals."
+  ]
+},
+{
+  heading: "Synthetic Futures Price",
+  paragraphs: [
+    "See how synthetic futures (Call + Put at same strike) deviate from actual futures prices.",
+    "Exploit inefficiencies in arbitrage setups and judge where smart money is skewing implied expectations."
+  ]
+},
+{
+  heading: "Long/Short Buildup Detector",
+  paragraphs: [
+    "Automatically detect whether positions are being built with bullish or bearish bias.",
+    "Helps you decide between aggressive entry or waiting for confirmation based on buildup type (e.g. Long Buildup or Short Covering)."
+  ]
+},
+{
+  heading: "Real-Time Market Depth",
+  paragraphs: [
+    "See live bid-ask spread, top 5 buyers/sellers, and quantity buildup for each strike.",
+    "Use it to time entries better, detect spoofing, and avoid getting trapped in low-liquidity contracts."
+  ]
+}
     ],
     faqs: [
-      [
+      
         {
           question: "What kind of option data is shown?",
           answer:
@@ -203,13 +523,13 @@ const featureSectionData = [
           answer:
             "Historical views are coming soon. For now, the dashboard is optimized for live market tracking and fast intraday decisions.",
         },
-      ],
+      
     ],
   },
   {
     id: "feature-Paper-Trading",
-    title: "Learn, Get Funded",
-    subtitle: "Train • Track • Trade • Win",
+    title: "Learn To Trade",
+    subtitle: "Train • Track • Trade ",
     icon: <FaGraduationCap />,
     youtubeLink: "dQw4w9WgXcQ",
     shots: [
@@ -221,49 +541,97 @@ const featureSectionData = [
       "/trader/shots/analyse.png",
     ],
     sections: [
-      {
-        heading:
-          "Index Options Furures Stocks trade with virtual capital-Paper Trading ",
-        paragraphs: [
-          "All trades are simulated using live NSE market data, option chain updates, open interest, and real-time execution behavior.",
-          "No delays or hypothetical numbers — just the market as it moves.",
-        ],
-      },
-      {
-        heading: "Zero Risk Learning",
-        paragraphs: [
-          "Get ₹10,00,000 in virtual capital and build your strategy without risking real money.",
-          "Make mistakes, iterate, and grow — the best traders are trained, not born.",
-        ],
-      },
-      {
-        heading: "Perform & Get Funded",
-        paragraphs: [
-          "Demostrate your skills, follow the rules and prove your can trade with consistency.",
-          "Get a funded account with real money and share the profits.",
-        ],
-      },
-      {
-        heading: "Built for Serious Traders",
-        paragraphs: [
-          "Simulated with prop firm style rules: daily loss limits, drawdowns, trade caps, and overnight holding.",
-          "Discipline, consistency, and real-world trading mindset — all baked in.",
-        ],
-      },
-      {
-        heading: "Trade Journaling & Self-Analysis",
-        paragraphs: [
-          "Auto-logged trades, entry/exit reasoning, and P&L reviews are all accessible.",
-          "You review, refine, and evolve every week.",
-        ],
-      },
-      {
-        heading: "Master the Psychology",
-        paragraphs: [
-          "Experience emotions like greed and fear without real loss.",
-          "Train your mindset to think like a capital allocator.",
-        ],
-      },
+    {
+      "heading": "Learn by Doing – ₹499/month",
+      "paragraphs": [
+        "Start your trading journey for just ₹499/month with full access to live-market simulation.",
+        "No hidden fees. No risk. Just you, the market, and unlimited learning."
+      ]
+    },
+    {
+      "heading": "Your Market Tuition Is Now Capped",
+      "paragraphs": [
+        "Traders often lose thousands in real markets learning lessons.",
+        "Zyon saves you from blowing up capital while still giving the same pressure and decision-making experience."
+      ]
+    },
+    {
+      "heading": "No Consistency Rules – Yet",
+      "paragraphs": [
+        "This phase is about learning, not qualifying. We don’t restrict you with consistency or discipline requirements.",
+        "Explore, experiment, and develop your style freely."
+      ]
+    },
+    {
+      "heading": "Hold Overnight, Swing Freely",
+      "paragraphs": [
+        "We allow overnight trades to help you simulate real-world strategies without fear.",
+        "Get used to the uncertainty and emotion that come with carrying trades across sessions."
+      ]
+    },
+    {
+      "heading": "Feel the Market Flow",
+      "paragraphs": [
+        "Trade during news. Sit through volatility. Feel how markets react in real-time.",
+        "This is your sandbox to understand how real money moves."
+      ]
+    },
+    {
+      "heading": "Make Mistakes. Learn Fast.",
+      "paragraphs": [
+        "Every error is a lesson when no real money is on the line.",
+        "Whether it’s bad entries, overtrading, or chasing momentum — here, you learn with zero risk."
+      ]
+    },
+    {
+      "heading": "Real-Time Data, Real Challenges",
+      "paragraphs": [
+        "Just like pro traders, you’ll get real-time option chains, price ladders, and order book depth.",
+        "This prepares you for transition into advanced competitions or funded evaluations."
+      ]
+    },
+    {
+      "heading": "No Judgement Zone — Only Growth",
+      "paragraphs": [
+        "There’s no leaderboard pressure, no P&L shame. Just you vs you.",
+        "Improve at your own pace and build confidence."
+      ]
+    },
+    {
+      "heading": "Follow Good Trainers. Test Theories.",
+      "paragraphs": [
+        "Use the platform alongside YouTube/Telegram mentors or training institutes.",
+        "Test their calls, strategies, and risk plans in real-time before using them with real money."
+      ]
+    },
+    {
+      "heading": "Prepare for Your Next Step",
+      "paragraphs": [
+        "Once you start building confidence and understanding how markets behave, you can join Zyon Competitions or Funded Programs.",
+        "This beginner zone is your practice net — get ready to step onto the real stage!"
+      ]
+    },
+    {
+  heading: "The Power of Journaling",
+  paragraphs: [
+    "Trading is not just about charts — it's about behavior, decision-making, and mindset. Journaling helps you track all of it.",
+    "By writing down your trade setups, reasons, and emotions, you create a mirror that shows your true habits over time."
+  ]
+},
+{
+  heading: "How Traders Use It",
+  paragraphs: [
+    "You can log every entry, exit, reason, and emotion for each trade. Over time, you’ll spot patterns: setups that work, mistakes you repeat, and mindset shifts.",
+    "Journaling turns daily trades into long-term improvement. It's your best edge — beyond any indicator."
+  ]
+},
+{
+  heading: "How Trainers & Mentors Benefit",
+  paragraphs: [
+    "If you're learning under a coach or a trainer, your journal helps them guide you better. They can see what you saw, why you acted, and where your bias came in.",
+    "This makes mentorship 10x more effective and personalized — and speeds up your journey toward becoming a consistent trader."
+  ]
+}
     ],
     faqs: [
       {
@@ -304,7 +672,7 @@ const featureSectionData = [
       {
         question: "Is paper trading useful if I already have experience?",
         answer:
-          "Yes. Advanced traders use Zyon to:\n• Practice new setups\n• Adjust to market volatility\n• Backtest discretionary strategies\n• Build consistency without risking money",
+          "Yes. Advanced traders use Zyon to:\n• Practice new setups\n• Adjust to market volatility\n• Backtest discretionary strategies\n• Build consistency without risking money \n• You may join Funding challange",
       },
       {
         question: "Can I access option Greeks while paper trading?",
@@ -314,7 +682,7 @@ const featureSectionData = [
       {
         question: "Are there any trading rules I need to follow?",
         answer:
-          "Yes, we simulate real-world trading discipline:\n• ✅ Max 5 trades per day\n• ✅ Daily loss and overall drawdown limits\n• ✅ Overnight holding is allowed\n• ❌ No averaging down on losing trades",
+          "No not in this mode ",
       },
       {
         question: "How many accounts can I create?",
@@ -478,26 +846,91 @@ const featureSectionData = [
     ],
     sections: [
       {
-        heading: "Two-Phase Funding Path",
-        paragraphs: [
-          "Step 1: Complete the Zyon Challenge with ₹10L virtual capital and strict rules.",
-          "Step 2: Get a ₹1L live account with 70% profit share and real brokerage applied.",
-        ],
+      heading: "What is the 2-Phase Challenge?",
+      paragraphs: [
+        "Zyon's 2-phase funded challenge simulates the evaluation process used by top prop firms. You’ll trade a ₹10L virtual account under strict consistency and risk rules in Phase 1, then verify your discipline in Phase 2 before receiving real funding.",
+        "It’s designed to test your psychology, execution, and professionalism over time."
+      ]
+    },
+    {
+      heading: "Entry Fee & Structure ₹1500 One-Time",
+      paragraphs: [
+        "You pay a one-time entry fee of ₹1,500 for the challenge.",
+        "Phase 1 lasts 30 days. Phase 2 (Verification) lasts 30 more days. Pass both, and get funded with ₹1L real capital under Zyon’s profit-sharing model (up to 80%)."
+      ]
+    },
+    {
+      heading: "Phase 1: Challenge Rules",
+      paragraphs: [
+        "• Minimum 10 trading days out of 30",
+        "• Max 5 trades/day",
+        "• Max daily loss: ₹20,000 (2%)",
+        "• Max total drawdown: ₹50,000 (5%)",
+        "• Profit target: ₹60,000 (6%)"
+      ]
+    },
+    {
+      heading: "Phase 2: Verification Rules",
+      paragraphs: [
+        "• Same trading rules as Phase 1",
+        "• Slightly reduced profit target: ₹40,000 (4%)",
+        "• Same drawdown and consistency rules apply to reinforce discipline"
+      ]
+    },
+    {
+      heading: "Consistency Rules: What & Why",
+      paragraphs: [
+        "Zyon does not reward lucky spikes — we look for consistent performance. That means:",
+        "• No single-day profit should exceed 40% of total profits",
+        "• No revenge trading or over-leverage",
+        "We aim to build long-term, disciplined traders, not gamblers."
+      ]
+    },
+    {
+      heading: "Zyon's Ethos: Why These Rules Exist",
+      paragraphs: [
+        "These rules are not made to fail you — they are created to help you succeed sustainably.",
+        "Zyon is built by traders for traders. We want you to treat trading as a profession, not a lottery."
+      ]
+    },
+    {
+      heading: "Real Capital Comes with Real Responsibility",
+      paragraphs: [
+        "Once you pass both phases, we fund you with ₹1,00,000 in real brokerage account.",
+        "We handle infra and losses. You focus on strategy and consistency. You keep up to 80% of profits."
+      ]
+    },
+    {
+      heading: "Example of Fundable Trader (✅)",
+      table: {
+        headers: ["Trader", "Profit Days", "Max Drawdown", "Consistency"],
+        rows: [
+          ["Trader A", "Traded 12 days, daily profit ₹6K–₹8K", "Never breached limits", "✅ Met all rules"]
+        ]
       },
-      {
-        heading: "Fair Evaluation Rules",
-        paragraphs: [
-          "No overnight holding, news trading, or scalping. Minimum 1-min hold per trade.",
-          "Meet all profit targets without breaching risk rules.",
-        ],
+      paragraphs: [
+        "Trader A showed steady growth, followed all rules, and proved professional behavior. This is exactly what Zyon looks for."
+      ]
+    },
+    {
+      heading: "Example of Non-Fundable Trader (❌)",
+      table: {
+        headers: ["Trader", "Profit Days", "Max Drawdown", "Consistency"],
+        rows: [
+          ["Trader B", "Made ₹60K in 1 day, no other trades", "Stayed within limits", "❌ Violated consistency rule"]
+        ]
       },
-      {
-        heading: "No Capital Risk",
-        paragraphs: [
-          "Traders keep 70% profits while Zyon handles losses and infra.",
-          "Just show skill, structure, and consistency to stay eligible.",
-        ],
-      },
+      paragraphs: [
+        "Even though Trader B hit the profit target, it came from one trade. That violates our philosophy. Professional trading is not a one-shot game."
+      ]
+    },
+    {
+      heading: "Your Path to Freedom",
+      paragraphs: [
+        "Trading gives time, money, and location freedom — but only if treated with structure.",
+        "Zyon gives you the tools, rules, and path to become a consistently funded trader. It’s not about passing a test; it’s about becoming a better trader and a better version of yourself."
+      ]
+    },
     ],
     faqs: [
       {
@@ -583,7 +1016,7 @@ const featureSectionData = [
       {
         question: "Are there consistency rules?",
         answer:
-          "Yes. Your largest profitable day should not account for more than 40% of total profits —\nto ensure consistent trading behavior.",
+          "Yes look at the trading competition section for more details.\nYou must maintain consistent performance across multiple days to pass.",
       },
 
       {
