@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - ZyonTrader</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <h1>ZyonTrader</h1>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="privacy-policy.html" class="nav-link">Privacy Policy</a></li>
+                    <li><a href="terms-conditions.html" class="nav-link">Terms & Conditions</a></li>
+                    <li><a href="cancellation-refund.html" class="nav-link">Cancellation & Refund</a></li>
+                    <li><a href="shipping-delivery.html" class="nav-link">Shipping & Delivery</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="page-header">
+            <div class="container">
+                <h1>Contact Us</h1>
+                <p>Get in touch with our team. We're here to help with any questions or concerns.</p>
+            </div>
+        </div>
+
+        <div class="page-content">
+            <div class="container">
+                <div class="contact-grid">
+                    <div class="contact-info">
+                        <h2>Get in Touch</h2>
+                        <p>Our dedicated team is here to assist you with any questions about our trading platform, services, or technical support.</p>
+                        
+                        <div class="contact-methods">
+                            <div class="contact-method">
+                                <h3>📧 Email Support</h3>
+                                <p><strong>General Inquiries:</strong> info@zyontrader.com</p>
+                                <p><strong>Technical Support:</strong> support@zyontrader.com</p>
+                                <p><strong>Sales:</strong> sales@zyontrader.com</p>
+                                <p><strong>Billing:</strong> billing@zyontrader.com</p>
+                                <p><strong>Legal:</strong> legal@zyontrader.com</p>
+                            </div>
+
+                            <div class="contact-method">
+                                <h3>📞 Phone Support</h3>
+                                <p><strong>Main Office:</strong> +1 (555) 123-4567</p>
+                                <p><strong>Technical Support:</strong> +1 (555) 123-4568</p>
+                                <p><strong>Sales Team:</strong> +1 (555) 123-4569</p>
+                                <p><strong>Emergency:</strong> +1 (555) 123-4570</p>
+                            </div>
+
+                            <div class="contact-method">
+                                <h3>🏢 Office Location</h3>
+                                <p><strong>Address:</strong><br>
+                                123 Trading Street<br>
+                                Financial District<br>
+                                New York, NY 10001<br>
+                                United States</p>
+                            </div>
+
+                            <div class="contact-method">
+                                <h3>⏰ Business Hours</h3>
+                                <p><strong>Monday - Friday:</strong> 9:00 AM - 6:00 PM EST</p>
+                                <p><strong>Saturday:</strong> 10:00 AM - 4:00 PM EST</p>
+                                <p><strong>Sunday:</strong> Closed</p>
+                                <p><strong>24/7 Emergency Support:</strong> Available for critical issues</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact-form-container">
+                        <h2>Send us a Message</h2>
+                        <form class="contact-form" id="contactForm">
+                            <div class="form-group">
+                                <label for="name">Full Name *</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email">Email Address *</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" name="phone">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="subject">Subject *</label>
+                                <select id="subject" name="subject" required>
+                                    <option value="">Select a subject</option>
+                                    <option value="general">General Inquiry</option>
+                                    <option value="technical">Technical Support</option>
+                                    <option value="sales">Sales Question</option>
+                                    <option value="billing">Billing Issue</option>
+                                    <option value="account">Account Management</option>
+                                    <option value="feedback">Feedback</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="priority">Priority Level</label>
+                                <select id="priority" name="priority">
+                                    <option value="low">Low</option>
+                                    <option value="medium" selected>Medium</option>
+                                    <option value="high">High</option>
+                                    <option value="urgent">Urgent</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="message">Message *</label>
+                                <textarea id="message" name="message" rows="6" required placeholder="Please describe your inquiry in detail..."></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="newsletter" id="newsletter">
+                                    <span class="checkmark"></span>
+                                    Subscribe to our newsletter for updates and trading insights
+                                </label>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="privacy" id="privacy" required>
+                                    <span class="checkmark"></span>
+                                    I agree to the <a href="privacy-policy.html">Privacy Policy</a> and consent to being contacted regarding my inquiry
+                                </label>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="additional-contact">
+                    <h2>Additional Ways to Connect</h2>
+                    <div class="contact-cards">
+                        <div class="contact-card">
+                            <h3>💬 Live Chat</h3>
+                            <p>Get instant help from our support team through our live chat feature available on our platform during business hours.</p>
+                            <a href="#" class="btn btn-secondary">Start Chat</a>
+                        </div>
+
+                        <div class="contact-card">
+                            <h3>📱 Mobile App Support</h3>
+                            <p>Access support directly through our mobile trading app. Tap the help icon for instant assistance.</p>
+                            <a href="#" class="btn btn-secondary">Download App</a>
+                        </div>
+
+                        <div class="contact-card">
+                            <h3>📚 Help Center</h3>
+                            <p>Browse our comprehensive knowledge base for answers to frequently asked questions and tutorials.</p>
+                            <a href="#" class="btn btn-secondary">Visit Help Center</a>
+                        </div>
+
+                        <div class="contact-card">
+                            <h3>🎥 Video Tutorials</h3>
+                            <p>Watch step-by-step video guides to learn how to use our platform effectively.</p>
+                            <a href="#" class="btn btn-secondary">Watch Videos</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-section">
+                    <h2>Frequently Asked Questions</h2>
+                    <div class="faq-grid">
+                        <div class="faq-item">
+                            <h3>How do I reset my password?</h3>
+                            <p>Click the "Forgot Password" link on the login page and follow the instructions sent to your email address.</p>
+                        </div>
+
+                        <div class="faq-item">
+                            <h3>What are your trading hours?</h3>
+                            <p>Our platform is available 24/7 for trading, but market hours vary by instrument. Check our market hours page for specific details.</p>
+                        </div>
+
+                        <div class="faq-item">
+                            <h3>How do I withdraw funds?</h3>
+                            <p>Log into your account, go to the "Withdraw" section, and follow the verification process. Withdrawals typically process within 1-3 business days.</p>
+                        </div>
+
+                        <div class="faq-item">
+                            <h3>Is my account secure?</h3>
+                            <p>Yes, we use bank-level security protocols including SSL encryption, two-factor authentication, and regular security audits to protect your account.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>ZyonTrader</h3>
+                    <p>Professional trading platform for serious investors.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="terms-conditions.html">Terms & Conditions</a></li>
+                        <li><a href="cancellation-refund.html">Cancellation & Refund</a></li>
+                        <li><a href="shipping-delivery.html">Shipping & Delivery</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li>support@zyontrader.com</li>
+                        <li>+1 (555) 123-4567</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 ZyonTrader. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html> 
