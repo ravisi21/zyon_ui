@@ -1,18 +1,23 @@
-import React, { useState, useEffect } from 'react';
-import * as editOrderStore from '../../store/editOrderStore';
-import OrderFormWidget from './OrderFormWidget';
-import eventBus, { EVENT_TYPES } from '../../utils/eventBus';
+import React, { useState, useEffect } from "react";
+import * as editOrderStore from "../../store/editOrderStore";
+import OrderFormWidget from "./OrderFormWidget";
+import eventBus, { EVENT_TYPES } from "../../utils/eventBus";
 
 const OrderPopup = () => {
-  const [editOrder, setEditOrder] = useState(() => editOrderStore.getEditOrder());
+  const [editOrder, setEditOrder] = useState(() =>
+    editOrderStore.getEditOrder(),
+  );
 
   useEffect(() => {
-    const unsubscribeEditOrder = eventBus.on(EVENT_TYPES.EDIT_ORDER_UPDATE, () => {
-      setEditOrder(editOrderStore.getEditOrder());
-    });
-    
+    const unsubscribeEditOrder = eventBus.on(
+      EVENT_TYPES.EDIT_ORDER_UPDATE,
+      () => {
+        setEditOrder(editOrderStore.getEditOrder());
+      },
+    );
+
     return () => {
-      if (typeof unsubscribeEditOrder === 'function') unsubscribeEditOrder();
+      if (typeof unsubscribeEditOrder === "function") unsubscribeEditOrder();
     };
   }, []);
 
@@ -29,16 +34,21 @@ const OrderPopup = () => {
     }
   };
 
-  return editOrder && (
-    <div className="fixed inset-0 z-40 flex items-end justify-center p-6" onClick={handleBackdropClick}>
-      <div className="w-[50%]">
-        <OrderFormWidget 
-          onCancel={handleCancel}
-          onSuccess={() => editOrderStore.setEditOrder(null)}
-        />
+  return (
+    editOrder && (
+      <div
+        className="fixed inset-0 z-40 flex items-end justify-center p-6"
+        onClick={handleBackdropClick}
+      >
+        <div className="w-[50%]">
+          <OrderFormWidget
+            onCancel={handleCancel}
+            onSuccess={() => editOrderStore.setEditOrder(null)}
+          />
+        </div>
       </div>
-    </div>
+    )
   );
 };
 
-export default OrderPopup; 
+export default OrderPopup;

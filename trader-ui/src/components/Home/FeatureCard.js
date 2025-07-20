@@ -30,7 +30,7 @@ const FeatureCard = ({
 
   return (
     <>
-      <div 
+      <div
         data-aos="zoom-in-up"
         data-aos-delay={`${(typeof index === "number" ? index : 0) * 150}`}
         className="bg-white p-6 rounded-xl flex flex-col shadow-2xl transition-all duration-300 ease-in-out border border-neutral-200 transform hover:-translate-y-2"

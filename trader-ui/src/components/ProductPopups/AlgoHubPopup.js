@@ -1,10 +1,15 @@
-import React from 'react';
+import React from "react";
 import { GiVintageRobot } from "react-icons/gi";
 import { FaTimes } from "react-icons/fa";
+import DemoAccountRequestComponent from "../Home/DemoAccountRequestComponent";
 
-const BulletTriangle = ({classes}) => {
+const BulletTriangle = ({ classes }) => {
   return (
-    <svg className={`w-4 h-4 ${classes}`} fill="currentColor" viewBox="0 0 24 24">
+    <svg
+      className={`w-4 h-4 ${classes}`}
+      fill="currentColor"
+      viewBox="0 0 24 24"
+    >
       <path d="M8 5v14l11-7z" />
     </svg>
   );
@@ -43,38 +48,63 @@ const AlgoHubPopup = ({ isOpen, onClose }) => {
             {/* Left Column - Features */}
             <div className="space-y-6 w-full flex-1">
               <div className="bg-slate-100 p-4 rounded-lg">
-                <div className="text-lg font-semibold text-gray-800 mb-2">Forward Test Your Algos with Live Market Data</div>
+                <div className="text-lg font-semibold text-gray-800 mb-2">
+                  Forward Test Your Algos with Live Market Data
+                </div>
                 <div className="flex items-center gap-2">
                   <BulletTriangle classes="text-green-600" />
-                  <span className="text-gray-700">Run your trading algo in a real-time market simulation. Monitor trades, behavior, and execution quality — just like a live environment, but without risking capital.</span>
+                  <span className="text-gray-700">
+                    Run your trading algo in a real-time market simulation.
+                    Monitor trades, behavior, and execution quality — just like
+                    a live environment, but without risking capital.
+                  </span>
                 </div>
                 <div className="flex items-center gap-2 mt-2">
                   <BulletTriangle classes="text-green-600" />
-                  <span className="text-gray-700">Great for scalping, breakout, or statistical arbitrage algo that need to react to market movements as they happen.</span>
+                  <span className="text-gray-700">
+                    Great for scalping, breakout, or statistical arbitrage algo
+                    that need to react to market movements as they happen.
+                  </span>
                 </div>
               </div>
 
               <div className="bg-slate-100 p-4 rounded-lg">
-                <div className="text-lg font-semibold text-gray-800 mb-2">Live Option Chain, Futures, and Stock Feed</div>
+                <div className="text-lg font-semibold text-gray-800 mb-2">
+                  Live Option Chain, Futures, and Stock Feed
+                </div>
                 <div className="flex items-center gap-2">
                   <BulletTriangle classes="text-green-600" />
-                  <span className="text-gray-700">Use the full index options, futures, and selected stocks — in your strategy logic.</span>
+                  <span className="text-gray-700">
+                    Use the full index options, futures, and selected stocks —
+                    in your strategy logic.
+                  </span>
                 </div>
                 <div className="flex items-center gap-2 mt-2">
                   <BulletTriangle classes="text-green-600" />
-                  <span className="text-gray-700">Live Greeks, and price levels are available for algo to react contextually.</span>
+                  <span className="text-gray-700">
+                    Live Greeks, and price levels are available for algo to
+                    react contextually.
+                  </span>
                 </div>
               </div>
 
               <div className="bg-slate-100 p-4 rounded-lg">
-                <div className="text-lg font-semibold text-gray-800 mb-2">Daily P&L Statement of Your Algo</div>
+                <div className="text-lg font-semibold text-gray-800 mb-2">
+                  Daily P&L Statement of Your Algo
+                </div>
                 <div className="flex items-center gap-2">
                   <BulletTriangle classes="text-green-600" />
-                  <span className="text-gray-700">Get structured data of order placements, trade journals of the algo.</span>
+                  <span className="text-gray-700">
+                    Get structured data of order placements, trade journals of
+                    the algo.
+                  </span>
                 </div>
                 <div className="flex items-center gap-2 mt-2">
                   <BulletTriangle classes="text-green-600" />
-                  <span className="text-gray-700">Track key performance metrics — PnL, win ratio, average hold time — and debug issues with clarity.</span>
+                  <span className="text-gray-700">
+                    Track key performance metrics — PnL, win ratio, average hold
+                    time — and debug issues with clarity.
+                  </span>
                 </div>
               </div>
             </div>
@@ -83,17 +113,27 @@ const AlgoHubPopup = ({ isOpen, onClose }) => {
 
         {/* Footer with Payment Button */}
         <div className="bg-gray-50 p-3 px-6 rounded-b-lg border-t">
-          <div className="flex items-center justify-between">
-            <div>
-              <div className="text-gray-800 mb-2 font-semibold">Ready to automate your trading?</div>
-              <div className="text-sm text-gray-800">Forward test your algorithms with live data</div>
+          <div className="flex items-center w-full justify-between">
+            <div className="hidden md:block">
+              <div className="text-gray-800 mb-2 font-semibold">
+                Ready to automate your trading?
+              </div>
+              <div className="text-sm text-gray-800">
+                Forward test your algorithms with live data
+              </div>
             </div>
+            <div className="flex-1 hidden md:block"></div>
+            <DemoAccountRequestComponent
+              className="mt-2 mr-4"
+              textColor="text-blue-600"
+              hoverColor="hover:text-blue-700"
+              onDemoRequest={onClose}
+            />
             <button
-              onClick={() => {
-              }}
+              onClick={() => {}}
               className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-lg transition-colors duration-200 flex items-center space-x-2"
             >
-              <span>Pay ₹1,499/month</span>
+              <span>Pay ₹1499</span>
               <GiVintageRobot className="text-white" />
             </button>
           </div>
@@ -103,4 +143,4 @@ const AlgoHubPopup = ({ isOpen, onClose }) => {
   );
 };
 
-export default AlgoHubPopup; 
+export default AlgoHubPopup;

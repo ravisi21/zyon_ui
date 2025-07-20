@@ -1,6 +1,6 @@
-import React from 'react';
-import { Card } from 'antd';
-import { formatPrice } from '../../utils/formatter';
+import React from "react";
+import { Card } from "antd";
+import { formatPrice } from "../../utils/formatter";
 
 const OptionsAnalyticsStatsWidget = ({ analyticsData, selectedPrice }) => {
   if (!analyticsData) {
@@ -16,7 +16,11 @@ const OptionsAnalyticsStatsWidget = ({ analyticsData, selectedPrice }) => {
 
   // Calculate Greeks based on selected price (simplified calculations)
   const calculateGreeks = (price) => {
-    if (!price || !analyticsData.currentProjections || !analyticsData.currentProjections[price]) {
+    if (
+      !price ||
+      !analyticsData.currentProjections ||
+      !analyticsData.currentProjections[price]
+    ) {
       return { delta: 0, theta: 0, gamma: 0, vega: 0 };
     }
 
@@ -43,22 +47,21 @@ const OptionsAnalyticsStatsWidget = ({ analyticsData, selectedPrice }) => {
             <div className="flex justify-between items-center">
               <span className="text-sm text-neutral-400">Max Profit:</span>
               <span className="text-sm font-medium text-price-green">
-                {maxProfit ? '₹' + formatPrice(maxProfit) : 'Unlimited'}
+                {maxProfit ? "₹" + formatPrice(maxProfit) : "Unlimited"}
               </span>
             </div>
             <div className="flex justify-between items-center">
               <span className="text-sm text-neutral-400">Max Loss:</span>
               <span className="text-sm font-medium text-price-red">
-                {maxLoss ? '₹' + formatPrice(maxLoss) : 'Unlimited'}
+                {maxLoss ? "₹" + formatPrice(maxLoss) : "Unlimited"}
               </span>
             </div>
             <div className="flex justify-between items-center">
               <span className="text-sm text-neutral-400">Breakeven:</span>
               <span className="text-sm font-medium text-neutral-400">
                 {breakEvens && breakEvens.length > 0
-                  ? breakEvens.map(be => `₹${formatPrice(be)}`).join(', ')
-                  : '--'
-                }
+                  ? breakEvens.map((be) => `₹${formatPrice(be)}`).join(", ")
+                  : "--"}
               </span>
             </div>
           </div>
@@ -69,25 +72,33 @@ const OptionsAnalyticsStatsWidget = ({ analyticsData, selectedPrice }) => {
           <div className="space-y-1 md:space-y-3">
             <div className="flex justify-between items-center">
               <span className="text-sm text-neutral-400">Delta:</span>
-              <span className={`text-sm font-medium ${greeks.delta >= 0 ? 'text-price-green' : 'text-price-red'}`}>
+              <span
+                className={`text-sm font-medium ${greeks.delta >= 0 ? "text-price-green" : "text-price-red"}`}
+              >
                 {formatPrice(greeks.delta)}
               </span>
             </div>
             <div className="flex justify-between items-center">
               <span className="text-sm text-neutral-400">Theta:</span>
-              <span className={`text-sm font-medium ${greeks.theta >= 0 ? 'text-price-green' : 'text-price-red'}`}>
+              <span
+                className={`text-sm font-medium ${greeks.theta >= 0 ? "text-price-green" : "text-price-red"}`}
+              >
                 {formatPrice(greeks.theta)}
               </span>
             </div>
             <div className="flex justify-between items-center">
               <span className="text-sm text-neutral-400">Gamma:</span>
-              <span className={`text-sm font-medium ${greeks.gamma >= 0 ? 'text-price-green' : 'text-price-red'}`}>
+              <span
+                className={`text-sm font-medium ${greeks.gamma >= 0 ? "text-price-green" : "text-price-red"}`}
+              >
                 {formatPrice(greeks.gamma)}
               </span>
             </div>
             <div className="flex justify-between items-center">
               <span className="text-sm text-neutral-400">Vega:</span>
-              <span className={`text-sm font-medium ${greeks.vega >= 0 ? 'text-price-green' : 'text-price-red'}`}>
+              <span
+                className={`text-sm font-medium ${greeks.vega >= 0 ? "text-price-green" : "text-price-red"}`}
+              >
                 {formatPrice(greeks.vega)}
               </span>
             </div>
@@ -98,4 +109,4 @@ const OptionsAnalyticsStatsWidget = ({ analyticsData, selectedPrice }) => {
   );
 };
 
-export default OptionsAnalyticsStatsWidget; 
+export default OptionsAnalyticsStatsWidget;

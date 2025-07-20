@@ -1,5 +1,5 @@
-import deepEqual from '../utils/deepEqual';
-import eventBus, { EVENT_TYPES } from '../utils/eventBus';
+import deepEqual from "../utils/deepEqual";
+import eventBus, { EVENT_TYPES } from "../utils/eventBus";
 
 export const ordersStore = {
   orders: [],

@@ -1,6 +1,6 @@
-import * as quotesStore from '../store/quotesStore';
-import * as userStore from '../store/userStore';
-import eventBus, { EVENT_TYPES } from '../utils/eventBus';
+import * as quotesStore from "../store/quotesStore";
+import * as userStore from "../store/userStore";
+import eventBus, { EVENT_TYPES } from "../utils/eventBus";
 
 class WebSocketService {
   constructor() {
@@ -48,16 +48,16 @@ class WebSocketService {
     }
 
     this.isConnecting = true;
-    
-    const baseUrl = process.env.REACT_APP_API_BASE_URL || '/api';
-    const wsUrl = baseUrl.replace(/^http/, 'ws').replace(/^https/, 'wss');
+
+    const baseUrl = process.env.REACT_APP_API_BASE_URL || "/api";
+    const wsUrl = baseUrl.replace(/^http/, "ws").replace(/^https/, "wss");
     const wsEndpoint = `${wsUrl}/ws`;
 
     try {
       this.ws = new WebSocket(wsEndpoint);
       this.setupEventHandlers();
     } catch (error) {
-      console.error('[WebSocketService] connect: connection failed', error);
+      console.error("[WebSocketService] connect: connection failed", error);
       this.isConnecting = false;
 
       this.handleReconnect();
@@ -68,10 +68,10 @@ class WebSocketService {
   setupEventHandlers() {
     this.ws.onopen = () => {
       this.isConnecting = false;
-      
+
       // Authenticate the connection
       this.authenticate();
-      
+
       // Start connection monitoring
       this.startConnectionMonitor();
       this.lastMessageTime = Date.now();
@@ -90,7 +90,7 @@ class WebSocketService {
           const data = JSON.parse(event.data);
           this.handleMessage(data);
         } catch (error) {
-          console.error('Failed to parse WebSocket message:', error);
+          console.error("Failed to parse WebSocket message:", error);
         }
       }
     };
@@ -102,7 +102,7 @@ class WebSocketService {
     };
 
     this.ws.onerror = (error) => {
-      console.error('[WebSocketService] onerror:', error);
+      console.error("[WebSocketService] onerror:", error);
       this.isConnecting = false;
     };
   }
@@ -111,7 +111,7 @@ class WebSocketService {
   parseBinaryQuotes(buffer) {
     const array = new Int8Array(buffer);
     let i = 0;
-    
+
     while (i < array.length) {
       i = this.parseSingleQuote(i, array);
     }
@@ -120,12 +120,12 @@ class WebSocketService {
   // Parse a single quote from binary data
   parseSingleQuote(index, array) {
     const nameLength = array.at(index);
-    let scriptId = '';
-    
+    let scriptId = "";
+
     for (let j = index + 1; j <= index + nameLength; j++) {
       scriptId = scriptId + String.fromCharCode(array.at(j));
     }
-    
+
     const quoteData = {
       scriptId: scriptId,
       price: this.parseInteger(array, index + nameLength + 1) / 100,
@@ -138,11 +138,11 @@ class WebSocketService {
         open: this.parseInteger(array, index + nameLength + 37) / 100,
         high: this.parseInteger(array, index + nameLength + 41) / 100,
         low: this.parseInteger(array, index + nameLength + 45) / 100,
-        close: this.parseInteger(array, index + nameLength + 49) / 100
+        close: this.parseInteger(array, index + nameLength + 49) / 100,
       },
       prevClose: this.parseInteger(array, index + nameLength + 53) / 100,
       change: this.parseInteger(array, index + nameLength + 57) / 100,
-      changePct: this.parseInteger(array, index + nameLength + 61) / 100
+      changePct: this.parseInteger(array, index + nameLength + 61) / 100,
     };
     // Update store with the parsed quote
     quotesStore.addQuote(quoteData);
@@ -156,7 +156,11 @@ class WebSocketService {
 
   // Parse 64-bit long from binary data
   parseLong(array, index) {
-    return parseInt(new DataView(array.buffer.slice(index, index + 8)).getBigInt64().toString());
+    return parseInt(
+      new DataView(array.buffer.slice(index, index + 8))
+        .getBigInt64()
+        .toString(),
+    );
   }
 
   // Start connection monitoring
@@ -204,7 +208,7 @@ class WebSocketService {
     const status = this.getStatus();
 
     // If connection is not open and we're not already connecting, try to reconnect
-    if (status !== 'connected' && !this.isConnecting) {
+    if (status !== "connected" && !this.isConnecting) {
       this.connect();
     }
   }
@@ -212,12 +216,12 @@ class WebSocketService {
   // Authenticate WebSocket connection
   authenticate() {
     if (!userStore.userStore.creds) {
-      console.warn('WebSocket: Cannot authenticate - missing credentials');
+      console.warn("WebSocket: Cannot authenticate - missing credentials");
       return;
     }
-    
+
     if (!this.accountId) {
-      console.warn('WebSocket: Cannot authenticate - missing account ID');
+      console.warn("WebSocket: Cannot authenticate - missing account ID");
       return;
     }
 
@@ -233,7 +237,7 @@ class WebSocketService {
     if (this.ws?.readyState === WebSocket.OPEN) {
       this.ws.send(message);
     } else {
-      console.warn('WebSocket not connected, message not sent:', message);
+      console.warn("WebSocket not connected, message not sent:", message);
     }
   }
 
@@ -254,7 +258,7 @@ class WebSocketService {
   disconnect() {
     this.stopConnectionMonitor();
     if (this.ws) {
-      this.ws.close(1000, 'User initiated disconnect');
+      this.ws.close(1000, "User initiated disconnect");
       this.ws = null;
     }
     if (this._reconnectTimeout) {
@@ -267,19 +271,19 @@ class WebSocketService {
 
   // Get connection status
   getStatus() {
-    if (!this.ws) return 'disconnected';
-    
+    if (!this.ws) return "disconnected";
+
     switch (this.ws.readyState) {
       case WebSocket.CONNECTING:
-        return 'connecting';
+        return "connecting";
       case WebSocket.OPEN:
-        return 'connected';
+        return "connected";
       case WebSocket.CLOSING:
-        return 'closing';
+        return "closing";
       case WebSocket.CLOSED:
-        return 'disconnected';
+        return "disconnected";
       default:
-        return 'unknown';
+        return "unknown";
     }
   }
 }

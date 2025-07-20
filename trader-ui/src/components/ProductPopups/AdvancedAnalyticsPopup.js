@@ -1,10 +1,15 @@
-import React from 'react';
+import React from "react";
 import { BsGraphUp } from "react-icons/bs";
 import { FaTimes } from "react-icons/fa";
+import DemoAccountRequestComponent from "../Home/DemoAccountRequestComponent";
 
-const BulletTriangle = ({classes}) => {
+const BulletTriangle = ({ classes }) => {
   return (
-    <svg className={`w-4 h-4 ${classes}`} fill="currentColor" viewBox="0 0 24 24">
+    <svg
+      className={`w-4 h-4 ${classes}`}
+      fill="currentColor"
+      viewBox="0 0 24 24"
+    >
       <path d="M8 5v14l11-7z" />
     </svg>
   );
@@ -24,8 +29,12 @@ const AdvancedAnalyticsPopup = ({ isOpen, onClose }) => {
                 <BsGraphUp />
               </div>
               <div>
-                <div className="text-xl font-semibold mb-1">Advanced Analytics</div>
-                <div className="text-blue-100">Tools, Data & AI-Driven Insights</div>
+                <div className="text-xl font-semibold mb-1">
+                  Advanced Analytics
+                </div>
+                <div className="text-blue-100">
+                  Tools, Data & AI-Driven Insights
+                </div>
               </div>
             </div>
             <button
@@ -43,38 +52,59 @@ const AdvancedAnalyticsPopup = ({ isOpen, onClose }) => {
             {/* Left Column - Features */}
             <div className="space-y-6 w-full flex-1">
               <div className="bg-slate-100 p-4 rounded-lg">
-                <div className="text-lg font-semibold text-gray-800 mb-2">Real-Time Market Dashboard</div>
+                <div className="text-lg font-semibold text-gray-800 mb-2">
+                  Real-Time Market Dashboard
+                </div>
                 <div className="flex items-center gap-2">
                   <BulletTriangle classes="text-green-600" />
-                  <span className="text-gray-700">Get live market data, option chain analytics, and OI changes in one comprehensive dashboard.</span>
+                  <span className="text-gray-700">
+                    Get live market data, option chain analytics, and OI changes
+                    in one comprehensive dashboard.
+                  </span>
                 </div>
                 <div className="flex items-center gap-2 mt-2">
                   <BulletTriangle classes="text-green-600" />
-                  <span className="text-gray-700">Track market breadth, put-call ratios, and institutional flow patterns.</span>
+                  <span className="text-gray-700">
+                    Track market breadth, put-call ratios, and institutional
+                    flow patterns.
+                  </span>
                 </div>
               </div>
 
               <div className="bg-slate-100 p-4 rounded-lg">
-                <div className="text-lg font-semibold text-gray-800 mb-2">Advanced Option Analytics</div>
+                <div className="text-lg font-semibold text-gray-800 mb-2">
+                  Advanced Option Analytics
+                </div>
                 <div className="flex items-center gap-2">
                   <BulletTriangle classes="text-green-600" />
-                  <span className="text-gray-700">Real-time Greeks, IV skew, and option flow analysis.</span>
+                  <span className="text-gray-700">
+                    Real-time Greeks, IV skew, and option flow analysis.
+                  </span>
                 </div>
                 <div className="flex items-center gap-2 mt-2">
                   <BulletTriangle classes="text-green-600" />
-                  <span className="text-gray-700">Identify unusual options activity and institutional positioning.</span>
+                  <span className="text-gray-700">
+                    Identify unusual options activity and institutional
+                    positioning.
+                  </span>
                 </div>
               </div>
 
               <div className="bg-slate-100 p-4 rounded-lg">
-                <div className="text-lg font-semibold text-gray-800 mb-2">AI-Driven Insights</div>
+                <div className="text-lg font-semibold text-gray-800 mb-2">
+                  AI-Driven Insights
+                </div>
                 <div className="flex items-center gap-2">
                   <BulletTriangle classes="text-green-600" />
-                  <span className="text-gray-700">Get AI-powered market analysis and trend predictions.</span>
+                  <span className="text-gray-700">
+                    Get AI-powered market analysis and trend predictions.
+                  </span>
                 </div>
                 <div className="flex items-center gap-2 mt-2">
                   <BulletTriangle classes="text-green-600" />
-                  <span className="text-gray-700">Advanced algorithms help identify trading opportunities.</span>
+                  <span className="text-gray-700">
+                    Advanced algorithms help identify trading opportunities.
+                  </span>
                 </div>
               </div>
             </div>
@@ -83,17 +113,27 @@ const AdvancedAnalyticsPopup = ({ isOpen, onClose }) => {
 
         {/* Footer with Payment Button */}
         <div className="bg-gray-50 p-3 px-6 rounded-b-lg border-t">
-          <div className="flex items-center justify-between">
-            <div>
-              <div className="text-gray-800 mb-2 font-semibold">Ready for advanced market insights?</div>
-              <div className="text-sm text-gray-800">Get professional-grade analytics</div>
+          <div className="flex items-center w-full justify-between">
+            <div className="hidden md:block">
+              <div className="text-gray-800 mb-2 font-semibold">
+                Ready for advanced market insights?
+              </div>
+              <div className="text-sm text-gray-800">
+                Get professional-grade analytics
+              </div>
             </div>
+            <div className="flex-1 hidden md:block"></div>
+            <DemoAccountRequestComponent
+              className="mt-2 mr-4"
+              textColor="text-blue-600"
+              hoverColor="hover:text-blue-700"
+              onDemoRequest={onClose}
+            />
             <button
-              onClick={() => {
-              }}
+              onClick={() => {}}
               className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-lg transition-colors duration-200 flex items-center space-x-2"
             >
-              <span>Pay ₹999/month</span>
+              <span>Pay ₹999</span>
               <BsGraphUp className="text-white" />
             </button>
           </div>
@@ -103,4 +143,4 @@ const AdvancedAnalyticsPopup = ({ isOpen, onClose }) => {
   );
 };
 
-export default AdvancedAnalyticsPopup; 
+export default AdvancedAnalyticsPopup;

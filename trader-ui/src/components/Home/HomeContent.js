@@ -5,7 +5,7 @@ import Header from "./Header";
 import TopContent from "./TopContent";
 import FeatureSection from "./FeatureSection";
 import featureSectionData from "./featureSectionData";
-import PopupFlowManager from "../Common/PopupFlowManager";
+import PopupFlowManager from "../Popups/HomePopupFlowManager";
 
 function Home() {
   return (

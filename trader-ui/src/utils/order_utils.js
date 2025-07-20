@@ -1,5 +1,5 @@
-import { submitOrders } from '../api/apis';
-import { setLiveOrders } from '../store/ordersStore';
+import { submitOrders } from "../api/apis";
+import { setLiveOrders } from "../store/ordersStore";
 
 // Utility functions for order operations
 
@@ -13,8 +13,8 @@ export function repeatOrder(order) {
     orderType: order.orderType,
     legType: order.legType,
     orderQuantity: Math.abs(order.orderQuantity) || 0,
-    limitPrice: order.kind !== 'MARKET' ? (order.limitPrice || 0) : 0,
-    triggerPrice: order.kind !== 'MARKET' ? (order.triggerPrice || 0) : 0,
+    limitPrice: order.kind !== "MARKET" ? order.limitPrice || 0 : 0,
+    triggerPrice: order.kind !== "MARKET" ? order.triggerPrice || 0 : 0,
     kind: order.kind,
   };
   submitOrders([orderUpdationData]);
@@ -27,11 +27,11 @@ export function repeatOrder(order) {
 export function reverseOrder(order) {
   const orderUpdationData = {
     scriptId: order.scriptId,
-    orderType: order.orderType === 'BUY' ? 'SELL' : 'BUY',
-    legType: order.legType === 'OPEN' ? 'CLOSE' : 'OPEN',
+    orderType: order.orderType === "BUY" ? "SELL" : "BUY",
+    legType: order.legType === "OPEN" ? "CLOSE" : "OPEN",
     orderQuantity: Math.abs(order.orderQuantity) || 0,
-    limitPrice: order.kind !== 'MARKET' ? (order.limitPrice || 0) : 0,
-    triggerPrice: order.kind !== 'MARKET' ? (order.triggerPrice || 0) : 0,
+    limitPrice: order.kind !== "MARKET" ? order.limitPrice || 0 : 0,
+    triggerPrice: order.kind !== "MARKET" ? order.triggerPrice || 0 : 0,
     kind: order.kind,
   };
   submitOrders([orderUpdationData]);
@@ -50,7 +50,7 @@ export function placeMultiple(orders) {
       }
       return order;
     });
-    
+
     setLiveOrders(orderWithStatus);
     if (shouldDismiss) {
       window.setTimeout(() => {
@@ -77,7 +77,7 @@ export function orderBasket(basket) {
       orderQuantity: Math.abs(bo.quantity) || 0,
       limitPrice: 0,
       triggerPrice: 0,
-      kind: "MARKET"
+      kind: "MARKET",
     };
     if (bo.isBuy) {
       orders = [orderData, ...orders];
@@ -104,7 +104,7 @@ export function exitBasket(basket) {
       orderQuantity: Math.abs(bo.quantity) || 0,
       limitPrice: 0,
       triggerPrice: 0,
-      kind: "MARKET"
+      kind: "MARKET",
     };
     if (!bo.isBuy) {
       orders = [orderData, ...orders];

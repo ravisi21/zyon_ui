@@ -39,7 +39,7 @@ const cardData = [
     description:
       "Forward Test your strategies\n  Deploy Strategies to Top Brokers\n Live Monitoring & Alerts\n EOD Reports \n API Integrations Available ",
     youtubeLink: "dQw4w9WgXcQ",
-    scrollTo: "feature-Fowrad -Testing",
+    scrollTo: "feature-Forward-Testing",
   },
 ];
 

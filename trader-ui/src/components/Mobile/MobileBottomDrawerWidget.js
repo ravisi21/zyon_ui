@@ -1,16 +1,24 @@
-import React, { useState, useEffect, useCallback } from 'react';
-import { CloseOutlined } from '@ant-design/icons';
-import eventBus, { EVENT_TYPES } from '../../utils/eventBus';
-import { getEditOrder, clear as clearEditOrder, setEditOrder as setEditOrderStore } from '../../store/editOrderStore';
-import { getSelectedScriptId, getPosition, clear as clearMobileData } from '../../store/mobileDataStore';
-import { createEditOrder } from '../../utils/utils';
-import OrderFormWidget from '../Orders/OrderFormWidget';
-import QuoteSummaryWidget from '../Common/QuoteSummaryWidget';
+import React, { useState, useEffect, useCallback } from "react";
+import { CloseOutlined } from "@ant-design/icons";
+import eventBus, { EVENT_TYPES } from "../../utils/eventBus";
+import {
+  getEditOrder,
+  clear as clearEditOrder,
+  setEditOrder as setEditOrderStore,
+} from "../../store/editOrderStore";
+import {
+  getSelectedScriptId,
+  getPosition,
+  clear as clearMobileData,
+} from "../../store/mobileDataStore";
+import { createEditOrder } from "../../utils/utils";
+import OrderFormWidget from "../Orders/OrderFormWidget";
+import QuoteSummaryWidget from "../Common/QuoteSummaryWidget";
 
 const MobileBottomDrawerWidget = () => {
   const [showDrawer, setShowDrawer] = useState(false);
   const [drawerContent, setDrawerContent] = useState(null);
-  const [drawerTitle, setDrawerTitle] = useState('Details');
+  const [drawerTitle, setDrawerTitle] = useState("Details");
   const [editOrder, setEditOrder] = useState(null);
   const [selectedScriptId, setSelectedScriptId] = useState(null);
   const [position, setPosition] = useState(null);
@@ -18,15 +26,21 @@ const MobileBottomDrawerWidget = () => {
   // Listen to store updates
   useEffect(() => {
     // Edit order listener
-    const editOrderUnsubscribe = eventBus.on(EVENT_TYPES.EDIT_ORDER_UPDATE, () => {
-      setEditOrder(getEditOrder());
-    });
+    const editOrderUnsubscribe = eventBus.on(
+      EVENT_TYPES.EDIT_ORDER_UPDATE,
+      () => {
+        setEditOrder(getEditOrder());
+      },
+    );
 
     // Mobile data listeners
-    const mobileDataUnsubscribe = eventBus.on(EVENT_TYPES.MOBILE_DATA_UPDATE, (field) => {
-      setSelectedScriptId(getSelectedScriptId());
-      setPosition(getPosition());
-    });
+    const mobileDataUnsubscribe = eventBus.on(
+      EVENT_TYPES.MOBILE_DATA_UPDATE,
+      (field) => {
+        setSelectedScriptId(getSelectedScriptId());
+        setPosition(getPosition());
+      },
+    );
 
     // Cleanup listeners on unmount
     return () => {
@@ -34,7 +48,7 @@ const MobileBottomDrawerWidget = () => {
       mobileDataUnsubscribe();
     };
   }, []);
-  
+
   const handleCloseDrawer = useCallback(() => {
     setShowDrawer(false);
     // Clear both stores when drawer is hidden
@@ -44,24 +58,34 @@ const MobileBottomDrawerWidget = () => {
 
   // Button click handlers
   const handleBuy = useCallback(() => {
-    setEditOrderStore(createEditOrder(selectedScriptId, 'BUY', 'OPEN', 0));
+    setEditOrderStore(createEditOrder(selectedScriptId, "BUY", "OPEN", 0));
   }, [selectedScriptId]);
 
   const handleSell = useCallback(() => {
-    setEditOrderStore(createEditOrder(selectedScriptId, 'SELL', 'OPEN', 0));
+    setEditOrderStore(createEditOrder(selectedScriptId, "SELL", "OPEN", 0));
   }, [selectedScriptId]);
 
   const handleAdd = useCallback(() => {
     const absQuantity = Math.abs(position.netQuantity);
-    const orderType = position.netQuantity < 0 ? 'SELL' : 'BUY';
-    const editOrder = createEditOrder(position.scriptId, orderType, 'OPEN', absQuantity);
+    const orderType = position.netQuantity < 0 ? "SELL" : "BUY";
+    const editOrder = createEditOrder(
+      position.scriptId,
+      orderType,
+      "OPEN",
+      absQuantity,
+    );
     setEditOrderStore(editOrder);
   }, [position]);
 
   const handleExit = useCallback(() => {
     const absQuantity = Math.abs(position.netQuantity);
-    const orderType = position.netQuantity >= 0 ? 'SELL' : 'BUY';
-    const editOrder = createEditOrder(position.scriptId, orderType, 'CLOSE', absQuantity);
+    const orderType = position.netQuantity >= 0 ? "SELL" : "BUY";
+    const editOrder = createEditOrder(
+      position.scriptId,
+      orderType,
+      "CLOSE",
+      absQuantity,
+    );
     setEditOrderStore(editOrder);
   }, [position]);
 
@@ -69,13 +93,13 @@ const MobileBottomDrawerWidget = () => {
   useEffect(() => {
     if (editOrder) {
       setShowDrawer(true);
-      setDrawerTitle('Edit Order');
+      setDrawerTitle("Edit Order");
       setDrawerContent(
         <OrderFormWidget
           onCancel={() => handleCloseDrawer()}
           onSuccess={() => handleCloseDrawer()}
           isMobile={true}
-        />
+        />,
       );
     } else if (position && position.scriptId) {
       setShowDrawer(true);
@@ -97,7 +121,7 @@ const MobileBottomDrawerWidget = () => {
             </button>
           </div>
           <QuoteSummaryWidget scriptId={position?.scriptId} />
-        </div>
+        </div>,
       );
     } else if (selectedScriptId) {
       setShowDrawer(true);
@@ -119,20 +143,30 @@ const MobileBottomDrawerWidget = () => {
             </button>
           </div>
           <QuoteSummaryWidget scriptId={selectedScriptId} />
-        </div>
+        </div>,
       );
     } else {
       setShowDrawer(false);
     }
-  }, [editOrder, selectedScriptId, position, handleAdd, handleExit, handleBuy, handleSell, handleCloseDrawer]);
+  }, [
+    editOrder,
+    selectedScriptId,
+    position,
+    handleAdd,
+    handleExit,
+    handleBuy,
+    handleSell,
+    handleCloseDrawer,
+  ]);
 
   return (
     <>
       {/* Bottom Drawer */}
       <div
-        className={`fixed bottom-0 left-0 right-0 bg-dark-bg-2 border-t border-neutral-700 transform transition-transform duration-300 ease-in-out z-50 ${showDrawer ? 'translate-y-0' : 'translate-y-full'
-          }`}
-        style={{ maxHeight: '70vh' }}
+        className={`fixed bottom-0 left-0 right-0 bg-dark-bg-2 border-t border-neutral-700 transform transition-transform duration-300 ease-in-out z-50 ${
+          showDrawer ? "translate-y-0" : "translate-y-full"
+        }`}
+        style={{ maxHeight: "70vh" }}
       >
         {/* Drawer Handle */}
         <div className="flex justify-center py-2">
@@ -146,7 +180,7 @@ const MobileBottomDrawerWidget = () => {
             onClick={handleCloseDrawer}
             className="p-2 rounded-full hover:bg-neutral-700 transition-colors"
           >
-            <CloseOutlined style={{ fontSize: 18, color: '#9ca3af' }} />
+            <CloseOutlined style={{ fontSize: 18, color: "#9ca3af" }} />
           </button>
         </div>
 
@@ -171,4 +205,4 @@ const MobileBottomDrawerWidget = () => {
   );
 };
 
-export default MobileBottomDrawerWidget; 
+export default MobileBottomDrawerWidget;

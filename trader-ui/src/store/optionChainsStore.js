@@ -1,4 +1,4 @@
-import eventBus, { EVENT_TYPES } from '../utils/eventBus';
+import eventBus, { EVENT_TYPES } from "../utils/eventBus";
 
 export const optionChainsStore = {
   selectedUnderlying: null,
@@ -11,13 +11,13 @@ export function setSelectedUnderlying(underlying) {
   if (optionChainsStore.selectedUnderlying === underlying) return;
   optionChainsStore.selectedExpiry = null;
   optionChainsStore.selectedUnderlying = underlying;
-  eventBus.emit(EVENT_TYPES.OPTION_CHAIN_UPDATE, 'selectedUnderlying');
+  eventBus.emit(EVENT_TYPES.OPTION_CHAIN_UPDATE, "selectedUnderlying");
 }
 
 export function setSelectedExpiry(expiry) {
   if (optionChainsStore.selectedExpiry === expiry) return;
   optionChainsStore.selectedExpiry = expiry;
-  eventBus.emit(EVENT_TYPES.OPTION_CHAIN_UPDATE, 'selectedExpiry');
+  eventBus.emit(EVENT_TYPES.OPTION_CHAIN_UPDATE, "selectedExpiry");
 }
 
 export function setUnderlyings(underlyings) {
@@ -42,4 +42,4 @@ export function getUnderlyings() {
 
 export function getExpiries() {
   return optionChainsStore.expiries;
-} 
+}

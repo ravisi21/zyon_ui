@@ -1,4 +1,4 @@
-import eventBus, { EVENT_TYPES } from '../utils/eventBus';
+import eventBus, { EVENT_TYPES } from "../utils/eventBus";
 
 export const uiStore = {
   isStrategyTabActive: false,
@@ -12,7 +12,7 @@ export function setStrategyTabActive(isActive) {
   uiStore.isStrategyTabActive = isActive;
   setFloatingPanelVisible(isActive);
   setSidebarLeftVisible(!isActive);
-  eventBus.emit(EVENT_TYPES.UI_UPDATE, 'isStrategyTabActive');
+  eventBus.emit(EVENT_TYPES.UI_UPDATE, "isStrategyTabActive");
 }
 
 export function getStrategyTabActive() {
@@ -21,7 +21,7 @@ export function getStrategyTabActive() {
 
 export function setFloatingPanelVisible(isVisible) {
   uiStore.isFloatingPanelVisible = isVisible;
-  eventBus.emit(EVENT_TYPES.UI_UPDATE, 'isFloatingPanelVisible');
+  eventBus.emit(EVENT_TYPES.UI_UPDATE, "isFloatingPanelVisible");
 }
 
 export function getFloatingPanelVisible() {
@@ -30,7 +30,7 @@ export function getFloatingPanelVisible() {
 
 export function setSidebarLeftVisible(isVisible) {
   uiStore.isSidebarLeftVisible = isVisible;
-  eventBus.emit(EVENT_TYPES.UI_UPDATE, 'isSidebarLeftVisible');
+  eventBus.emit(EVENT_TYPES.UI_UPDATE, "isSidebarLeftVisible");
 }
 
 export function getSidebarLeftVisible() {
@@ -39,7 +39,7 @@ export function getSidebarLeftVisible() {
 
 export function setIsMobile(isMobile) {
   uiStore.isMobile = isMobile;
-  eventBus.emit(EVENT_TYPES.UI_UPDATE, 'isMobile');
+  eventBus.emit(EVENT_TYPES.UI_UPDATE, "isMobile");
 }
 
 export function getIsMobile() {
@@ -48,7 +48,7 @@ export function getIsMobile() {
 
 export function setResetHomePopups(shouldReset) {
   uiStore.resetHomePopups = shouldReset;
-  eventBus.emit(EVENT_TYPES.UI_UPDATE, 'resetHomePopups');
+  eventBus.emit(EVENT_TYPES.UI_UPDATE, "resetHomePopups");
 }
 
 export function getResetHomePopups() {

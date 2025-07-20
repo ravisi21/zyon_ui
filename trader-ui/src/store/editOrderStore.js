@@ -1,5 +1,5 @@
-import deepEqual from '../utils/deepEqual';
-import eventBus, { EVENT_TYPES } from '../utils/eventBus';
+import deepEqual from "../utils/deepEqual";
+import eventBus, { EVENT_TYPES } from "../utils/eventBus";
 
 export const editOrderStore = {
   editOrder: null,
@@ -18,4 +18,4 @@ export function getEditOrder() {
 export function clear() {
   editOrderStore.editOrder = null;
   eventBus.emit(EVENT_TYPES.EDIT_ORDER_UPDATE);
-} 
+}

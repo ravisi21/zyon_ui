@@ -1,4 +1,4 @@
-import eventBus, { EVENT_TYPES } from '../utils/eventBus';
+import eventBus, { EVENT_TYPES } from "../utils/eventBus";
 
 export const mobileDataStore = {
   selectedScriptId: null,
@@ -8,7 +8,7 @@ export const mobileDataStore = {
 
 export function setSelectedScriptId(scriptId) {
   mobileDataStore.selectedScriptId = scriptId;
-  eventBus.emit(EVENT_TYPES.MOBILE_DATA_UPDATE, 'selectedScriptId');
+  eventBus.emit(EVENT_TYPES.MOBILE_DATA_UPDATE, "selectedScriptId");
 }
 
 export function getSelectedScriptId() {
@@ -17,7 +17,7 @@ export function getSelectedScriptId() {
 
 export function setScriptIdIsPosition(isPosition) {
   mobileDataStore.scriptIdIsPosition = isPosition;
-  eventBus.emit(EVENT_TYPES.MOBILE_DATA_UPDATE, 'scriptIdIsPosition');
+  eventBus.emit(EVENT_TYPES.MOBILE_DATA_UPDATE, "scriptIdIsPosition");
 }
 
 export function getScriptIdIsPosition() {
@@ -26,7 +26,7 @@ export function getScriptIdIsPosition() {
 
 export function setPosition(position) {
   mobileDataStore.position = position;
-  eventBus.emit(EVENT_TYPES.MOBILE_DATA_UPDATE, 'position');
+  eventBus.emit(EVENT_TYPES.MOBILE_DATA_UPDATE, "position");
 }
 
 export function getPosition() {
@@ -37,5 +37,5 @@ export function clear() {
   mobileDataStore.selectedScriptId = null;
   mobileDataStore.scriptIdIsPosition = false;
   mobileDataStore.position = null;
-  eventBus.emit(EVENT_TYPES.MOBILE_DATA_UPDATE, 'clear');
-} 
+  eventBus.emit(EVENT_TYPES.MOBILE_DATA_UPDATE, "clear");
+}

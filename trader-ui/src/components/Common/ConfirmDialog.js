@@ -1,12 +1,12 @@
-import { Fragment } from 'react';
-import { Dialog, Transition } from '@headlessui/react';
+import { Fragment } from "react";
+import { Dialog, Transition } from "@headlessui/react";
 
 const ConfirmDialog = ({
   open,
-  title = 'Confirm',
-  message = 'Are you sure?',
-  confirmText = 'Confirm',
-  cancelText = 'Cancel',
+  title = "Confirm",
+  message = "Are you sure?",
+  confirmText = "Confirm",
+  cancelText = "Cancel",
   onConfirm,
   onCancel,
 }) => (
@@ -34,7 +34,9 @@ const ConfirmDialog = ({
           leaveTo="opacity-0 scale-95"
         >
           <Dialog.Panel className="bg-dark-bg-2 rounded-lg shadow-xl max-w-sm w-full p-6">
-            <Dialog.Title className="text-lg font-semibold text-neutral-200">{title}</Dialog.Title>
+            <Dialog.Title className="text-lg font-semibold text-neutral-200">
+              {title}
+            </Dialog.Title>
             <div className="mt-2 text-neutral-400">{message}</div>
             <div className="mt-6 flex justify-end gap-3">
               <button
@@ -57,4 +59,4 @@ const ConfirmDialog = ({
   </Transition.Root>
 );
 
-export default ConfirmDialog; 
+export default ConfirmDialog;

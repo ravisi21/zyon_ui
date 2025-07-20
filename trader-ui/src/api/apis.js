@@ -1,10 +1,15 @@
-import { post } from './base';
-import { showOrderStatusToast } from '../utils/utils';
-import * as scriptSearchStore from '../store/scriptSearchStore';
+import { post } from "./base";
+import { showOrderStatusToast } from "../utils/utils";
+import * as scriptSearchStore from "../store/scriptSearchStore";
 
 // Sync API method
 export function sync(creds) {
-  return post('/sync', {}, creds);
+  return post("/sync", {}, creds);
+}
+
+// Sync Lite API method - lightweight sync for minimal data
+export function syncLite(creds) {
+  return post("/sync-lite", {}, creds);
 }
 
 // Login API method
@@ -12,7 +17,7 @@ export async function login({ userName, password, googleSignInToken }) {
   const obj = googleSignInToken
     ? { googleSignInToken }
     : { userName, password };
-  const res = await post('/users/signin', obj);
+  const res = await post("/users/signin", obj);
   if (res.status && res.creds) {
     let date = new Date(Date.now() + 24 * 60 * 60 * 1000);
     document.cookie = `Auth=${res.creds}; expires=${date.toUTCString()}; path=/`;
@@ -20,9 +25,17 @@ export async function login({ userName, password, googleSignInToken }) {
   return res;
 }
 
+// Signout API method
+export async function signout() {
+  const res = await post("/users/signout", {});
+  // Clear the auth cookie on signout
+  document.cookie = "Auth=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+  return res;
+}
+
 // Signup API method
 export async function signup(obj) {
-  const res = await post('/users/signup', {user: obj});
+  const res = await post("/users/signup", { user: obj });
   if (res.status && res.creds) {
     let date = new Date(Date.now() + 24 * 60 * 60 * 1000);
     document.cookie = `Auth=${res.creds}; expires=${date.toUTCString()}; path=/`;
@@ -31,13 +44,21 @@ export async function signup(obj) {
 }
 
 // Add Account API method
-export function addAccount(accountName) {
-  return post('/accounts/create', { accountName });
+export function addAccount(accountName, accountType, paymentId) {
+  return post("/accounts/create", {
+    accountRequest: {
+      type: accountType,
+      accountName: accountName,
+      paymentDetails: {
+        paymentId: paymentId,
+      },
+    },
+  });
 }
 
 // Send Confirmation Email API method
 export async function sendConfirmationEmail() {
-  return post('/users/resend-confirmation');
+  return post("/users/resend-confirmation");
 }
 
 // Script Search API method
@@ -46,7 +67,7 @@ export async function searchScripts(query) {
     scriptSearchStore.setSearchText(query);
     scriptSearchStore.setSearchResultsLoading(true);
     try {
-      const data = await post('/scripts', { searchText: query });
+      const data = await post("/scripts", { searchText: query });
       if (scriptSearchStore.getSearchText() === data.searchText) {
         scriptSearchStore.setSearchResults(data.searchScripts || []);
         scriptSearchStore.setSearchResultsLoading(false);
@@ -65,30 +86,33 @@ export async function searchScripts(query) {
 
 // Add Watchlist API method
 export async function addWatchlist(watchlistName) {
-  return post('/watchlists/add', { watchlistName });
+  return post("/watchlists/add", { watchlistName });
 }
 
 // Add Item to Watchlist API method
 export async function addItemToWatchlist(watchlistId, scriptId) {
-  return post('/watchlists/items/add', { watchlistId, scriptId });
+  return post("/watchlists/items/add", { watchlistId, scriptId });
 }
 
 // Delete Watchlist Item API method
 export async function deleteWatchlistItem({ watchlistId, scriptId }) {
-  return post('/watchlists/items/delete', { watchlistId, scriptId });
+  return post("/watchlists/items/delete", { watchlistId, scriptId });
 }
 
 // Add to Temp Watchlist API method
 export async function addToTempWatchlist(scriptId) {
   try {
-    await post('/watchlists/temp/add', { scriptId });
-  } catch (e) { }
+    await post("/watchlists/temp/add", { scriptId });
+  } catch (e) {}
 }
 
 // Submit Orders API method
-export async function submitOrders(orders, orderStatusHandler = showOrderStatusToast) {
+export async function submitOrders(
+  orders,
+  orderStatusHandler = showOrderStatusToast,
+) {
   try {
-    const response = await post('/orders/place', { orders });
+    const response = await post("/orders/place", { orders });
     if (orderStatusHandler) orderStatusHandler(response);
     setTimeout(() => {
       sync();
@@ -103,9 +127,12 @@ export async function submitOrders(orders, orderStatusHandler = showOrderStatusT
 }
 
 // Cancel Orders API method
-export async function cancelOrders(orders, orderStatusHandler = showOrderStatusToast) {
+export async function cancelOrders(
+  orders,
+  orderStatusHandler = showOrderStatusToast,
+) {
   try {
-    const response = await post('/orders/cancel', { orders });
+    const response = await post("/orders/cancel", { orders });
     if (orderStatusHandler) orderStatusHandler(response);
     setTimeout(() => {
       sync();
@@ -125,43 +152,43 @@ export async function optionAnalysis(basketId, analysisData) {
   if (basketId) {
     requestBody.basket = { basketId };
   }
-  return post('/options/analysis', requestBody);
+  return post("/options/analysis", requestBody);
 }
 
 // Market Summary API method
 export async function marketSummary(params = {}) {
-  return post('/analytics/market-summary', params);
+  return post("/analytics/market-summary", params);
 }
 
 // Option Chain Analysis API method
 export async function optionChainAnalysis(params = {}) {
-  return post('/options/option-chain', params);
+  return post("/options/option-chain", params);
 }
 
 // Basket APIs
 export async function updateBasket(basket) {
-  return post('/baskets/update', { basket });
+  return post("/baskets/update", { basket });
 }
 
 export async function getBaskets() {
-  return post('/baskets', {});
+  return post("/baskets", {});
 }
 
 export async function deleteBasket(basketId) {
-  return post('/baskets/update', { basket: { basketId }, deleteBasket: true });
+  return post("/baskets/update", { basket: { basketId }, deleteBasket: true });
 }
 
 // Get items for a strategy API method
 export async function getItemsForStrategy(strategy, underlying, expiry) {
-  return post('/options/strategy-items', { strategy, underlying, expiry });
+  return post("/options/strategy-items", { strategy, underlying, expiry });
 }
 
 // Logout Account API method
 export async function logoutAccount() {
-  return post('/accounts/logout', {});
+  return post("/accounts/logout", {});
 }
 
 // Exit All Orders API method
 export async function exitAll() {
-  return post('/orders/exit-all', {});
+  return post("/orders/exit-all", {});
 }

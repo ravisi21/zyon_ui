@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useRef } from 'react';
-import styles from './CustomStepper.module.css';
+import React, { useState, useEffect, useRef } from "react";
+import styles from "./CustomStepper.module.css";
 
 const getNearestMultiple = (value, multiple, min) => {
   if (multiple <= 0) return value;
@@ -8,10 +8,17 @@ const getNearestMultiple = (value, multiple, min) => {
   return rounded;
 };
 
-const CustomStepper = ({ value, onChange, min = 0, step = 1, style = {}, ...rest }) => {
+const CustomStepper = ({
+  value,
+  onChange,
+  min = 0,
+  step = 1,
+  style = {},
+  ...rest
+}) => {
   // Remove browser arrows
   const inputStyle = {
-    textAlign: 'center',
+    textAlign: "center",
     fontSize: 14,
     ...style,
   };
@@ -28,23 +35,23 @@ const CustomStepper = ({ value, onChange, min = 0, step = 1, style = {}, ...rest
   const inputProps = {
     ...rest,
     style: inputStyle,
-    type: 'number',
+    type: "number",
     min,
     step,
-    onWheel: e => e.target.blur(), // Prevent scroll changing value
+    onWheel: (e) => e.target.blur(), // Prevent scroll changing value
     value: inputValue,
-    onChange: e => {
+    onChange: (e) => {
       setInputValue(e.target.value);
     },
-    onBlur: e => {
+    onBlur: (e) => {
       let val = Number(e.target.value);
       if (isNaN(val)) val = min;
       val = getNearestMultiple(val, step, min);
       setInputValue(String(val)); // Always set to snapped value
       if (val !== value) onChange(val); // Only call onChange if changed
     },
-    onKeyDown: e => {
-      if (e.key === 'Enter') {
+    onKeyDown: (e) => {
+      if (e.key === "Enter") {
         let val = Number(e.target.value);
         if (isNaN(val)) val = min;
         val = getNearestMultiple(val, step, min);
@@ -63,10 +70,29 @@ const CustomStepper = ({ value, onChange, min = 0, step = 1, style = {}, ...rest
   };
 
   return (
-    <div className={styles.noSpinner} style={{ display: 'flex', alignItems: 'center', border: '1px solid #d1d5db', borderRadius: 6, overflow: 'hidden', width: 120, background: '#fff' }}>
+    <div
+      className={styles.noSpinner}
+      style={{
+        display: "flex",
+        alignItems: "center",
+        border: "1px solid #d1d5db",
+        borderRadius: 6,
+        overflow: "hidden",
+        width: 120,
+        background: "#fff",
+      }}
+    >
       <button
         type="button"
-        style={{ width: 32, height: 32, border: 'none', background: 'none', fontSize: 20, cursor: 'pointer', color: '#374151' }}
+        style={{
+          width: 32,
+          height: 32,
+          border: "none",
+          background: "none",
+          fontSize: 20,
+          cursor: "pointer",
+          color: "#374151",
+        }}
         onClick={() => handleStep(-1)}
         tabIndex={-1}
       >
@@ -75,7 +101,15 @@ const CustomStepper = ({ value, onChange, min = 0, step = 1, style = {}, ...rest
       <input {...inputProps} ref={inputRef} className={styles.noSpinnerInput} />
       <button
         type="button"
-        style={{ width: 32, height: 32, border: 'none', background: 'none', fontSize: 20, cursor: 'pointer', color: '#374151' }}
+        style={{
+          width: 32,
+          height: 32,
+          border: "none",
+          background: "none",
+          fontSize: 20,
+          cursor: "pointer",
+          color: "#374151",
+        }}
         onClick={() => handleStep(1)}
         tabIndex={-1}
       >
@@ -85,4 +119,4 @@ const CustomStepper = ({ value, onChange, min = 0, step = 1, style = {}, ...rest
   );
 };
 
-export default CustomStepper; 
+export default CustomStepper;

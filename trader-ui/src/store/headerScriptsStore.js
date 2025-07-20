@@ -1,5 +1,5 @@
-import deepEqual from '../utils/deepEqual';
-import eventBus, { EVENT_TYPES } from '../utils/eventBus';
+import deepEqual from "../utils/deepEqual";
+import eventBus, { EVENT_TYPES } from "../utils/eventBus";
 
 export const headerScriptsStore = {
   headerScripts: [],
@@ -18,4 +18,4 @@ export function getHeaderScripts() {
 export function clear() {
   headerScriptsStore.headerScripts = [];
   eventBus.emit(EVENT_TYPES.HEADER_SCRIPTS_UPDATE);
-} 
+}

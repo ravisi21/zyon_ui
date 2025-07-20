@@ -1,15 +1,15 @@
-import deepEqual from '../utils/deepEqual';
-import eventBus, { EVENT_TYPES } from '../utils/eventBus';
+import deepEqual from "../utils/deepEqual";
+import eventBus, { EVENT_TYPES } from "../utils/eventBus";
 
 function getCookie(name) {
   const value = `; ${document.cookie}`;
   const parts = value.split(`; ${name}=`);
-  if (parts.length === 2) return parts.pop().split(';').shift();
+  if (parts.length === 2) return parts.pop().split(";").shift();
   return null;
 }
 
 export const userStore = {
-  creds: getCookie('Auth'),
+  creds: getCookie("Auth"),
   accountId: null,
   user: null,
   accounts: [],
@@ -26,6 +26,7 @@ export const userStore = {
   showHomeUserLogin: false,
   showHomeUserSignup: false,
   signInFollowUp: null, // Can be: "trader", "competition", "analysis", "learn", "algo"
+  userAccountRequest: null, // Account creation request object
 };
 
 export function setCreds(newCreds) {
@@ -128,4 +129,10 @@ export function setSignInFollowUp(value) {
   if (userStore.signInFollowUp === value) return;
   userStore.signInFollowUp = value;
   eventBus.emit(EVENT_TYPES.SIGN_IN_FOLLOW_UP_UPDATE);
+}
+
+export function setUserAccountRequest(value) {
+  if (deepEqual(userStore.userAccountRequest, value)) return;
+  userStore.userAccountRequest = value;
+  eventBus.emit(EVENT_TYPES.USER_ACCOUNT_REQUEST_UPDATE);
 }

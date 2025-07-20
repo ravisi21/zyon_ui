@@ -2,21 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
-body, #root {
+body,
+#root {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu",
+    "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   user-select: none;
   -webkit-user-select: none; /* Safari */
-  -ms-user-select: none;     /* IE10+/Edge */
+  -ms-user-select: none; /* IE10+/Edge */
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family:
+    source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 }
 
 .custom-toast {
@@ -27,11 +28,11 @@ code {
 }
 .custom-toast-success {
   background: #333 !important;
-  color: #6D6 !important;
+  color: #6d6 !important;
 }
 .custom-toast-error {
   background: #333 !important;
-  color: #F66 !important;
+  color: #f66 !important;
 }
 .custom-toast-body {
   display: flex;
@@ -43,7 +44,7 @@ code {
 }
 
 .custom-toast-success .Toastify__progress-bar {
-  background: #6D67 !important;
+  background: #6d67 !important;
 }
 
 /* Custom animations */
@@ -131,7 +132,9 @@ code {
   scrollbar-width: none;
 }
 
-html, body, #root {
+html,
+body,
+#root {
   height: 100%;
 }
 
@@ -148,3 +151,129 @@ html, body, #root {
   transition: all 0.3s ease;
 }
 
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+body,
+.font-family-roboto {
+  font-family:
+    Roboto,
+    Helvetica Neue,
+    sans-serif !important;
+}
+
+/* Options Analysis Widget Styles */
+.options-tabs .ant-tabs-tab {
+  color: #9ca3af !important;
+}
+
+.options-tabs .ant-tabs-tab-active {
+  color: #3b82f6 !important;
+}
+
+.options-tabs .ant-tabs-ink-bar {
+  background: #3b82f6 !important;
+}
+
+.options-table .ant-table-thead > tr > th {
+  background: #1f2937 !important;
+  color: #f9fafb !important;
+  border-bottom: 1px solid #374151 !important;
+}
+
+.options-table .ant-table-tbody > tr > td {
+  background: #111827 !important;
+  color: #f9fafb !important;
+  border-bottom: 1px solid #374151 !important;
+}
+
+.options-table .ant-table-tbody > tr:hover > td {
+  background: #1f2937 !important;
+}
+
+.options-table .ant-table {
+  background: #111827 !important;
+}
+
+.ant-card {
+  background: #1f2937 !important;
+  border: 1px solid #374151 !important;
+}
+
+.ant-card-head {
+  background: #111827 !important;
+  border-bottom: 1px solid #374151 !important;
+}
+
+.ant-card-head-title {
+  color: #f9fafb !important;
+}
+
+.ant-select-selector {
+  background: #374151 !important;
+  border: 1px solid #4b5563 !important;
+  color: #f9fafb !important;
+}
+
+.ant-input {
+  background: #374151 !important;
+  border: 1px solid #4b5563 !important;
+  color: #f9fafb !important;
+}
+
+.ant-input::placeholder {
+  color: #9ca3af !important;
+}
+
+.ant-select-dropdown {
+  background: #1f2937 !important;
+  border: 1px solid #374151 !important;
+}
+
+.ant-select-item {
+  color: #f9fafb !important;
+}
+
+.ant-select-item-option-selected {
+  background: #374151 !important;
+}
+
+.ant-select-item-option-active {
+  background: #4b5563 !important;
+}

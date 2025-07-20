@@ -125,15 +125,28 @@ const FeatureSection = ({
                       <thead className="bg-gray-800 text-green-300">
                         <tr>
                           {sec.table.headers.map((header, i) => (
-                            <th key={i} className="px-4 py-2 border border-gray-600 whitespace-nowrap">{header}</th>
+                            <th
+                              key={i}
+                              className="px-4 py-2 border border-gray-600 whitespace-nowrap"
+                            >
+                              {header}
+                            </th>
                           ))}
                         </tr>
                       </thead>
                       <tbody className="bg-gray-900">
                         {sec.table.rows.map((row, rowIndex) => (
-                          <tr key={rowIndex} className="hover:bg-gray-800 transition">
+                          <tr
+                            key={rowIndex}
+                            className="hover:bg-gray-800 transition"
+                          >
                             {row.map((cell, colIndex) => (
-                              <td key={colIndex} className="px-4 py-2 border border-gray-700 align-top whitespace-pre-wrap">{cell}</td>
+                              <td
+                                key={colIndex}
+                                className="px-4 py-2 border border-gray-700 align-top whitespace-pre-wrap"
+                              >
+                                {cell}
+                              </td>
                             ))}
                           </tr>
                         ))}
@@ -142,10 +155,15 @@ const FeatureSection = ({
                   </div>
                   <div className="sm:hidden space-y-4">
                     {sec.table.rows.map((row, rowIndex) => (
-                      <div key={rowIndex} className="bg-gray-800 rounded-lg border border-gray-600 p-4 text-white">
+                      <div
+                        key={rowIndex}
+                        className="bg-gray-800 rounded-lg border border-gray-600 p-4 text-white"
+                      >
                         {sec.table.headers.map((header, i) => (
                           <div key={i} className="mb-2">
-                            <div className="text-green-300 font-semibold text-sm">{header}</div>
+                            <div className="text-green-300 font-semibold text-sm">
+                              {header}
+                            </div>
                             <div className="text-white text-sm">{row[i]}</div>
                           </div>
                         ))}

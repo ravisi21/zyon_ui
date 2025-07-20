@@ -2,8 +2,12 @@ function deepEqual(a, b, visited = new WeakMap()) {
   if (Object.is(a, b)) return true;
 
   // Handle null/undefined and primitive types
-  if (typeof a !== 'object' || a === null ||
-      typeof b !== 'object' || b === null) {
+  if (
+    typeof a !== "object" ||
+    a === null ||
+    typeof b !== "object" ||
+    b === null
+  ) {
     return false;
   }
 
@@ -34,7 +38,7 @@ function deepEqual(a, b, visited = new WeakMap()) {
   if (Array.isArray(a) !== Array.isArray(b)) return false;
 
   // Handle Function (compare by reference)
-  if (typeof a === 'function' || typeof b === 'function') {
+  if (typeof a === "function" || typeof b === "function") {
     return false; // or: return a === b;
   }
 
@@ -49,4 +53,4 @@ function deepEqual(a, b, visited = new WeakMap()) {
   return true;
 }
 
-module.exports = deepEqual; 
+module.exports = deepEqual;

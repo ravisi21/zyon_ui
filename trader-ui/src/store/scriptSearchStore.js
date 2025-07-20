@@ -1,8 +1,8 @@
-import deepEqual from '../utils/deepEqual';
-import eventBus, { EVENT_TYPES } from '../utils/eventBus';
+import deepEqual from "../utils/deepEqual";
+import eventBus, { EVENT_TYPES } from "../utils/eventBus";
 
 export const scriptSearchStore = {
-  searchText: '',
+  searchText: "",
   searchResults: [],
   searchResultsLoading: false,
 };
@@ -37,8 +37,8 @@ export function getSearchResultsLoading() {
 }
 
 export function clear() {
-  scriptSearchStore.searchText = '';
+  scriptSearchStore.searchText = "";
   scriptSearchStore.searchResults = [];
   scriptSearchStore.searchResultsLoading = false;
   eventBus.emit(EVENT_TYPES.SCRIPT_SEARCH_CLEAR);
-} 
+}

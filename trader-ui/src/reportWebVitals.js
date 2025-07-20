@@ -1,5 +1,3 @@
-const reportWebVitals = (onPerfEntry) => {
-
-};
+const reportWebVitals = (onPerfEntry) => {};
 
 export default reportWebVitals;

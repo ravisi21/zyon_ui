@@ -1,30 +1,46 @@
-import React, { useState } from 'react';
-import { sendConfirmationEmail } from '../../api/apis';
-import { FaTimes, FaEnvelope } from 'react-icons/fa';
+import React, { useState } from "react";
+import { sendConfirmationEmail } from "../../api/apis";
+import { FaTimes, FaEnvelope } from "react-icons/fa";
 
 const Spinner = () => (
-  <svg className="animate-spin h-5 w-5 mr-2 text-green-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"></path>
+  <svg
+    className="animate-spin h-5 w-5 mr-2 text-green-500"
+    xmlns="http://www.w3.org/2000/svg"
+    fill="none"
+    viewBox="0 0 24 24"
+  >
+    <circle
+      className="opacity-25"
+      cx="12"
+      cy="12"
+      r="10"
+      stroke="currentColor"
+      strokeWidth="4"
+    ></circle>
+    <path
+      className="opacity-75"
+      fill="currentColor"
+      d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"
+    ></path>
   </svg>
 );
 
 const UserConfirmationPopup = ({ isOpen, onClose }) => {
   const [loading, setLoading] = useState(false);
-  const [message, setMessage] = useState('');
-  const [error, setError] = useState('');
+  const [message, setMessage] = useState("");
+  const [error, setError] = useState("");
 
   if (!isOpen) return null;
 
   const handleResend = async () => {
     setLoading(true);
-    setMessage('');
-    setError('');
+    setMessage("");
+    setError("");
     try {
       await sendConfirmationEmail();
-      setMessage('Confirmation email resent! Please check your inbox.');
+      setMessage("Confirmation email resent! Please check your inbox.");
     } catch (e) {
-      setError('Could not send the confirmation email. Please try again.')
+      setError("Could not send the confirmation email. Please try again.");
     } finally {
       setLoading(false);
     }
@@ -70,14 +86,14 @@ const UserConfirmationPopup = ({ isOpen, onClose }) => {
         {/* Content */}
         <div className="px-8 py-6">
           <div className="text-gray-700 text-center mb-6 space-y-3">
+            <p>You need to confirm your email address for this account.</p>
             <p>
-              You need to confirm your email address for this account.
+              Please check your registered email account for the confirmation
+              instructions.
             </p>
             <p>
-              Please check your registered email account for the confirmation instructions.
-            </p>
-            <p>
-              If you haven't received an email, you can resend it by clicking the button below.
+              If you haven't received an email, you can resend it by clicking
+              the button below.
             </p>
           </div>
 
@@ -88,7 +104,7 @@ const UserConfirmationPopup = ({ isOpen, onClose }) => {
               className="flex-1 border-2 border-blue-600 text-blue-600 rounded py-2 font-semibold hover:bg-blue-500 hover:text-white transition flex items-center justify-center"
             >
               {loading && <Spinner />}
-              {loading ? 'Resending...' : 'Resend Email'}
+              {loading ? "Resending..." : "Resend Email"}
             </button>
             <button
               onClick={handleClose}
@@ -103,4 +119,4 @@ const UserConfirmationPopup = ({ isOpen, onClose }) => {
   );
 };
 
-export default UserConfirmationPopup; 
+export default UserConfirmationPopup;

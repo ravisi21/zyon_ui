@@ -1,11 +1,15 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
-import TraderContent from './components/TraderContent';
-import Home from './components/Home/HomeContent';
-import './App.css';
-import 'antd/dist/reset.css';
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import React from "react";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
+import TraderContent from "./components/TraderContent";
+import Home from "./components/Home/HomeContent";
+import "antd/dist/reset.css";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   return (
@@ -16,11 +20,11 @@ function App() {
 
         {/* Home1 route */}
         <Route path="/" element={<Home />} />
-        
+
         {/* Catch all - redirect to trading terminal */}
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
-      
+
       <ToastContainer
         icon
         position="bottom-left"

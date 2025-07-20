@@ -6,30 +6,40 @@ import {
   FaSignInAlt,
   FaBars,
   FaTimes,
-  FaUser,
   FaSignOutAlt,
-  FaCog,
 } from "react-icons/fa";
 import { useState, useEffect } from "react";
-import { setShowHomeUserLogin, setSignInFollowUp, userStore } from '../../store/userStore';
-import { Avatar, Dropdown, Menu } from 'antd';
-import { UserOutlined, LogoutOutlined, SettingOutlined } from '@ant-design/icons';
-import eventBus, { EVENT_TYPES } from '../../utils/eventBus';
+import {
+  setShowHomeUserLogin,
+  setSignInFollowUp,
+  userStore,
+} from "../../store/userStore";
+import { Avatar, Dropdown, Menu } from "antd";
+import {
+  UserOutlined,
+  LogoutOutlined,
+} from "@ant-design/icons";
+import eventBus, { EVENT_TYPES } from "../../utils/eventBus";
+import { signout, syncLite } from "../../api/apis";
+import { showErrorToast } from "../../utils/utils";
 
 function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [user, setUser] = useState(() => userStore.user);
 
   useEffect(() => {
-    function handleUserChange() { 
-      setUser(userStore.user); 
+    function handleUserChange() {
+      setUser(userStore.user);
     }
 
-    const unsubscribeUser = eventBus.on(EVENT_TYPES.USER_UPDATE, handleUserChange);
+    const unsubscribeUser = eventBus.on(
+      EVENT_TYPES.USER_UPDATE,
+      handleUserChange,
+    );
     setUser(userStore.user);
-    
+
     return () => {
-      if (typeof unsubscribeUser === 'function') unsubscribeUser();
+      if (typeof unsubscribeUser === "function") unsubscribeUser();
     };
   }, []);
 
@@ -49,21 +59,23 @@ function Header() {
   const handleTraderPortalClick = () => {
     if (isSignedIn) {
       // User is signed in, directly open trader portal in same window
-      window.location.href = '/trader';
+      window.location.href = "/trader";
     } else {
       // User is not signed in, show signin popup and set follow-up action
       setShowHomeUserLogin(true);
-      setSignInFollowUp('trader');
+      setSignInFollowUp("trader");
     }
   };
 
   const handleMenuClick = async ({ key }) => {
     switch (key) {
-      case 'logout':
-        break;
-      case 'profile':
-        break;
-      case 'settings':
+      case "logout":
+        try {
+          await signout();
+          await syncLite();
+        } catch (error) {
+          showErrorToast("Could not sign out");
+        }
         break;
       default:
         break;
@@ -72,15 +84,17 @@ function Header() {
 
   const menu = isSignedIn && (
     <Menu onClick={handleMenuClick}>
-      <Menu.Item key="welcome" disabled style={{ cursor: 'default', fontWeight: 'bold', color: '#555', background: '#f6f6f6' }}>
-        Hi, {user.name || user.userName || 'User'}
-      </Menu.Item>
-      <Menu.Divider />
-      <Menu.Item key="profile" icon={<UserOutlined />}>
-        Profile
-      </Menu.Item>
-      <Menu.Item key="settings" icon={<SettingOutlined />}>
-        Settings
+      <Menu.Item
+        key="welcome"
+        disabled
+        style={{
+          cursor: "default",
+          fontWeight: "bold",
+          color: "#555",
+          background: "#f6f6f6",
+        }}
+      >
+        Hi, {user.name || user.userName || "User"}
       </Menu.Item>
       <Menu.Divider />
       <Menu.Item key="logout" icon={<LogoutOutlined />} danger>
@@ -102,7 +116,7 @@ function Header() {
         { label: "Zyon Challenge", id: "feature-Trading-Competition" },
         { label: "Zyon Pro Analytics", id: "feature-Market-Dashboard" },
         { label: "Zyon Virtual Trading", id: "feature-Paper-Trading" },
-        { label: "Zyon Algo Hub", id: "feature-Fowrad -Testing" },
+        { label: "Zyon Algo Hub", id: "feature-Forward-Testing" },
       ],
     },
     {
@@ -217,22 +231,35 @@ function Header() {
 
               {/* Desktop Sign In Button or Avatar */}
               {isSignedIn ? (
-                <Dropdown overlay={menu} placement="bottomRight" trigger={["click"]} className='hidden md:block'>
+                <Dropdown
+                  overlay={menu}
+                  placement="bottomRight"
+                  trigger={["click"]}
+                  className="hidden md:block"
+                >
                   <Avatar
-                    style={{ backgroundColor: '#3b82f6', cursor: 'pointer', border: '1px solid #3b82f6' }}
+                    style={{
+                      backgroundColor: "#3b82f6",
+                      cursor: "pointer",
+                      border: "1px solid #3b82f6",
+                    }}
                     icon={<UserOutlined />}
-                    src={user.avatarBlobId ? `https://zyontrader.com/api/img/${user.avatarBlobId}` : undefined}
+                    src={
+                      user.avatarBlobId
+                        ? `https://zyontrader.com/api/img/${user.avatarBlobId}`
+                        : undefined
+                    }
                     shape="square"
                     size={36}
                   />
                 </Dropdown>
               ) : (
-                <button 
-                    onClick={() => setShowHomeUserLogin(true)}
-                    className="hidden md:flex bg-blue-600 hover:bg-blue-700 active:bg-blue-500 text-white font-semibold py-2 px-6 rounded-lg transition-colors duration-200 items-center"
+                <button
+                  onClick={() => setShowHomeUserLogin(true)}
+                  className="hidden md:flex bg-blue-600 hover:bg-blue-700 active:bg-blue-500 text-white font-semibold py-2 px-6 rounded-lg transition-colors duration-200 items-center"
                 >
-                    <FaSignInAlt className="mr-2" />
-                    Sign In
+                  <FaSignInAlt className="mr-2" />
+                  Sign In
                 </button>
               )}
             </div>
@@ -322,38 +349,47 @@ function Header() {
                     <div className="flex items-center gap-3">
                       <Avatar
                         size={32}
-                        className='bg-blue-600'
+                        className="bg-blue-600"
                         icon={<UserOutlined />}
-                        src={user?.avatarBlobId ? `https://zyontrader.com/api/img/${user?.avatarBlobId}` : undefined}
+                        src={
+                          user?.avatarBlobId
+                            ? `https://zyontrader.com/api/img/${user?.avatarBlobId}`
+                            : undefined
+                        }
                         shape="square"
-                        style={{ border: '3px solid #3b82f6' }}
+                        style={{ border: "3px solid #3b82f6" }}
                       />
                       <div>
-                        <div className="text-white font-semibold">Hi, {user?.name || user?.userName || 'User'}</div>
+                        <div className="text-white font-semibold">
+                          Hi, {user?.name || user?.userName || "User"}
+                        </div>
                       </div>
                     </div>
                     <div className="space-y-2">
-                      <button className="flex items-center w-full px-3 py-2 text-slate-300 hover:text-white hover:bg-slate-700 rounded transition-colors duration-150">
-                        <FaUser className="mr-2" />
-                        Profile
-                      </button>
-                      <button className="flex items-center w-full px-3 py-2 text-slate-300 hover:text-white hover:bg-slate-700 rounded transition-colors duration-150">
-                        <FaCog className="mr-2" />
-                        Settings
-                      </button>
-                      <button className="flex items-center w-full px-3 py-2 text-red-400 hover:text-red-300 hover:bg-slate-700 rounded transition-colors duration-150">
+                      <button
+                        className="flex items-center w-full px-3 py-2 text-red-400 hover:text-red-300 hover:bg-slate-700 rounded transition-colors duration-150"
+                        onClick={async () => {
+                          try {
+                            await signout();
+                            await syncLite();
+                            setIsMobileMenuOpen(false);
+                          } catch (error) {
+                            showErrorToast("Could not sign out");
+                          }
+                        }}
+                      >
                         <FaSignOutAlt className="mr-2" />
                         Sign Out
                       </button>
                     </div>
                   </div>
                 ) : (
-                  <button 
-                      onClick={() => setShowHomeUserLogin(true)}
-                      className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200 flex items-center justify-center"
+                  <button
+                    onClick={() => setShowHomeUserLogin(true)}
+                    className="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200 flex items-center justify-center"
                   >
-                      <FaSignInAlt className="mr-2" />
-                      Sign In
+                    <FaSignInAlt className="mr-2" />
+                    Sign In
                   </button>
                 )}
               </div>

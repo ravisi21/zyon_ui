@@ -37,8 +37,12 @@
   }
 }
 
-body, .font-family-roboto {
-  font-family: Roboto,Helvetica Neue,sans-serif !important;
+body,
+.font-family-roboto {
+  font-family:
+    Roboto,
+    Helvetica Neue,
+    sans-serif !important;
 }
 
 /* Options Analysis Widget Styles */

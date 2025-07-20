@@ -1,9 +1,9 @@
-import React, { useRef, useEffect, useState } from 'react';
-import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
+import React, { useRef, useEffect, useState } from "react";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
-const StrategyBuilderCarousel = ({ data , onSelect }) => {
+const StrategyBuilderCarousel = ({ data, onSelect }) => {
   const containerRef = useRef(null);
   const [slidesToShow, setSlidesToShow] = useState(2);
 
@@ -15,8 +15,8 @@ const StrategyBuilderCarousel = ({ data , onSelect }) => {
       }
     }
     updateSlides();
-    window.addEventListener('resize', updateSlides);
-    return () => window.removeEventListener('resize', updateSlides);
+    window.addEventListener("resize", updateSlides);
+    return () => window.removeEventListener("resize", updateSlides);
   }, []);
 
   const settings = {
@@ -39,10 +39,12 @@ const StrategyBuilderCarousel = ({ data , onSelect }) => {
                   src={`${process.env.PUBLIC_URL}/strategies/${item.image}`}
                   alt={item.label}
                   className="w-full object-contain drop-shadow-lg"
-                  style={{ background: 'transparent' }}
+                  style={{ background: "transparent" }}
                 />
               </div>
-              <div className="mt-1 text-sm font-semibold text-neutral-400 text-center">{item.label}</div>
+              <div className="mt-1 text-sm font-semibold text-neutral-400 text-center">
+                {item.label}
+              </div>
             </div>
           </div>
         ))}
@@ -51,4 +53,4 @@ const StrategyBuilderCarousel = ({ data , onSelect }) => {
   );
 };
 
-export default StrategyBuilderCarousel; 
+export default StrategyBuilderCarousel;

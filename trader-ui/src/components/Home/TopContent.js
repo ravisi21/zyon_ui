@@ -36,7 +36,7 @@ const TopContent = () => {
             money.
           </div>
           <div className="flex mt-6 gap-4 justify-center">
-            <button 
+            <button
               onClick={handleGetStarted}
               className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-all duration-300 ease-in-out active:scale-95"
             >
