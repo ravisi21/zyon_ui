@@ -13,7 +13,7 @@
       "sizes": "400x400"
     }
   ],
-  "start_url": "/trader2",
+  "start_url": "/trader",
   "display": "standalone",
   "theme_color": "#000000",
   "background_color": "#ffffff"

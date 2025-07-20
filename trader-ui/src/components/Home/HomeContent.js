@@ -3,16 +3,13 @@
 import React from "react";
 import Header from "./Header";
 import TopContent from "./TopContent";
-import ZyonChallenge from "./ZyonChallenge";
-import ZyonAnalytics from "./ZyonAnalytics";
-import ZyonVirtualTrading from "./ZyonVirtualTrading";
-import ZyonAlgoHub from "./ZyonAlgoHub";
 import FeatureSection from "./FeatureSection";
 import featureSectionData from "./featureSectionData";
+import PopupFlowManager from "../Common/PopupFlowManager";
 
 function Home() {
   return (
-    <div className="w-full overflow-x-hidden">
+    <div className="w-full overflow-x-hidden bg-[#f6f6f6]">
       <Header />
 
       {/* Hero Section */}
@@ -21,14 +18,14 @@ function Home() {
       </div>
 
       {/* Feature Sections */}
-      {featureSectionData.map((section, index) => (
+      {featureSectionData.map((section) => (
         <div key={section.id} id={section.id}>
-          <FeatureSection {...section} index={index} />
+          <FeatureSection {...section} />
         </div>
       ))}
 
-
-
+      {/* Popup Flow Manager */}
+      <PopupFlowManager />
     </div>
   );
 }

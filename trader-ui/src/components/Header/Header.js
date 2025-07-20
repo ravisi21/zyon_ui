@@ -66,11 +66,8 @@ const Header = () => {
         }
         break;
       case 'logout':
-        // Handle sign out
-        console.log('Sign Out clicked');
         break;
       default:
-        console.log('Click not handled: ' + key);
     }
   };
 
@@ -148,7 +145,6 @@ const Header = () => {
             <div
               className="pb-2 font-semibold text-base text-price-red cursor-pointer"
               onClick={() => {
-                console.log('Sign Out clicked');
                 setDrawerOpen(false);
               }}>
               Sign Out

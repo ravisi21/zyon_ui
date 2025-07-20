@@ -47,7 +47,9 @@ export async function post(endpoint, params = {}, creds) {
     handleCommon(data);
   }
   if (!response.ok) {
-    throw new Error(data?.errorMessage || 'API Error');
+    let error = new Error(data?.errorMessage || 'API Error');
+    error.data = data;
+    throw error;
   }
   return data;
 }

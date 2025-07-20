@@ -1,11 +1,20 @@
 // File: FeatureCard.js
 
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
+import { FaYoutube } from "react-icons/fa";
+import YouTubeModal from "./YouTubeModal";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { LiaYoutube } from "react-icons/lia";
 
-const FeatureCard = ({ icon, title, description, youtubeLink, scrollTo, index }) => {
+const FeatureCard = ({
+  icon,
+  title,
+  subtitle,
+  description,
+  youtubeLink,
+  scrollTo,
+  index,
+}) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
@@ -21,68 +30,63 @@ const FeatureCard = ({ icon, title, description, youtubeLink, scrollTo, index })
 
   return (
     <>
-      <div
+      <div 
         data-aos="zoom-in-up"
         data-aos-delay={`${(typeof index === "number" ? index : 0) * 150}`}
-        className="bg-black text-white p-6 rounded-2xl flex flex-col justify-between shadow-lg min-h-[420px] hover:shadow-2xl hover:scale-[1.03] transition-all duration-700"
+        className="bg-white p-6 rounded-xl flex flex-col shadow-2xl transition-all duration-300 ease-in-out border border-neutral-200 transform hover:-translate-y-2"
       >
-        <div className="mb-6">
-          <div className="flex items-center gap-3 mb-4 text-2xl">
-            <span className="text-4xl">{icon}</span>
-            <h3 className="text-xl font-bold text-white">{title}</h3>
+        <div className="mb-0 md:mb-2 flex-1">
+          <div className="flex items-center gap-3 mb-4">
+            <div className="font-semibold text-2xl rounded-full bg-blue-700 p-3 text-white shadow-lg">
+              {icon}
+            </div>
+            <div className="flex flex-col flex-1 text-slate-600">
+              <div className="text-lg font-semibold">{title}</div>
+              <div className="text-base">{subtitle}</div>
+            </div>
           </div>
 
-          <ul className="text-base text-gray-200 leading-relaxed space-y-3">
+          <ul className="text-base text-gray-200 leading-relaxed">
             {bulletPoints.map((point, idx) => (
-              <li key={idx} className="flex items-start gap-2">
-                <span className="text-green-400 font-bold">→</span>
-                <span>{point.trim()}</span>
+              <li key={idx} className="flex items-center gap-2  mt-1">
+                <svg
+                  className="w-4 h-4 text-blue-700 mt-1 flex-shrink-0"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M8 5v14l11-7z" />
+                </svg>
+                <span className="text-blue-700">{point.trim()}</span>
               </li>
             ))}
           </ul>
         </div>
 
-        <div className="flex items-center justify-between mt-auto pt-4 gap-4">
+        <div className="flex items-center justify-between gap-4">
           <button
             onClick={() => setIsModalOpen(true)}
-            className="w-12 h-12 flex items-center justify-center border border-white text-white rounded-full hover:bg-white hover:text-black transition duration-300 hover:scale-110 active:scale-95 shadow-md hover:shadow-white/40"
+            className="w-12 h-12 flex items-center justify-center transition duration-300 hover:scale-110 active:scale-102"
             title="Watch Video"
             aria-label="Watch Video"
           >
-            <LiaYoutube className="text-2xl text-red-500" />
+            <FaYoutube className="text-red-600 text-4xl hover:text-red-500 transition-colors duration-200 cursor-pointer" />
           </button>
-
+          <div className="flex-1"></div>
           <button
             onClick={() => scrollToSection(scrollTo)}
-            className="flex-1 border border-white text-white px-4 py-2 rounded font-semibold hover:bg-white hover:text-black transition duration-300 hover:scale-110 active:scale-95 shadow-md hover:shadow-white/40"
+            className="border-blue-600 border-2 text-blue-600 px-4 py-2 rounded-lg font-semibold hover:bg-blue-100 active:bg-blue-700 transition-all duration-200 hover:shadow-md"
           >
             Know More
           </button>
         </div>
       </div>
 
-      {isModalOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-80 z-50 flex items-center justify-center px-4">
-          <div className="bg-black rounded-lg overflow-hidden max-w-2xl w-full relative shadow-xl">
-            <button
-              className="absolute top-2 right-2 text-white text-xl hover:text-red-400"
-              onClick={() => setIsModalOpen(false)}
-              aria-label="Close"
-            >
-              ✖
-            </button>
-            <div className="aspect-video">
-              <iframe
-                src={`${youtubeLink}?autoplay=1&mute=0`}
-                title="YouTube video"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-                className="w-full h-full"
-              ></iframe>
-            </div>
-          </div>
-        </div>
-      )}
+      <YouTubeModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        videoId={youtubeLink}
+        title={`${title} video`}
+      />
     </>
   );
 };

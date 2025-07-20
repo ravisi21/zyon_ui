@@ -5,6 +5,7 @@ export const uiStore = {
   isFloatingPanelVisible: false,
   isSidebarLeftVisible: true,
   isMobile: false,
+  resetHomePopups: false,
 };
 
 export function setStrategyTabActive(isActive) {
@@ -43,4 +44,13 @@ export function setIsMobile(isMobile) {
 
 export function getIsMobile() {
   return uiStore.isMobile;
+}
+
+export function setResetHomePopups(shouldReset) {
+  uiStore.resetHomePopups = shouldReset;
+  eventBus.emit(EVENT_TYPES.UI_UPDATE, 'resetHomePopups');
+}
+
+export function getResetHomePopups() {
+  return uiStore.resetHomePopups;
 }

@@ -1,197 +1,226 @@
 // File: FeatureSection.js
 
-import React, { useState, useEffect, useRef } from "react";
-import AOS from "aos";
-import "aos/dist/aos.css";
-import { Player } from "@lottiefiles/react-lottie-player";
-import { useInView } from "react-intersection-observer";
+import React, { useState, useRef } from "react";
+import { FaYoutube } from "react-icons/fa";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay } from "swiper/modules";
+import "swiper/css";
+import YouTubeModal from "./YouTubeModal";
+import FAQPopup from "./FAQPopup";
+import * as userStore from "../../store/userStore";
+import { setResetHomePopups } from "../../store/uiStore";
 
-const FeatureSection = ({ id, animation, sections, faqs, index }) => {
+const FeatureSection = ({
+  title,
+  subtitle,
+  id,
+  sections,
+  faqs,
+  icon,
+  youtubeLink,
+  shots,
+  followUpAction,
+}) => {
   const [showMore, setShowMore] = useState(false);
-  const [showFAQ, setShowFAQ] = useState(false);
-  const [showFAQModal, setShowFAQModal] = useState(false);
+  const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
+  const [isFAQPopupOpen, setIsFAQPopupOpen] = useState(false);
   const contentRef = useRef(null);
-  const [isScrollable, setIsScrollable] = useState(false);
 
-  const isMobile = typeof window !== "undefined" && window.innerWidth < 640;
+  const handleGetStarted = () => {
+    setResetHomePopups(true);
+    userStore.setSignInFollowUp(followUpAction || "challenge");
+  };
 
-  useEffect(() => {
-    AOS.init({ duration: 1000, once: true });
-  }, []);
-
-  useEffect(() => {
-    const checkScroll = () => {
-      if (contentRef.current) {
-        setIsScrollable(contentRef.current.scrollHeight > window.innerHeight * 0.8);
-      }
-    };
-    checkScroll();
-    window.addEventListener("resize", checkScroll);
-    return () => window.removeEventListener("resize", checkScroll);
-  }, [showMore, showFAQ]);
-
-  const mainSection = sections[0];
-  const extraSections = sections.slice(1);
-
-  const { ref: lottieRef, inView: lottieInView } = useInView({ triggerOnce: true });
+  // Show only first 3 sections initially
+  const displayedSections = showMore ? sections : sections.slice(0, 3);
+  const hasMoreSections = sections.length > 3;
 
   return (
     <section
       id={id}
-      className="min-h-[650px] bg-[#181B19] text-white px-4 sm:px-6 md:px-12 relative pb-24 transition-all duration-700 ease-in-out"
-      data-aos="fade-up"
-      data-aos-delay={`${typeof index === "number" ? index * 150 : 0}`}
+      className="bg-[#1D293B] text-white p-4 px-6 md:px-4 relative pb-24 transition-all duration-700 ease-in-out"
     >
       {/* Top Wave Separator */}
-      <div className="absolute top-0 left-0 w-full overflow-hidden leading-[0] z-10" data-aos="fade-down">
-        <svg viewBox="0 0 500 50" preserveAspectRatio="none" className="w-full h-16">
-          <path d="M0,0 C150,50 350,0 500,50 L500,00 L0,0 Z" fill="#ffffff" />
+      <div className="absolute top-0 left-0 w-full overflow-hidden leading-[0] z-10">
+        <svg
+          viewBox="0 0 500 50"
+          preserveAspectRatio="none"
+          className="w-full h-16"
+        >
+          <path d="M0,0 C150,50 350,0 500,50 L500,00 L0,0 Z" fill="#f6f6f6" />
         </svg>
       </div>
 
       {/* Content */}
-      <div className="relative z-20 flex flex-col lg:flex-row items-center gap-10 w-full h-full pt-20">
-        {/* Lottie animation */}
-        <div
-          ref={lottieRef}
-          className="w-full lg:w-1/3 h-[250px] sm:h-[350px] flex items-center justify-center"
-          data-aos="zoom-in"
-        >
-          {lottieInView ? (
-            <Player autoplay loop src={animation} style={{ height: "100%", width: "100%" }} />
-          ) : (
-            <div className="text-white flex items-center justify-center">
-              <svg className="animate-spin h-8 w-8 text-green-400" viewBox="0 0 24 24">
-                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
-                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z" />
-              </svg>
-            </div>
-          )}
+      <div className="relative z-20 flex flex-col lg:flex-row items-start gap-10 w-full h-full pt-20">
+        {/* Lottie animation or Image Carousel */}
+        <div className="w-[30%] flex self-center items-center justify-center">
+          <div className="w-full h-full">
+            <Swiper
+              direction="horizontal"
+              loop={true}
+              autoplay={{
+                delay: 4000,
+                disableOnInteraction: false,
+                pauseOnMouseEnter: true,
+              }}
+              modules={[Autoplay]}
+              className="w-full h-full"
+            >
+              {shots.map((shot, index) => (
+                <SwiperSlide key={index}>
+                  <div className="w-full h-full flex items-center justify-center">
+                    <img
+                      src={shot}
+                      alt={`${title} screenshot ${index + 1}`}
+                      className="w-full h-auto max-h-[400px] object-contain rounded-lg shadow-lg"
+                    />
+                  </div>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </div>
         </div>
 
         {/* Text Content */}
         <div
           ref={contentRef}
-          className={`w-full lg:w-2/3 space-y-4 pr-1 sm:pr-2 ${
-            isScrollable ? "max-h-[80vh] overflow-y-auto" : ""
-          }`}
+          className={`w-full lg:w-2/3 space-y-4 pr-1 sm:pr-2`}
         >
-          <h2 className="text-2xl sm:text-3xl font-bold" data-aos="fade-left">
-            {mainSection.heading}
-          </h2>
-
-          {mainSection.paragraphs.map((p, idx) => (
-            <p
-              key={idx}
-              className="text-white/90 leading-relaxed text-base sm:text-lg"
-              data-aos="fade-left"
-              data-aos-delay={100 + idx * 100}
-            >
-              {p}
-            </p>
-          ))}
-
-          {showMore &&
-            extraSections.map((sec, sIdx) => (
-              <div key={sIdx} className="pt-4 border-t border-white/30" data-aos="fade-up">
-                <h3 className="text-xl sm:text-2xl font-semibold">{sec.heading}</h3>
-                {sec.paragraphs.map((para, pi) => (
-                  <p key={pi} className="text-white/90 leading-relaxed text-base sm:text-lg">
-                    {para}
-                  </p>
-                ))}
-              </div>
-            ))}
-
-          {/* Buttons */}
-          <div className="flex flex-wrap gap-4 pt-4" data-aos="fade-up">
-            <button
-              className="px-5 py-2 bg-green-200 text-[#181B19] rounded hover:bg-green-300 transition"
-              onClick={() => window.location.href = "/signin"}
-            >
-              Sign In
-            </button>
-            <button
-              onClick={() => setShowMore(!showMore)}
-              className="px-5 py-2 border border-white text-white rounded hover:bg-white hover:text-[#181B19] transition"
-            >
-              {showMore ? "Show Less" : "Know More"}
-            </button>
-            <button
-              onClick={() => {
-                if (isMobile) {
-                  setShowFAQModal(true);
-                } else {
-                  setShowFAQ(!showFAQ);
-                }
-              }}
-              className="px-5 py-2 border border-white text-white rounded hover:bg-white hover:text-[#181B19] transition"
-            >
-              {isMobile ? "View FAQs" : showFAQ ? "Hide FAQs" : "View FAQs"}
-            </button>
+          <div className="flex items-center justify-center md:justify-start gap-3">
+            <div className="text-4xl bg-neutral-50 rounded-full p-3 text-slate-700">
+              {icon}
+            </div>
+            <div className="flex flex-col flex-0 md:flex-1 text-neutral-50">
+              <div className="text-2xl sm:text-2xl font-semibold">{title}</div>
+              <div className="text-base mt-1">{subtitle}</div>
+            </div>
           </div>
 
-          {/* FAQ Section - Desktop */}
-          {!isMobile && showFAQ && (
-            <div className="mt-6 space-y-6" data-aos="fade-up">
-              <h3 className="text-xl sm:text-2xl font-semibold">Frequently Asked Questions</h3>
-              {faqs.map((faq, idx) => (
-                <FAQItem key={idx} faq={faq} />
+          {displayedSections.map((sec, sIdx) => (
+            <div key={sIdx} className="pt-4 border-t border-white/30">
+              <h3 className="text-xl font-semibold">{sec.heading}</h3>
+              {sec.paragraphs.map((para, pi) => (
+                <div
+                  key={pi}
+                  className="flex items-start md:items-center gap-2 mt-1"
+                >
+                  <svg
+                    className="w-4 h-4 text-green-500 mt-1 flex-shrink-0"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M8 5v14l11-7z" />
+                  </svg>
+                  <div className="text-white leading-relaxed text-base">
+                    {para}
+                  </div>
+                </div>
               ))}
+
+              {sec.table && (
+                <div className="mt-4">
+                  <div className="hidden sm:block overflow-x-auto">
+                    <table className="min-w-full border border-gray-700 text-sm text-left text-white">
+                      <thead className="bg-gray-800 text-green-300">
+                        <tr>
+                          {sec.table.headers.map((header, i) => (
+                            <th key={i} className="px-4 py-2 border border-gray-600 whitespace-nowrap">{header}</th>
+                          ))}
+                        </tr>
+                      </thead>
+                      <tbody className="bg-gray-900">
+                        {sec.table.rows.map((row, rowIndex) => (
+                          <tr key={rowIndex} className="hover:bg-gray-800 transition">
+                            {row.map((cell, colIndex) => (
+                              <td key={colIndex} className="px-4 py-2 border border-gray-700 align-top whitespace-pre-wrap">{cell}</td>
+                            ))}
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                  <div className="sm:hidden space-y-4">
+                    {sec.table.rows.map((row, rowIndex) => (
+                      <div key={rowIndex} className="bg-gray-800 rounded-lg border border-gray-600 p-4 text-white">
+                        {sec.table.headers.map((header, i) => (
+                          <div key={i} className="mb-2">
+                            <div className="text-green-300 font-semibold text-sm">{header}</div>
+                            <div className="text-white text-sm">{row[i]}</div>
+                          </div>
+                        ))}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+          ))}
+
+          {/* Show More Link */}
+          {hasMoreSections && (
+            <div className="pt-4">
+              <button
+                onClick={() => setShowMore(!showMore)}
+                className="text-green-400 hover:text-green-300 underline transition-colors duration-200"
+              >
+                {showMore ? "Show Less" : `Show More`}
+              </button>
             </div>
           )}
+
+          {/* Buttons */}
+          <div className="flex flex-wrap gap-4 pt-4">
+            <button
+              onClick={handleGetStarted}
+              className="px-5 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition"
+            >
+              Get Started
+            </button>
+            <button
+              onClick={() => setIsFAQPopupOpen(true)}
+              className="px-5 py-2 border border-white text-white rounded hover:bg-white hover:text-[#181B19] transition"
+            >
+              View FAQs
+            </button>
+            <button
+              onClick={() => setIsVideoModalOpen(true)}
+              className="flex items-center justify-center transition duration-300 hover:scale-110 active:scale-102"
+            >
+              <FaYoutube className="text-red-600 text-4xl hover:text-red-500 transition-colors duration-200 cursor-pointer" />
+            </button>
+          </div>
         </div>
       </div>
 
-      {/* FAQ Modal - Mobile */}
-      {isMobile && showFAQModal && (
-        <div className="fixed inset-0 z-50 bg-black bg-opacity-80 flex items-center justify-center px-4">
-          <div className="bg-[#181B19] text-white p-6 rounded-lg max-h-[80vh] overflow-y-auto w-full max-w-lg">
-            <h3 className="text-2xl font-bold mb-4">FAQs</h3>
-            {faqs.map((faq, idx) => (
-              <FAQItem key={idx} faq={faq} />
-            ))}
-            <div className="mt-6 text-center">
-              <button
-                onClick={() => setShowFAQModal(false)}
-                className="px-5 py-2 border border-white text-white rounded hover:bg-white hover:text-[#181B19] transition"
-              >
-                Close
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
+      {/* FAQ Popup */}
+      <FAQPopup
+        isOpen={isFAQPopupOpen}
+        onClose={() => setIsFAQPopupOpen(false)}
+        title={title}
+        subtitle={subtitle}
+        icon={icon}
+        faqs={faqs}
+      />
+
+      <YouTubeModal
+        isOpen={isVideoModalOpen}
+        onClose={() => setIsVideoModalOpen(false)}
+        videoId={youtubeLink}
+        title={`${title} video`}
+      />
 
       {/* Bottom Wave Separator */}
-      <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-[0] z-10" data-aos="fade-up">
-        <svg viewBox="0 0 500 50" preserveAspectRatio="none" className="w-full h-16 rotate-180">
-          <path d="M0,0 C150,50 350,0 500,50 L500,00 L0,0 Z" fill="#ffffff" />
+      <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-[0] z-10">
+        <svg
+          viewBox="0 0 500 50"
+          preserveAspectRatio="none"
+          className="w-full h-16 rotate-180"
+        >
+          <path d="M0,0 C150,50 350,0 500,50 L500,00 L0,0 Z" fill="#f6f6f6" />
         </svg>
       </div>
     </section>
-  );
-};
-
-const FAQItem = ({ faq }) => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  return (
-    <div className="p-4 bg-white/5 rounded-lg border border-white/20 shadow-inner mb-2">
-      <button
-        className="w-full text-left font-semibold text-white text-base sm:text-lg flex justify-between items-center"
-        onClick={() => setIsOpen(!isOpen)}
-      >
-        <span>{faq.question}</span>
-        <span className={`transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}>⌄</span>
-      </button>
-      {isOpen && (
-        <>
-          <hr className="my-2 border-white/20" />
-          <p className="mt-2 text-white/80 leading-relaxed whitespace-pre-line">{faq.answer}</p>
-        </>
-      )}
-    </div>
   );
 };
 

@@ -20,6 +20,16 @@ export async function login({ userName, password, googleSignInToken }) {
   return res;
 }
 
+// Signup API method
+export async function signup(obj) {
+  const res = await post('/users/signup', {user: obj});
+  if (res.status && res.creds) {
+    let date = new Date(Date.now() + 24 * 60 * 60 * 1000);
+    document.cookie = `Auth=${res.creds}; expires=${date.toUTCString()}; path=/`;
+  }
+  return res;
+}
+
 // Add Account API method
 export function addAccount(accountName) {
   return post('/accounts/create', { accountName });
@@ -27,7 +37,7 @@ export function addAccount(accountName) {
 
 // Send Confirmation Email API method
 export async function sendConfirmationEmail() {
-  return post('/user/send-confirmation-email');
+  return post('/users/resend-confirmation');
 }
 
 // Script Search API method

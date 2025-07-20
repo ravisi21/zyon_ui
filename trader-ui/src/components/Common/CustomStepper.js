@@ -2,7 +2,6 @@ import React, { useState, useEffect, useRef } from 'react';
 import styles from './CustomStepper.module.css';
 
 const getNearestMultiple = (value, multiple, min) => {
-  console.log('getNearestMultiple', value, multiple, min);
   if (multiple <= 0) return value;
   let rounded = Math.round(value / multiple) * multiple;
   if (min !== undefined && rounded < min) return min;

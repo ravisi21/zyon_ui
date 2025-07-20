@@ -23,6 +23,9 @@ export const userStore = {
   showAddAccountPopup: false,
   showAccountSelectionPopup: false,
   accountLogoutTime: 0,
+  showHomeUserLogin: false,
+  showHomeUserSignup: false,
+  signInFollowUp: null, // Can be: "trader", "competition", "analysis", "learn", "algo"
 };
 
 export function setCreds(newCreds) {
@@ -106,4 +109,23 @@ export function setAccountLogoutTime(time) {
   if (userStore.accountLogoutTime === time) return;
   userStore.accountLogoutTime = time;
   eventBus.emit(EVENT_TYPES.USER_UPDATE);
+}
+
+// Home-specific login functions
+export function setShowHomeUserLogin(value) {
+  if (userStore.showHomeUserLogin === value) return;
+  userStore.showHomeUserLogin = value;
+  eventBus.emit(EVENT_TYPES.SHOW_HOME_USER_LOGIN_UPDATE);
+}
+
+export function setShowHomeUserSignup(value) {
+  if (userStore.showHomeUserSignup === value) return;
+  userStore.showHomeUserSignup = value;
+  eventBus.emit(EVENT_TYPES.SHOW_HOME_USER_SIGNUP_UPDATE);
+}
+
+export function setSignInFollowUp(value) {
+  if (userStore.signInFollowUp === value) return;
+  userStore.signInFollowUp = value;
+  eventBus.emit(EVENT_TYPES.SIGN_IN_FOLLOW_UP_UPDATE);
 }
