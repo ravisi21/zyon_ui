@@ -39,7 +39,7 @@ const featureSectionData = [
       {
         heading: "Win & Get Funded",
         paragraphs: [
-          "Top 5 traders receive free entry to Funded Challange track ",
+          "Top 5 traders receive free entry to Funded Challenge track ",
           "Top 10 traders receive free entry to next week's competition.",
           "Outstanding participants may be shortlisted for Direct Funding to trade with real capital.",
         ],
@@ -91,7 +91,7 @@ const featureSectionData = [
       {
         heading: "Examples: Who Qualifies and Who Doesn't",
         paragraphs: [
-          "Here are example profiles of traders and how their weekly performance aligns (or fails) with Zyon's consistency rules. This helps you understand what behaviors lead to funding eligibility — and what doesn’t.",
+          "Here are example profiles of traders and how their weekly performance aligns (or fails) with Zyon's consistency rules. This helps you understand what behaviors lead to funding eligibility — and what doesn't.",
           "Remember, it's not about how big your profit is, it's how consistently and professionally you trade."
         ],
         table: {
@@ -104,8 +104,8 @@ const featureSectionData = [
             ],
             [
               "Trader B",
-              "Made ₹50K in one day, didn’t trade rest of week. Total P&L = ₹50K.",
-              "❌ No – Violates consistency rule: 1-day profit = 100% of week’s P&L."
+              "Made ₹50K in one day, didn't trade rest of week. Total P&L = ₹50K.",
+              "❌ No – Violates consistency rule: 1-day profit = 100% of week's P&L."
             ],
             [
               "Trader C",
@@ -133,8 +133,8 @@ const featureSectionData = [
       {
         heading: "Example: Big Profit With Consistency",
         paragraphs: [
-          "Making a big profit doesn’t disqualify you — as long as it is done with discipline, proper risk control, and without violating Zyon's consistency framework.",
-          "Here’s a sample performance that shows how a trader made a strong profit, yet stayed eligible for funding."
+          "Making a big profit doesn't disqualify you — as long as it is done with discipline, proper risk control, and without violating Zyon's consistency framework.",
+          "Here's a sample performance that shows how a trader made a strong profit, yet stayed eligible for funding."
         ],
         table: {
           headers: ["Day", "P&L", "Notes", "Rule Violated?"],
@@ -171,42 +171,42 @@ const featureSectionData = [
           "The rules we enforce — like daily loss limits, minimum trading days, position sizing, and avoiding over-leveraging — are based on global best practices used by hedge funds and proprietary trading desks.",
           "These are not limitations, they are a path to becoming reliable and fundable.",
           "Consistent trading over multiple days builds the habits of patience, discipline, and system-following. This is what makes long-term traders successful.",
-          "We’ve seen that traders who win based on one or two high-risk trades usually blow up accounts when real money is involved. Zyon’s rules protect you from becoming that trader.",
+          "We've seen that traders who win based on one or two high-risk trades usually blow up accounts when real money is involved. Zyon's rules protect you from becoming that trader.",
           "By sticking to the rules, you show that you are not just lucky — you are skilled, repeatable, and ready for capital allocation.",
-          "In the real world, capital is given to those who manage risk first, and profit second. That’s what Zyon prepares you for.",
+          "In the real world, capital is given to those who manage risk first, and profit second. That's what Zyon prepares you for.",
         ],
         hidden: [
           "Consistent trading over multiple days builds the habits of patience, discipline, and system-following. This is what makes long-term traders successful.",
-          "We’ve seen that traders who win based on one or two high-risk trades usually blow up accounts when real money is involved. Zyon’s rules protect you from becoming that trader.",
+          "We've seen that traders who win based on one or two high-risk trades usually blow up accounts when real money is involved. Zyon's rules protect you from becoming that trader.",
           "By sticking to the rules, you show that you are not just lucky — you are skilled, repeatable, and ready for capital allocation.",
-          "In the real world, capital is given to those who manage risk first, and profit second. That’s what Zyon prepares you for.",
+          "In the real world, capital is given to those who manage risk first, and profit second. That's what Zyon prepares you for.",
         ]
       },
       {
         heading: "Zyon Rules Are Built To Protect You",
         paragraphs: [
-          "At Zyon, our rules aren't there to punish you or stop your progress. We’ve designed these structures because we truly want traders to succeed — not just for a week, but for a lifetime. Every rule is shaped by years of observing what works in real-world professional trading and what ruins careers."
+          "At Zyon, our rules aren't there to punish you or stop your progress. We've designed these structures because we truly want traders to succeed — not just for a week, but for a lifetime. Every rule is shaped by years of observing what works in real-world professional trading and what ruins careers."
         ]
       },
       {
         heading: "Trading Is a Business, Not a Gamble",
         paragraphs: [
-          "We’ve seen it too often — a trader makes a huge gain, gets overconfident, and then loses it all in the next trade. That’s not trading. That’s gambling. Zyon’s consistency rules stop you from slipping into this hero-zero trap. They teach you to manage risk, think long-term, and build habits that mirror how actual hedge fund traders operate.",
+          "We've seen it too often — a trader makes a huge gain, gets overconfident, and then loses it all in the next trade. That's not trading. That's gambling. Zyon's consistency rules stop you from slipping into this hero-zero trap. They teach you to manage risk, think long-term, and build habits that mirror how actual hedge fund traders operate.",
           "We're not here to promote competitions just to earn from entry fees. We're here to help you treat trading like a business — with structure, rules, and repeatable processes."
         ]
       },
       {
         heading: "We've Watched Talented Traders Burn Out",
         paragraphs: [
-          "Many of the most passionate traders blow up not because they’re bad — but because no one showed them a better path. They take loans to trade, blow their savings, and are left emotionally wrecked. Zyon's rules are here to prevent that from happening to you.",
+          "Many of the most passionate traders blow up not because they're bad — but because no one showed them a better path. They take loans to trade, blow their savings, and are left emotionally wrecked. Zyon's rules are here to prevent that from happening to you.",
           "By enforcing position sizing, risk limits, and trading frequency caps, we keep you away from burnout and force you to think like a pro — with a calm, calculated mindset."
         ]
       },
       {
         heading: "We Want You To Build a Career — Not Chase a Jackpot",
         paragraphs: [
-          "Our mission is simple: help you get consistently funded, and build trading into a long-term career — not a short-term adrenaline rush. Zyon’s platform isn’t about quick wins or one lucky week. It’s about real growth, real performance, and real futures.",
-          "Follow the rules, build your consistency, and prove your system. We’ll be the first to give you funding — and more as you grow."
+          "Our mission is simple: help you get consistently funded, and build trading into a long-term career — not a short-term adrenaline rush. Zyon's platform isn't about quick wins or one lucky week. It's about real growth, real performance, and real futures.",
+          "Follow the rules, build your consistency, and prove your system. We'll be the first to give you funding — and more as you grow."
         ]
       },
       {
@@ -220,7 +220,7 @@ const featureSectionData = [
             [
               "One-Day Jackpot",
               "Trader hit ₹30K profit on Monday, stopped trading for rest of week",
-              "Showed no consistency, couldn’t handle different market conditions — not ready for funding"
+              "Showed no consistency, couldn't handle different market conditions — not ready for funding"
             ],
             [
               "Overconfidence Burnout",
@@ -235,12 +235,12 @@ const featureSectionData = [
             [
               "Averaging Down Disaster",
               "Added more to a losing position hoping for reversal",
-              "Violated risk rules, hit drawdown, and triggered exit — a professional would’ve cut losses"
+              "Violated risk rules, hit drawdown, and triggered exit — a professional would've cut losses"
             ],
             [
               "No Journal, No Growth",
-              "Didn’t log trades or review decisions, repeated same mistakes",
-              "Couldn’t improve or defend strategy in funding review — no long-term edge"
+              "Didn't log trades or review decisions, repeated same mistakes",
+              "Couldn't improve or defend strategy in funding review — no long-term edge"
             ]
           ]
         }
@@ -254,7 +254,7 @@ const featureSectionData = [
       },
       {
         "question": "What if I make a big profit on one day and stop trading?",
-        "answer": "That violates the 'Max Profit in Single Day' and 'Minimum Trading Days' rule. You need to show steady performance across multiple days to be fundable. One-day spikes aren’t sustainable in real trading careers."
+        "answer": "That violates the 'Max Profit in Single Day' and 'Minimum Trading Days' rule. You need to show steady performance across multiple days to be fundable. One-day spikes aren't sustainable in real trading careers."
       },
       {
         "question": "Can I trade only 1 day if I meet the ₹20K profit target?",
@@ -274,18 +274,18 @@ const featureSectionData = [
       },
       {
         "question": "What if I break a rule but still make a lot of profit?",
-        "answer": "You’ll still be disqualified. Zyon rewards professionalism, not gambling. Our rules are designed to create real-world readiness."
+        "answer": "You'll still be disqualified. Zyon rewards professionalism, not gambling. Our rules are designed to create real-world readiness."
       },
       {
-        "question": "Can I scale into a trade that’s going in my favor?",
+        "question": "Can I scale into a trade that's going in my favor?",
         "answer": "Yes — as long as you're scaling up in a profitable direction. Averaging down into losses is not allowed because it leads to blow-ups."
       },
       {
         "question": "Are overnight positions allowed?",
-        "answer": "Yes, you can carry trades overnight. We allow real strategy development and don’t limit you to scalping."
+        "answer": "Yes, you can carry trades overnight. We allow real strategy development and don't limit you to scalping."
       },
       {
-        "question": "How do I know if I’m eligible for funding?",
+        "question": "How do I know if I'm eligible for funding?",
         "answer": "If you follow all consistency rules, meet the profit target, and display steady risk control — you qualify for review by our funding desk."
       },
       {
@@ -306,7 +306,7 @@ const featureSectionData = [
       },
       {
         "question": "Why is my weekly profit target set at 2%?",
-        "answer": "Because that’s realistic and repeatable. Professional traders aim for steady gains, not jackpot trades."
+        "answer": "Because that's realistic and repeatable. Professional traders aim for steady gains, not jackpot trades."
       },
       {
         "question": "Will Zyon guide me after funding?",
@@ -325,13 +325,13 @@ const featureSectionData = [
         "answer": "Use our Paper Trading module to simulate trades in real market conditions — perfect for testing your strategy risk-free."
       },
       {
-        "question": "What if I don’t get funded in the first attempt?",
-        "answer": "That’s okay! Zyon is designed for growth. Learn, re-enter, and keep building. We track your progress — persistence matters."
+        "question": "What if I don't get funded in the first attempt?",
+        "answer": "That's okay! Zyon is designed for growth. Learn, re-enter, and keep building. We track your progress — persistence matters."
       },
       {
         question: "What is the Weekly Trading Competition?",
         answer:
-          "It’s a 5-day simulated trading event using real market data where traders compete for the top spot based on performance and risk management.",
+          "It's a 5-day simulated trading event using real market data where traders compete for the top spot based on performance and risk management.",
       },
       {
         question: "When does the competition run?",
@@ -349,14 +349,14 @@ const featureSectionData = [
           "Rules include:\n• Max 5 trades/day\n• No averaging down\n• Daily drawdown and overall loss limits\n• Overnight trades allowed\n• No external broker login needed",
       },
       {
-        question: "What’s the prize for winners?",
+        question: "What's the prize for winners?",
         answer:
-          "Top trader gets ₹10,000 in Zyon Coins. The top 5 are offered premium access and may get shortlisted for Zyon’s Funded Account challenge.",
+          "Top trader gets ₹10,000 in Zyon Coins. The top 5 are offered premium access and may get shortlisted for Zyon's Funded Account challenge.",
       },
       {
-        question: "What’s Zyon coin and how to use it ?",
+        question: "What's Zyon coin and how to use it ?",
         answer:
-          "Zyon coins are credit to get  funded account, you get 10000 Zyon coin and you get funded to trade in our account you real money with upto 80% profit split to trader.",
+          "Zyon coins are credit to get funded account, you get 10000 Zyon coin and you get funded to trade in our account with real money with up to 80% profit split to trader.",
       },
       {
         question: "What instruments can I trade during the competition?",
@@ -369,35 +369,35 @@ const featureSectionData = [
           "Leaderboards consider:\n• Net P&L\n• Risk management\n• Consistency and drawdown control",
       },
       {
-        question: "Can I see other traders’ performance?",
+        question: "Can I see other traders' performance?",
         answer:
           "Yes. Leaderboards are public and refresh live with rankings and key stats.",
       },
       {
         question: "What is the consistency rule in the competition?",
         answer:
-          "The consistency rule ensures traders don’t rely on one lucky trade. You must maintain performance over multiple days,\nFor example, profits should not be made on just a single trade or day — consistent risk-adjusted returns are favored in leaderboard rankings and funding selection.",
+          "The consistency rule ensures traders don't rely on one lucky trade. You must maintain performance over multiple days.\nFor example, profits should not be made on just a single trade or day — consistent risk-adjusted returns are favored in leaderboard rankings and funding selection.",
       },
       {
-        question: "Why use consitency rules ?",
+        question: "Why use consistency rules ?",
         answer:
-          "At Zyon we strive to make you a  funded trader and grow,these rules are not  limitations its your path to success\n These rules are inspired by global HEDGE fund and funded  programs\n This makes you disciplined and  good trader in future  ",
+          "At Zyon we strive to make you a funded trader and grow, these rules are not limitations, it's your path to success.\nThese rules are inspired by global HEDGE fund and funded programs.\nThis makes you disciplined and good trader in future.",
       },
       {
         question: "What if I break the rules during competition?",
         answer:
-          "Accounts violating trading rules may be disqualified or not considered for funding — even if P&L is positive, but you can still parctice till the competition ends ",
+          "Accounts violating trading rules may be disqualified or not considered for funding — even if P&L is positive, but you can still practice till the competition ends.",
       },
       {
         question:
           "I have made my payment in the midweek can I enter the competition?",
         answer:
-          "No you can subscribe  HE HE who refuses money , but you will be allowed to get into the competition only starting next week",
+          "No, you can subscribe — HE HE who refuses money, but you will be allowed to get into the competition only starting next week.",
       },
       {
         question: "Is this good for beginners?",
         answer:
-          "Yes  but serious. You’ll face real-time market speed and structured limits. It’s a great way to test mindset and skills under pressure.",
+          "Yes, but serious. You'll face real-time market speed and structured limits. It's a great way to test mindset and skills under pressure.",
       },
     ],
   },
@@ -430,8 +430,8 @@ const featureSectionData = [
       {
         heading: "Built by Traders, for Traders",
         paragraphs: [
-          "The tools inside Zyon's Market Dashboard aren’t randomly picked — they are battle-tested analytics used by serious traders worldwide. We focused only on the most practical, real-time indicators that actually help you plan, execute, and manage trades like a professional.",
-          "From Open Interest shifts to real-time Greeks, from PCR sentiment to live market depth — these aren’t gimmicks. These are the core building blocks of a consistent trading system that help you win competitions and grow into a funded trader."
+          "The tools inside Zyon's Market Dashboard aren't randomly picked — they are battle-tested analytics used by serious traders worldwide. We focused only on the most practical, real-time indicators that actually help you plan, execute, and manage trades like a professional.",
+          "From Open Interest shifts to real-time Greeks, from PCR sentiment to live market depth — these aren't gimmicks. These are the core building blocks of a consistent trading system that help you win competitions and grow into a funded trader."
         ]
       },
       {
@@ -492,38 +492,36 @@ const featureSectionData = [
       }
     ],
     faqs: [
-      [
-        {
-          question: "What kind of option data is shown?",
-          answer:
-            "Zyon’s dashboard displays strike-level open interest (OI), changes in OI, volume, implied volatility, and price movement in real-time.",
-        },
-        {
-          question: "How often is the data updated?",
-          answer:
-            "All option analytics data is updated in real time — you’ll see live OI shifts, PCR changes, and price behavior without delay.",
-        },
-        {
-          question: "Can I use this data for intraday trading?",
-          answer:
-            "Yes. Traders use this dashboard to spot buildup, unwinding, long/short traps, and momentum shifts in real time.",
-        },
-        {
-          question: "Is this data available for all index and stocks ?",
-          answer:
-            "No. Currently, the dashboard only supports index options like NIFTY and BANK NIFTY , SENSEX. Stock option analytics are not included.",
-        },
-        {
-          question: "Do I need coding knowledge to understand it?",
-          answer:
-            "No. The analytics are visualized using heatmaps, trend markers, and simplified signals — no technical background needed.",
-        },
-        {
-          question: "Can I export or view historical analytics?",
-          answer:
-            "Historical views are coming soon. For now, the dashboard is optimized for live market tracking and fast intraday decisions.",
-        },
-      ],
+      {
+        question: "What kind of option data is shown?",
+        answer:
+          "Zyon's dashboard displays strike-level open interest (OI), changes in OI, volume, implied volatility, and price movement in real-time.",
+      },
+      {
+        question: "How often is the data updated?",
+        answer:
+          "All option analytics data is updated in real time — you'll see live OI shifts, PCR changes, and price behavior without delay.",
+      },
+      {
+        question: "Can I use this data for intraday trading?",
+        answer:
+          "Yes. Traders use this dashboard to spot buildup, unwinding, long/short traps, and momentum shifts in real time.",
+      },
+      {
+        question: "Is this data available for all index and stocks ?",
+        answer:
+          "No. Currently, the dashboard only supports index options like NIFTY and BANK NIFTY, SENSEX. Stock option analytics are not included.",
+      },
+      {
+        question: "Do I need coding knowledge to understand it?",
+        answer:
+          "No. The analytics are visualized using heatmaps, trend markers, and simplified signals — no technical background needed.",
+      },
+      {
+        question: "Can I export or view historical analytics?",
+        answer:
+          "Historical views are coming soon. For now, the dashboard is optimized for live market tracking and fast intraday decisions.",
+      },
     ],
   },
   {
@@ -559,7 +557,7 @@ const featureSectionData = [
       {
         "heading": "No Consistency Rules – Yet",
         "paragraphs": [
-          "This phase is about learning, not qualifying. We don’t restrict you with consistency or discipline requirements.",
+          "This phase is about learning, not qualifying. We don't restrict you with consistency or discipline requirements.",
           "Explore, experiment, and develop your style freely."
         ]
       },
@@ -581,20 +579,20 @@ const featureSectionData = [
         "heading": "Make Mistakes. Learn Fast.",
         "paragraphs": [
           "Every error is a lesson when no real money is on the line.",
-          "Whether it’s bad entries, overtrading, or chasing momentum — here, you learn with zero risk."
+          "Whether it's bad entries, overtrading, or chasing momentum — here, you learn with zero risk."
         ]
       },
       {
         "heading": "Real-Time Data, Real Challenges",
         "paragraphs": [
-          "Just like pro traders, you’ll get real-time option chains, price ladders, and order book depth.",
+          "Just like pro traders, you'll get real-time option chains, price ladders, and order book depth.",
           "This prepares you for transition into advanced competitions or funded evaluations."
         ]
       },
       {
         "heading": "No Judgement Zone — Only Growth",
         "paragraphs": [
-          "There’s no leaderboard pressure, no P&L shame. Just you vs you.",
+          "There's no leaderboard pressure, no P&L shame. Just you vs you.",
           "Improve at your own pace and build confidence."
         ]
       },
@@ -622,7 +620,7 @@ const featureSectionData = [
       {
         heading: "How Traders Use It",
         paragraphs: [
-          "You can log every entry, exit, reason, and emotion for each trade. Over time, you’ll spot patterns: setups that work, mistakes you repeat, and mindset shifts.",
+          "You can log every entry, exit, reason, and emotion for each trade. Over time, you'll spot patterns: setups that work, mistakes you repeat, and mindset shifts.",
           "Journaling turns daily trades into long-term improvement. It's your best edge — beyond any indicator."
         ]
       },
@@ -641,7 +639,7 @@ const featureSectionData = [
           "Paper trading is simulated trading using virtual money and live market data. It helps you learn trading, test strategies, and gain experience without risking real capital.",
       },
       {
-        question: "Is Zyon’s paper trading live or delayed?",
+        question: "Is Zyon's paper trading live or delayed?",
         answer:
           "Zyon offers real-time market data for paper trading. Your trades reflect actual market conditions with live prices, option chain updates, and bid/ask spreads.",
       },
@@ -668,12 +666,12 @@ const featureSectionData = [
       {
         question: "What makes Zyon different from other demo platforms?",
         answer:
-          "Zyon isn’t just a charting tool — it’s a complete simulated trading ecosystem with:\n• Live data\n• Option analytics\n• Risk rules like prop firms\n• Competitions\n• Career opportunities for top performers",
+          "Zyon isn't just a charting tool — it's a complete simulated trading ecosystem with:\n• Live data\n• Option analytics\n• Risk rules like prop firms\n• Competitions\n• Career opportunities for top performers",
       },
       {
         question: "Is paper trading useful if I already have experience?",
         answer:
-          "Yes. Advanced traders use Zyon to:\n• Practice new setups\n• Adjust to market volatility\n• Backtest discretionary strategies\n• Build consistency without risking money \n• You may join Funding challange",
+          "Yes. Advanced traders use Zyon to:\n• Practice new setups\n• Adjust to market volatility\n• Backtest discretionary strategies\n• Build consistency without risking money \n• You may join Funding challenge",
       },
       {
         question: "Can I access option Greeks while paper trading?",
@@ -683,7 +681,7 @@ const featureSectionData = [
       {
         question: "Are there any trading rules I need to follow?",
         answer:
-          "No not in this mode ",
+          "No, not in this mode.",
       },
       {
         question: "How many accounts can I create?",
@@ -693,7 +691,7 @@ const featureSectionData = [
       {
         question: "What happens after I perform well in paper trading?",
         answer:
-          "Top performers are shortlisted for our Zyon Funded Trading Desk. If selected, you’ll get real capital to trade and share profits — no upfront payment required.",
+          "Top performers are shortlisted for our Zyon Funded Trading Desk. If selected, you'll get real capital to trade and share profits — no upfront payment required.",
       },
       {
         question: "Can I download trade reports or journal my trades?",
@@ -712,7 +710,7 @@ const featureSectionData = [
       },
       {
         question:
-          "What’s the difference between Paper Trading and the Trading Competition?",
+          "What's the difference between Paper Trading and the Trading Competition?",
         answer:
           "While both are powered by real-time market data, they serve different purposes and run on different timelines.",
       },
@@ -720,7 +718,7 @@ const featureSectionData = [
   },
 
   {
-    id: "feature-Fowrad -Testing",
+    id: "feature-Forward-Testing",
     title: "Algo Hub",
     subtitle: "Automate • Test • Deploy",
     icon: <GiVintageRobot />,
@@ -736,36 +734,36 @@ const featureSectionData = [
       {
         heading: "Forward Test Your Algos with Live Market Data",
         paragraphs: [
-          "Run your trading algo in a real-time market simulation. Monitor trades, behavior, and execution quality  — just like a live environment, but without risking capital.",
-          "Great for scalping, breakout, or statistical arbitrage algo that need to react to market movements as they happen.",
+          "Run your trading algo in a real-time market simulation. Monitor trades, behavior, and execution quality — just like a live environment, but without risking capital.",
+          "Great for scalping, breakout, or statistical arbitrage algos that need to react to market movements as they happen.",
         ],
       },
       {
         heading: "Live Option Chain, Futures, and Stock Feed",
         paragraphs: [
-          "Use the full  index options, futures, and selected stocks — in your strategy logic.",
-          "Live  Greeks, and price levels are available for algo to react contextually.",
+          "Use the full index options, futures, and selected stocks — in your strategy logic.",
+          "Live Greeks, and price levels are available for algo to react contextually.",
         ],
       },
       {
         heading: "Simulated Margin & Risk Environment",
         paragraphs: [
           "Every algo is evaluated with realistic risk parameters: margin usage, order sizes, drawdown, and trade caps.",
-          "Helps to forward test youur algos which you find successful in your backtest",
+          "Helps to forward test your algos which you find successful in your backtest.",
         ],
       },
       {
         heading:
-          "Daily proffit and loss statement of your algo , using virtual capital",
+          "Daily profit and loss statement of your algo, using virtual capital",
         paragraphs: [
-          "Get structured data of  order placements, trade journals of the algo ",
+          "Get structured data of order placements, trade journals of the algo.",
           "Track key performance metrics — PnL, win ratio, average hold time — and debug issues with clarity.",
         ],
       },
       {
         heading: "Infra Flexibility for Developers",
         paragraphs: [
-          "Run your Algos in our server we take care of the all infra and configuration",
+          "Run your Algos in our server, we take care of all infra and configuration.",
           "Our API allows you to integrate live feed and submit virtual orders securely.",
         ],
       },
@@ -786,7 +784,7 @@ const featureSectionData = [
       {
         question: "How is this different from backtesting?",
         answer:
-          "Backtesting uses historical data, which may not account for slippage or execution delay. Forward testing uses live data, providing a more realistic view of your algo’s performance.",
+          "Backtesting uses historical data, which may not account for slippage or execution delay. Forward testing uses live data, providing a more realistic view of your algo's performance.",
       },
       {
         question: "Do I need coding knowledge?",
@@ -820,7 +818,7 @@ const featureSectionData = [
       },
       {
         question: "Can I use my own infra?",
-        answer: "This feature is ubder development ",
+        answer: "This feature is under development.",
       },
       {
         question: "Do you provide sample algos?",
