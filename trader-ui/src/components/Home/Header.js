@@ -22,6 +22,7 @@ import {
 import eventBus, { EVENT_TYPES } from "../../utils/eventBus";
 import { signout, syncLite } from "../../api/apis";
 import { showErrorToast } from "../../utils/utils";
+import { Link } from "react-router-dom";
 
 function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -197,21 +198,31 @@ function Header() {
                       </div>
                     </div>
                   ) : (
-                    <button
-                      onClick={() => {
-                        if (link.isTraderPortal) {
-                          handleTraderPortalClick();
-                        } else if (link.id) {
-                          scrollToSection(link.id);
-                        } else {
-                          window.location.href = link.url;
-                        }
-                      }}
-                      className="flex items-center text-white hover:text-green-400 transition-colors duration-200 font-medium"
-                    >
-                      {link.icon}
-                      {link.label}
-                    </button>
+                    (link.label === "About Us" || link.label === "Contact Us") ? (
+                      <Link
+                        to={link.label === "About Us" ? "/about-us" : "/contact-us"}
+                        className="flex items-center text-white hover:text-green-400 transition-colors duration-200 font-medium"
+                      >
+                        {link.icon}
+                        {link.label}
+                      </Link>
+                    ) : (
+                      <button
+                        onClick={() => {
+                          if (link.isTraderPortal) {
+                            handleTraderPortalClick();
+                          } else if (link.id) {
+                            scrollToSection(link.id);
+                          } else {
+                            window.location.href = link.url;
+                          }
+                        }}
+                        className="flex items-center text-white hover:text-green-400 transition-colors duration-200 font-medium"
+                      >
+                        {link.icon}
+                        {link.label}
+                      </button>
+                    )
                   )}
                 </div>
               ))}
@@ -322,22 +333,33 @@ function Header() {
                       </div>
                     </div>
                   ) : (
-                    <button
-                      onClick={() => {
-                        if (link.isTraderPortal) {
-                          handleTraderPortalClick();
-                          setIsMobileMenuOpen(false);
-                        } else if (link.id) {
-                          scrollToSection(link.id);
-                        } else {
-                          window.location.href = link.url;
-                        }
-                      }}
-                      className="flex items-center w-full px-3 py-3 text-white hover:bg-slate-700 rounded transition-colors duration-150"
-                    >
-                      {link.icon}
-                      {link.label}
-                    </button>
+                    (link.label === "About Us" || link.label === "Contact Us") ? (
+                      <Link
+                        to={link.label === "About Us" ? "/about-us" : "/contact-us"}
+                        className="flex items-center w-full px-3 py-3 text-white hover:bg-slate-700 rounded transition-colors duration-150"
+                        onClick={() => setIsMobileMenuOpen(false)}
+                      >
+                        {link.icon}
+                        {link.label}
+                      </Link>
+                    ) : (
+                      <button
+                        onClick={() => {
+                          if (link.isTraderPortal) {
+                            handleTraderPortalClick();
+                            setIsMobileMenuOpen(false);
+                          } else if (link.id) {
+                            scrollToSection(link.id);
+                          } else {
+                            window.location.href = link.url;
+                          }
+                        }}
+                        className="flex items-center w-full px-3 py-3 text-white hover:bg-slate-700 rounded transition-colors duration-150"
+                      >
+                        {link.icon}
+                        {link.label}
+                      </button>
+                    )
                   )}
                 </div>
               ))}

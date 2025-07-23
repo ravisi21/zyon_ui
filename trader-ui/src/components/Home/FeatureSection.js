@@ -38,7 +38,7 @@ const FeatureSection = ({
   return (
     <section
       id={id}
-      className="bg-[#1D293B] text-white p-4 px-6 md:px-4 relative pb-24 transition-all duration-700 ease-in-out"
+      className="bg-gradient-to-br from-[#667eea] to-[#764ba2] text-white p-4 px-6 md:px-4 relative pb-24 transition-all duration-700 ease-in-out"
     >
       {/* Top Wave Separator */}
       <div className="absolute top-0 left-0 w-full overflow-hidden leading-[0] z-10">
@@ -191,7 +191,7 @@ const FeatureSection = ({
           <div className="flex flex-wrap gap-4 pt-4">
             <button
               onClick={handleGetStarted}
-              className="px-5 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition"
+              className="bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600 transition-all duration-300 ease-in-out active:scale-95"
             >
               Get Started
             </button>
