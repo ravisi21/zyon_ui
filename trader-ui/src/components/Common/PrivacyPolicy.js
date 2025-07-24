@@ -1,8 +1,8 @@
 import React from "react";
 
 const PrivacyPolicy = () => (
-  <div className="container mx-auto px-4 py-12 text-gray-800">
-    <h1 className="text-3xl font-bold mb-6">🛡️ ZyonTrader Privacy Policy</h1>
+  <div className="container mx-auto px-4 py-2 text-gray-800 overflow-y-auto">
+    <h1 className="text-3xl font-bold mb-2">🛡️ ZyonTrader Privacy Policy</h1>
     <p className="mb-4 text-sm text-gray-600">Last Updated: July 22, 2025</p>
     <p className="mb-6">
       ZyonTrader (“we”, “our”, “us”) is owned and operated by Mydya Technologies Pvt. Ltd., a company registered in India. We are committed to protecting your privacy and personal information as per Indian regulations including the Information Technology Act, 2000, SEBI, and RBI guidelines.
@@ -95,10 +95,6 @@ const PrivacyPolicy = () => (
       <p><strong>ZyonTrader (Mydya Technologies Pvt. Ltd.)</strong></p>
       <p>📧 Email: <a href="mailto:contact@zyontrader.com" className="text-blue-600">contact@zyontrader.com</a></p>
       <p>📞 Phone: +91-8240772762</p>
-      <p>🏢 Address:</p>
-      <p>Arpana Serena Park, N1304</p>
-      <p>Masjid Banda, Camelot Layout</p>
-      <p>Kondapur, Hyderabad, Telangana 500084, India</p>
     </div>
   </div>
 );

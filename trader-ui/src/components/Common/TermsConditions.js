@@ -1,7 +1,7 @@
 import React from "react";
 
 const TermsConditions = () => (
-  <div className="container mx-auto px-4 py-12 text-gray-800">
+  <div className="container mx-auto px-4 py-2 text-gray-800">
     <h1 className="text-3xl font-bold mb-6">📄 ZyonTrader – Terms and Conditions</h1>
     <p className="mb-4 text-sm text-gray-600">Last Updated: December 2024</p>
 
@@ -131,7 +131,6 @@ const TermsConditions = () => (
       <p><strong>Mydya Technologies Pvt. Ltd.</strong></p>
       <p>📧 Email: <a href="mailto:legal@zyontrader.com" className="text-blue-600">legal@zyontrader.com</a> / <a href="mailto:contact@zyontrader.com" className="text-blue-600">contact@zyontrader.com</a></p>
       <p>📞 Phone: +91-8240772762</p>
-      <p>🏢 Address: Arpana Serena Park, N1304, Masjid Banda, Camelot Layout, Kondapur, Hyderabad, Telangana – 500084, India</p>
     </div>
   </div>
 );

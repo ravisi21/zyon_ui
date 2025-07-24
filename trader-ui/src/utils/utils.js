@@ -103,9 +103,9 @@ export function createEditOrder(scriptId, orderType, legType, qty) {
   const chips = [];
 
   if (script.type === "OPTION_STOCK" || script.type === "OPTION_INDEX") {
+    chips.push(lotSize * 5);
     chips.push(lotSize * 10);
     chips.push(lotSize * 20);
-    chips.push(lotSize * 25);
   } else {
     chips.push(lotSize * 1);
     chips.push(lotSize * 5);

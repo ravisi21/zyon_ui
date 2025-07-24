@@ -66,13 +66,12 @@ const MobileBottomDrawerWidget = () => {
   }, [selectedScriptId]);
 
   const handleAdd = useCallback(() => {
-    const absQuantity = Math.abs(position.netQuantity);
     const orderType = position.netQuantity < 0 ? "SELL" : "BUY";
     const editOrder = createEditOrder(
       position.scriptId,
       orderType,
       "OPEN",
-      absQuantity,
+      0,
     );
     setEditOrderStore(editOrder);
   }, [position]);

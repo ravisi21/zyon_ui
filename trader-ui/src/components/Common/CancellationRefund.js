@@ -1,8 +1,8 @@
 import React from "react";
 
 const CancellationRefund = () => (
-  <div className="container mx-auto px-4 py-12 text-gray-800">
-    <h1 className="text-3xl font-bold mb-6">📄 ZyonTrader – Cancellation & Refund Policy</h1>
+  <div className="container mx-auto px-4 py-2 text-gray-800">
+    <h1 className="text-xl font-bold mb-6">📄 ZyonTrader – Cancellation & Refund Policy</h1>
     <p className="mb-4 text-sm text-gray-600">Last Updated: December 2024</p>
 
     <h2 className="text-xl font-semibold mt-6 mb-2">1. Overview</h2>

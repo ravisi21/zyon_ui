@@ -11,8 +11,10 @@ body,
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   user-select: none;
-  -webkit-user-select: none; /* Safari */
-  -ms-user-select: none; /* IE10+/Edge */
+  -webkit-user-select: none;
+  /* Safari */
+  -ms-user-select: none;
+  /* IE10+/Edge */
 }
 
 code {
@@ -26,14 +28,17 @@ code {
   border-radius: 8px !important;
   padding: 8px 16px !important;
 }
+
 .custom-toast-success {
   background: #333 !important;
   color: #6d6 !important;
 }
+
 .custom-toast-error {
   background: #333 !important;
   color: #f66 !important;
 }
+
 .custom-toast-body {
   display: flex;
   align-items: center;
@@ -53,6 +58,7 @@ code {
     transform: translateX(-100%);
     opacity: 0;
   }
+
   100% {
     transform: translateX(0);
     opacity: 1;
@@ -72,6 +78,7 @@ code {
     transform: translateX(100%);
     opacity: 0;
   }
+
   100% {
     transform: translateX(0);
     opacity: 1;
@@ -91,14 +98,17 @@ code {
     transform: translateY(100vh) scale(0.9);
     opacity: 0;
   }
+
   60% {
     transform: translateY(-10px) scale(1.02);
     opacity: 1;
   }
+
   80% {
     transform: translateY(5px) scale(0.98);
     opacity: 1;
   }
+
   100% {
     transform: translateY(0) scale(1);
     opacity: 1;
@@ -123,10 +133,12 @@ code {
   width: 12px;
   height: 12px;
 }
+
 /* index.css */
 .hide-scrollbar::-webkit-scrollbar {
   display: none;
 }
+
 .hide-scrollbar {
   -ms-overflow-style: none;
   scrollbar-width: none;
@@ -185,6 +197,7 @@ body,
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }

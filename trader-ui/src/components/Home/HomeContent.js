@@ -6,6 +6,9 @@ import TopContent from "./TopContent";
 import FeatureSection from "./FeatureSection";
 import featureSectionData from "./featureSectionData";
 import PopupFlowManager from "../Popups/HomePopupFlowManager";
+import Contact from "../Common/Contact";
+import AboutUs from "../Common/AboutUs";
+import Footer from "../Common/Footer";
 
 function Home() {
   return (
@@ -23,6 +26,9 @@ function Home() {
           <FeatureSection {...section} />
         </div>
       ))}
+      <AboutUs />
+      <Contact />
+      <Footer />
 
       {/* Popup Flow Manager */}
       <PopupFlowManager />

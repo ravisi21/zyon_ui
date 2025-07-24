@@ -58,6 +58,29 @@ const TraderPopupComponent = ({ loading }) => {
 
   return (
     <>
+      {loading && (
+        <div className="fixed inset-0 flex items-center justify-center bg-dark-bg/60 z-50">
+          <img
+            src={`${process.env.PUBLIC_URL}/logo_icon.svg`}
+            alt="Logo"
+            className="animate-jump h-32 w-32"
+            style={{ filter: 'drop-shadow(0 0 16px #1abe4d)' }}
+          />
+          <style>{`
+          @keyframes jump {
+            0%   { transform: translateY(0); }
+            20%  { transform: translateY(-30px); }
+            40%  { transform: translateY(0); }
+            60%  { transform: translateY(-15px); }
+            80%  { transform: translateY(0); }
+            100% { transform: translateY(0); }
+          }
+          .animate-jump {
+            animation: jump 1.2s infinite cubic-bezier(.28,.84,.42,1);
+          }
+        `}</style>
+        </div>
+      )}
       {!loading && showAccountLogin && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-neutral-400/20">
           <button

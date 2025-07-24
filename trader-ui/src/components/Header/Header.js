@@ -14,7 +14,6 @@ import eventBus, { EVENT_TYPES } from "../../utils/eventBus";
 import { logoutAccount, signout, sync } from "../../api/apis";
 import { showErrorToast } from "../../utils/utils";
 import { formatDateTimeDDMMYYHHmm } from "../../utils/formatter";
-import { Link } from "react-router-dom";
 
 const Header = () => {
   const [user, setUser] = useState(() => userStore.userStore.user);
@@ -276,20 +275,18 @@ const Header = () => {
                 )}
               </>
             )}
-            <div className="flex flex-col gap-4 mt-6">
-              <Link to="/about-us" className="text-white hover:text-green-400 font-semibold transition" onClick={() => setDrawerOpen(false)}>About Us</Link>
-              <Link to="/contact-us" className="text-white hover:text-green-400 font-semibold transition" onClick={() => setDrawerOpen(false)}>Contact Us</Link>
-            </div>
+
+
           </div>
         </div>
       </Drawer>
-      <div className="sticky top-0 z-50 flex items-center justify-between px-2 py-0 pt-2 md:py-2 shadow-md font-sans bg-gradient-to-br from-[#667eea] to-[#764ba2] text-white">
+      <div className="sticky top-0 z-50 flex items-center justify-between bg-dark-bg px-2 py-0 pt-2 md:py-2 shadow-md shadow-neutral-800 font-family-roboto">
         {/* Left: Logo and account selector */}
         <div className="flex items-center">
           {/* Menu icon for mobile */}
           {isSignedIn && (
             <button
-              className="block md:hidden mr-1 p-1 focus:outline-none text-white hover:text-green-400 transition"
+              className="block md:hidden mr-1 p-1 focus:outline-none text-white"
               aria-label="Open menu"
               onClick={() => setDrawerOpen(true)}
             >
@@ -317,12 +314,8 @@ const Header = () => {
               className="w-12 h-12 md:h-16 md:w-16"
             />
           </button>
-          <div className="hidden md:flex items-center gap-6 ml-6">
-            <Link to="/about-us" className="text-white hover:text-green-400 font-semibold transition">About Us</Link>
-            <Link to="/contact-us" className="text-white hover:text-green-400 font-semibold transition">Contact Us</Link>
-          </div>
           <button
-            className="hidden md:block items-center text-green-400 font-bold py-1 rounded focus:outline-none hover:text-white transition"
+            className="hidden md:block items-center text-logo-green font-bold py-1 rounded focus:outline-none"
             onClick={() => userStore.setShowAccountSelectionPopup(true)}
           >
             <span className="flex items-center">
@@ -358,8 +351,8 @@ const Header = () => {
         <div className="flex items-center gap-0 md:gap-2 text-right">
           {isSignedIn && (
             <div className="hidden md:block">
-              <div className="text-gray-200 text-xs">Margin</div>
-              <div className="text-white font-semibold text-md">
+              <div className="text-gray-400 text-xs">Margin</div>
+              <div className="text-neutral-400 font-semibold text-md">
                 {formatPrice(margin?.marginAvailable)}
               </div>
             </div>
@@ -373,7 +366,7 @@ const Header = () => {
               className="hidden mr-4 md:block"
             >
               <Avatar
-                style={{ backgroundColor: "#10b981", cursor: "pointer" }}
+                style={{ backgroundColor: "#1890ff", cursor: "pointer" }}
                 icon={<UserOutlined />}
                 src={
                   user.avatarBlobId
@@ -388,7 +381,6 @@ const Header = () => {
               type="primary"
               icon={<LoginOutlined />}
               onClick={() => userStore.setShowUserLogin(true)}
-              className="bg-green-500 border-none text-white font-semibold hover:bg-green-600 hover:text-white transition"
             >
               Sign In
             </Button>

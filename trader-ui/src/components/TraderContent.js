@@ -13,6 +13,9 @@ import * as userStore from "../store/userStore";
 import FloatingBottomLeftPanel from "./Common/FloatingBottomLeftPanel";
 import { getSidebarLeftVisible, setIsMobile } from "../store/uiStore";
 import OrderStatusListWidget from "./Orders/OrderStatusListWidget";
+import OrderPopup from "./Orders/OrderPopup";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function useIsMobile(breakpoint = 768) {
   const [isMobile, setIsMobileState] = React.useState(
@@ -291,6 +294,7 @@ const TraderContent = () => {
                 {/* Add any content here */}
               </div>
             </FloatingBottomLeftPanel>
+            <OrderPopup />
           </>
         )}
       </div>
@@ -307,6 +311,19 @@ const TraderContent = () => {
         <OrderStatusListWidget />
       </div>
       <TraderPopupComponent loading={loading} />
+
+      <ToastContainer
+        icon
+        position="bottom-left"
+        autoClose={3000}
+        hideProgressBar={false}
+        closeOnClick
+        pauseOnHover
+        draggable
+        theme="dark"
+        toastClassName="custom-toast"
+        bodyClassName="custom-toast-body"
+      />
     </div>
   );
 };
